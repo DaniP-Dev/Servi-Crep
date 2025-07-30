@@ -6,8 +6,12 @@ Página web institucional para una Organización de Inspección (OIN) especializ
 
 - Next.js
 - React
-- TypeScript (si aplica)
-- CSS / Tailwind / Bootstrap (según lo que estés usando)
+- TypeScript
+- CSS / Bootstrap 
+- Axios
+- ESLint
+- Prettier
+- Vercel
 
 ## Uso
 
@@ -15,4 +19,5 @@ Instala las dependencias y ejecuta el servidor de desarrollo:
 
 ```bash
 npm install
-npm run dev
+npm run
+```
