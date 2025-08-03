@@ -14,7 +14,7 @@ const BlogCta = () => {
                     <div className="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div className="blog-item">
                             <div className="blog-img">
-                                <img src="img/commercial-1.jpg" className="img-fluid w-100" alt=""/>
+                                <img src="/img/commercial-1.jpg" className="img-fluid w-100" alt=""/>
                             </div>
                             <div className="blog-heading ms-4">
                                 <a href="#" className="h4 mb-0 p-4">Electrifying Reads Explore Our Electricity</a>
@@ -33,7 +33,7 @@ const BlogCta = () => {
                     <div className="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                         <div className="blog-item">
                             <div className="blog-img">
-                                <img src="img/commercial-2.jpg" className="img-fluid w-100" alt=""/>
+                                <img src="/img/commercial-2.jpg" className="img-fluid w-100" alt=""/>
                             </div>
                             <div className="blog-heading ms-4">
                                 <a href="#" className="h4 mb-0 p-4">Empowering Energy Dive into Our Electricity </a>
@@ -52,7 +52,7 @@ const BlogCta = () => {
                     <div className="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                         <div className="blog-item">
                             <div className="blog-img">
-                                <img src="img/commercial-3.jpg" className="img-fluid w-100" alt=""/>
+                                <img src="/img/commercial-3.jpg" className="img-fluid w-100" alt=""/>
                             </div>
                             <div className="blog-heading ms-4">
                                 <a href="#" className="h4 mb-0 p-4">Electricity Explained: Bloggin Power of Tomorrow</a>

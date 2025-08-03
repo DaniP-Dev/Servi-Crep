@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -6,12 +7,12 @@ const Banner = () => {
       <div className="container-fluid header-top">
         <div className="container d-flex align-items-center">
           <div className="d-flex align-items-center h-100">
-            <a href="#" className="navbar-brand" style={{ height: "125px" }}>
+            <Link href="#" className="navbar-brand" style={{ height: "125px" }}>
               <h1 className="text-primary mb-0">
                 <i className="fas fa-bolt"></i> Electra
               </h1>
               {/* <img src="/img/logo.png" alt="Logo"/>*/}
-            </a>
+            </Link>
           </div>
           <div className="w-100 h-100">
             <div
@@ -22,37 +23,37 @@ const Banner = () => {
                 <div className="col-lg-8 text-center text-lg-center mb-lg-0">
                   <div className="d-flex flex-wrap">
                     <div className="border-end border-primary pe-3">
-                      <a href="#" className="text-muted small">
+                      <Link href="#" className="text-muted small">
                         <i className="fas fa-map-marker-alt text-primary me-2"></i>
                         Find A Location
-                      </a>
+                      </Link>
                     </div>
                     <div className="ps-3">
-                      <a
+                      <Link
                         href="mailto:example@gmail.com"
                         className="text-muted small"
                       >
                         <i className="fas fa-envelope text-primary me-2"></i>
                         example@gmail.com
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-4 text-center text-lg-end">
                   <div className="d-flex justify-content-end">
                     <div className="d-flex border-end border-primary pe-3">
-                      <a className="btn p-0 text-primary me-3" href="#">
+                      <Link className="btn p-0 text-primary me-3" href="#">
                         <i className="fab fa-facebook-f"></i>
-                      </a>
-                      <a className="btn p-0 text-primary me-3" href="#">
+                      </Link>
+                      <Link className="btn p-0 text-primary me-3" href="#">
                         <i className="fab fa-twitter"></i>
-                      </a>
-                      <a className="btn p-0 text-primary me-3" href="#">
+                      </Link>
+                      <Link className="btn p-0 text-primary me-3" href="#">
                         <i className="fab fa-instagram"></i>
-                      </a>
-                      <a className="btn p-0 text-primary me-0" href="#">
+                      </Link>
+                      <Link className="btn p-0 text-primary me-0" href="#">
                         <i className="fab fa-linkedin-in"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -60,12 +61,12 @@ const Banner = () => {
             </div>
             <div className="nav-bar px-0 py-lg-0" style={{ height: "80px" }}>
               <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-                <a href="#" className="navbar-brand-2">
+                <Link href="#" className="navbar-brand-2">
                   <h1 className="text-primary mb-0">
                     <i className="fas fa-bolt"></i> Electra
                   </h1>
                   {/* <img src="/img/logo.png" alt="Logo"/>*/}
-                </a>
+                </Link>
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -76,15 +77,18 @@ const Banner = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                   <div className="navbar-nav mx-0 mx-lg-auto bg-white">
-                    <a href="/" className="nav-item nav-link active">
+                    <Link href="/" className="nav-item nav-link active">
                       Home
-                    </a>
-                    <a href="/nuestros-servicios" className="nav-item nav-link">
+                    </Link>
+                    <Link
+                      href="/nuestros-servicios"
+                      className="nav-item nav-link"
+                    >
                       Service
-                    </a>
-                    <a href="/contacto" className="nav-item nav-link">
+                    </Link>
+                    <Link href="/contacto" className="nav-item nav-link">
                       Contact
-                    </a>
+                    </Link>
                     <div className="nav-btn ps-3">
                       <button
                         className="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0"
@@ -93,13 +97,13 @@ const Banner = () => {
                       >
                         <i className="fas fa-search"></i>
                       </button>
-                      <a
+                      <Link
                         href="#"
                         className="btn btn-primary py-2 px-4 ms-0 ms-lg-3"
                       >
                         {" "}
                         Get Solution
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

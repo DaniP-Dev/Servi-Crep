@@ -73,7 +73,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-6 text-center text-md-end text-body">
                    
-                        Designed By <a className="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
+                        Designed By <a className="border-bottom text-white" href="https://web.com">HTML Codex</a>
                     </div>
                 </div>
             </div>
