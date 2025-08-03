@@ -1,4 +1,42 @@
+
 import React from "react";
+
+const contactoTexts = {
+  sectionTitle: "Contáctanos",
+  sectionSubtitle: "¡Estamos listos para ayudarte!",
+  sectionDescription: "Completa el formulario o utiliza nuestros canales de contacto para recibir asesoría sobre inspección técnica acreditada.",
+  social: [
+    { icon: "fab fa-facebook-f", href: "#" },
+    { icon: "fab fa-linkedin-in", href: "#" }
+  ],
+  info: [
+    {
+      icon: "fas fa-map-marker-alt fa-2x text-primary me-4",
+      title: "Dirección",
+      value: "Cra. 123 #45-67, Bogotá, Colombia"
+    },
+    {
+      icon: "fas fa-envelope fa-2x text-primary me-4",
+      title: "Correo electrónico",
+      value: "contacto@servicrep.com"
+    },
+    {
+      icon: "fa fa-phone-alt fa-2x text-primary me-4",
+      title: "Teléfono",
+      value: "+57 310 123 4567"
+    }
+  ],
+  form: {
+    name: { label: "Nombre completo", placeholder: "Tu nombre" },
+    email: { label: "Correo electrónico", placeholder: "Tu correo" },
+    phone: { label: "Teléfono", placeholder: "Tu teléfono" },
+    project: { label: "Proyecto", placeholder: "¿Sobre qué proyecto quieres información?" },
+    subject: { label: "Asunto", placeholder: "Asunto" },
+    message: { label: "Mensaje", placeholder: "Déjanos tu mensaje aquí" },
+    privacy: "Acepto la política de privacidad del sitio",
+    send: "Enviar mensaje"
+  }
+};
 
 const Contacto = () => {
   return (
@@ -7,74 +45,34 @@ const Contacto = () => {
         <div className="row g-5">
           <div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
             <div>
-              <h4 className="text-primary">Contact Us</h4>
-              <h1 className="display-4 mb-4">
-                Illuminate Your Message Get in Contact
-              </h1>
-              <p className="mb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia hic aspernatur unde magnam necessitatibus provident
-                iusto maxime nobis esse eligendi.
-              </p>
+              <h4 className="text-primary">{contactoTexts.sectionTitle}</h4>
+              <h1 className="display-4 mb-4">{contactoTexts.sectionSubtitle}</h1>
+              <p className="mb-5">{contactoTexts.sectionDescription}</p>
               <div className="d-flex align-items-center mb-4">
-                <a className="btn btn-primary btn-md-square me-3" href="">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a className="btn btn-primary btn-md-square me-3" href="">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a className="btn btn-primary btn-md-square me-3" href="">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a className="btn btn-primary btn-md-square me-0" href="">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
+                {contactoTexts.social.map((s, idx) => (
+                  <a className={`btn btn-primary btn-md-square me-${idx === contactoTexts.social.length - 1 ? '0' : '3'}`} href={s.href} key={s.icon}>
+                    <i className={s.icon}></i>
+                  </a>
+                ))}
               </div>
               <div className="row g-4">
-                <div className="col-12">
-                  <div className="d-inline-flex bg-white w-100 p-4">
-                    <i className="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
-                    <div>
-                      <h4>Address</h4>
-                      <p className="mb-0">123 North tower New York, USA</p>
+                {contactoTexts.info.map((item, idx) => (
+                  <div className={`col-${idx === 0 ? '12' : 'lg-12 col-xl-6'}`} key={item.title}>
+                    <div className="d-inline-flex bg-white w-100 p-4">
+                      <i className={item.icon}></i>
+                      <div>
+                        <h4>{item.title}</h4>
+                        <p className="mb-0">{item.value}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-lg-12 col-xl-6">
-                  <div className="d-inline-flex bg-white w-100 p-4">
-                    <i className="fas fa-envelope fa-2x text-primary me-4"></i>
-                    <div>
-                      <h4>Mail Us</h4>
-                      <p className="mb-0">info@example.com</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-12 col-xl-6">
-                  <div className="d-inline-flex bg-white w-100 p-4">
-                    <i className="fa fa-phone-alt fa-2x text-primary me-4"></i>
-                    <div>
-                      <h4>Telephone</h4>
-                      <p className="mb-0">(+012) 3456 7890 123</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
           <div className="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
             <div>
-              <p className="mb-4">
-                The contact form is currently inactive. Get a functional and
-                working contact form with Ajax & PHP in a few minutes. Just copy
-                and paste the files, add a little code and you&apos;re done.
-                <a
-                  className="text-primary fw-bold"
-                  href="https://web.com/contact-form"
-                >
-                  Download Now
-                </a>
-                .
-              </p>
+              {/* Aquí puedes agregar un mensaje personalizado si lo deseas */}
               <form>
                 <div className="row g-4">
                   <div className="col-lg-12 col-xl-6">
@@ -83,9 +81,9 @@ const Contacto = () => {
                         type="text"
                         className="form-control border-0"
                         id="name"
-                        placeholder="Your Name"
+                        placeholder={contactoTexts.form.name.placeholder}
                       />
-                      <label htmlFor="name">Your Name</label>
+                      <label htmlFor="name">{contactoTexts.form.name.label}</label>
                     </div>
                   </div>
                   <div className="col-lg-12 col-xl-6">
@@ -94,9 +92,9 @@ const Contacto = () => {
                         type="email"
                         className="form-control border-0"
                         id="email"
-                        placeholder="Your Email"
+                        placeholder={contactoTexts.form.email.placeholder}
                       />
-                      <label htmlFor="email">Your Email</label>
+                      <label htmlFor="email">{contactoTexts.form.email.label}</label>
                     </div>
                   </div>
                   <div className="col-lg-12 col-xl-6">
@@ -105,9 +103,9 @@ const Contacto = () => {
                         type="phone"
                         className="form-control border-0"
                         id="phone"
-                        placeholder="Phone"
+                        placeholder={contactoTexts.form.phone.placeholder}
                       />
-                      <label htmlFor="phone">Your Phone</label>
+                      <label htmlFor="phone">{contactoTexts.form.phone.label}</label>
                     </div>
                   </div>
                   <div className="col-lg-12 col-xl-6">
@@ -116,9 +114,9 @@ const Contacto = () => {
                         type="text"
                         className="form-control border-0"
                         id="project"
-                        placeholder="Project"
+                        placeholder={contactoTexts.form.project.placeholder}
                       />
-                      <label htmlFor="project">Your Project</label>
+                      <label htmlFor="project">{contactoTexts.form.project.label}</label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -127,20 +125,20 @@ const Contacto = () => {
                         type="text"
                         className="form-control border-0"
                         id="subject"
-                        placeholder="Subject"
+                        placeholder={contactoTexts.form.subject.placeholder}
                       />
-                      <label htmlFor="subject">Subject</label>
+                      <label htmlFor="subject">{contactoTexts.form.subject.label}</label>
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="form-floating">
                       <textarea
                         className="form-control border-0"
-                        placeholder="Leave a message here"
+                        placeholder={contactoTexts.form.message.placeholder}
                         id="message"
                         style={{ height: "125px" }}
                       ></textarea>
-                      <label htmlFor="message">Message</label>
+                      <label htmlFor="message">{contactoTexts.form.message.label}</label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -152,13 +150,13 @@ const Contacto = () => {
                         id="flexCheck"
                       />
                       <label className="form-check-label" htmlFor="flexCheck">
-                        I agree with the site privacy policy
+                        {contactoTexts.form.privacy}
                       </label>
                     </div>
                   </div>
                   <div className="col-12">
                     <button className="btn btn-primary w-100 py-3">
-                      Send Message
+                      {contactoTexts.form.send}
                     </button>
                   </div>
                 </div>
