@@ -1,5 +1,40 @@
+
 import React from "react";
 import Link from "next/link";
+
+const bannerTexts = {
+  brand: "ServiCrep",
+  // Si tienes un slogan, agrégalo aquí
+  location: {
+    label: "Encuentra una ubicación",
+    icon: "fas fa-map-marker-alt text-primary me-2"
+  },
+  email: {
+    label: "contacto@servicrep.com",
+    icon: "fas fa-envelope text-primary me-2"
+  },
+  social: [
+    { icon: "fab fa-facebook-f", label: "Facebook", href: "#" },
+    { icon: "fab fa-twitter", label: "Twitter", href: "#" },
+    { icon: "fab fa-instagram", label: "Instagram", href: "#" },
+    { icon: "fab fa-linkedin-in", label: "LinkedIn", href: "#" }
+  ],
+  nav: [
+    { href: "/", label: "Inicio" },
+    { href: "/nuestros-servicios", label: "Servicios" },
+    { href: "/contacto", label: "Contacto" }
+  ],
+  cta: {
+    label: "WhatsApp",
+    href: "https://wa.me/573001234567", // Cambia al número real
+    icon: "fab fa-whatsapp",
+    style: {
+      backgroundColor: "#25D366",
+      border: "none",
+      color: "#fff"
+    }
+  }
+};
 
 const Banner = () => {
   return (
@@ -9,7 +44,7 @@ const Banner = () => {
           <div className="d-flex align-items-center h-100">
             <Link href="#" className="navbar-brand" style={{ height: "125px" }}>
               <h1 className="text-primary mb-0">
-                <i className="fas fa-bolt"></i> Electra
+                 {bannerTexts.brand}
               </h1>
               {/* <img src="/img/logo.png" alt="Logo"/>*/}
             </Link>
@@ -24,17 +59,17 @@ const Banner = () => {
                   <div className="d-flex flex-wrap">
                     <div className="border-end border-primary pe-3">
                       <Link href="#" className="text-muted small">
-                        <i className="fas fa-map-marker-alt text-primary me-2"></i>
-                        Find A Location
+                        <i className={bannerTexts.location.icon}></i>
+                        {bannerTexts.location.label}
                       </Link>
                     </div>
                     <div className="ps-3">
                       <Link
-                        href="mailto:example@gmail.com"
+                        href={`mailto:${bannerTexts.email.label}`}
                         className="text-muted small"
                       >
-                        <i className="fas fa-envelope text-primary me-2"></i>
-                        example@gmail.com
+                        <i className={bannerTexts.email.icon}></i>
+                        {bannerTexts.email.label}
                       </Link>
                     </div>
                   </div>
@@ -42,18 +77,11 @@ const Banner = () => {
                 <div className="col-lg-4 text-center text-lg-end">
                   <div className="d-flex justify-content-end">
                     <div className="d-flex border-end border-primary pe-3">
-                      <Link className="btn p-0 text-primary me-3" href="#">
-                        <i className="fab fa-facebook-f"></i>
-                      </Link>
-                      <Link className="btn p-0 text-primary me-3" href="#">
-                        <i className="fab fa-twitter"></i>
-                      </Link>
-                      <Link className="btn p-0 text-primary me-3" href="#">
-                        <i className="fab fa-instagram"></i>
-                      </Link>
-                      <Link className="btn p-0 text-primary me-0" href="#">
-                        <i className="fab fa-linkedin-in"></i>
-                      </Link>
+                      {bannerTexts.social.map((item, idx) => (
+                        <Link key={item.icon} className={`btn p-0 text-primary${idx < bannerTexts.social.length - 1 ? ' me-3' : ''}`} href={item.href} aria-label={item.label}>
+                          <i className={item.icon}></i>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -77,32 +105,26 @@ const Banner = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                   <div className="navbar-nav mx-0 mx-lg-auto bg-white">
-                    <Link href="/" className="nav-item nav-link active">
-                      Home
-                    </Link>
-                    <Link
-                      href="/nuestros-servicios"
-                      className="nav-item nav-link"
-                    >
-                      Service
-                    </Link>
-                    <Link href="/contacto" className="nav-item nav-link">
-                      Contact
-                    </Link>
-                    <div className="nav-btn ps-3">
-                      <button
-                        className="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0"
-                        data-bs-toggle="modal"
-                        data-bs-target="#searchModal"
-                      >
-                        <i className="fas fa-search"></i>
-                      </button>
+                    {bannerTexts.nav.map((item, idx) => (
                       <Link
-                        href="#"
-                        className="btn btn-primary py-2 px-4 ms-0 ms-lg-3"
+                        key={item.href}
+                        href={item.href}
+                        className={`nav-item nav-link${idx === 0 ? ' active' : ''}`}
                       >
-                        {" "}
-                        Get Solution
+                        {item.label}
+                      </Link>
+                    ))}
+                    <div className="nav-btn ps-3">
+                      <Link
+                        href={bannerTexts.cta.href}
+                        className="btn py-2 px-4 ms-0 ms-lg-3 d-flex align-items-center"
+                        style={bannerTexts.cta.style}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp"
+                      >
+                        <i className={`${bannerTexts.cta.icon} me-2`} style={{ fontSize: "1.3em" }}></i>
+                        {bannerTexts.cta.label}
                       </Link>
                     </div>
                   </div>

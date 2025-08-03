@@ -1,50 +1,51 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
+const heroTexts = {
+  slides: [
     {
       id: 1,
       bgClass: "hero-bg-half-1",
       shapeClass: "hero-shape-1",
-      subtitle: "Current Electricity Services",
-      title: "Power for Seamless Electricity Solutions",
+      subtitle: "Garantía de Seguridad y Conformidad en Estaciones de Servicio",
+      title: "Tu aliado en la ruta hacia la excelencia.",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy...",
-    },
-    {
-      id: 2,
-      bgClass: "hero-bg-half-2",
-      shapeClass: "hero-shape-2",
-      subtitle: "Current Electricity Services",
-      title: "Experience the power of professionalism",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy...",
-    },
-  ];
+        "Realizamos inspecciones acreditadas por ONAC bajo la norma ISO/IEC 17020, garantizando procesos técnicos, imparciales y confiables para el cumplimiento normativo de tu estación de servicio.",
+    }
+  ],
+  buttonVideo: {
+    label: "Solicita Inspección",
+    iconClass: "fas fa-play-circle me-2"
+  },
+  buttonLearn: {
+    label: "Más Información"
+  }
+};
+
+const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-slide cada 5 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % heroTexts.slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [heroTexts.slides.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % heroTexts.slides.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + heroTexts.slides.length) % heroTexts.slides.length);
   };
 
   return (
     <div className="header-carousel owl-carousel overflow-hidden">
-      {slides.map((slide, index) => (
+      {heroTexts.slides.map((slide, index) => (
         <div
           key={slide.id}
           className={`header-carousel-item hero-section ${
@@ -79,13 +80,13 @@ const Hero = () => {
                         className="btn btn-light py-3 px-4 px-md-5 me-2"
                         href="#"
                       >
-                        <i className="fas fa-play-circle me-2"></i> Watch Video
+                        <i className={heroTexts.buttonVideo.iconClass}></i> {heroTexts.buttonVideo.label}
                       </a>
                       <a
                         className="btn btn-primary py-3 px-4 px-md-5 ms-2"
                         href="#"
                       >
-                        Learn More
+                        {heroTexts.buttonLearn.label}
                       </a>
                     </div>
                   </div>
@@ -141,7 +142,7 @@ const Hero = () => {
           zIndex: 10,
         }}
       >
-        {slides.map((_, index) => (
+        {heroTexts.slides.map((_, index) => (
           <button
             key={index}
             className={`btn mx-2 ${
