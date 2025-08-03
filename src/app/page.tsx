@@ -11,18 +11,24 @@ export const metadata = {
   },
 };
 
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Service from "@/components/Service";
-import Proceso from "@/components/Proceso";
+import Hero from "@/components/home/Hero";
+import About from "@/components/home/About";
+import Cta from "@/components/home/Cta";
+import Service from "@/components/home/Service";
+import OurProjects from "@/components/home/OurProjects";
+import BlogCta from "@/components/home/BlogCta";
+import TeamCtaHome from "@/components/home/TeamCtaHome";
 
 export default function Home() {
-  return (  
+  return (
     <div>
       <Hero />
       <About />
+      <Cta />
       <Service />
-      <Proceso />
+      <OurProjects />
+      {/* <BlogCta /> */}
+      <TeamCtaHome />
     </div>
   );
 }
