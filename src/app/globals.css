@@ -342,7 +342,7 @@ a {
     padding: 12px;
     flex-direction: column;
     justify-content: start;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .navbar .navbar-nav .nav-btn {
@@ -397,7 +397,7 @@ a {
   .navbar .nav-btn {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .navbar .navbar-nav {

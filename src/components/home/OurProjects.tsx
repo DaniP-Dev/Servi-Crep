@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 const OurProjects = () => {
     return (
@@ -38,7 +39,7 @@ const OurProjects = () => {
                         <div className="tab-content">
                             <div id="ProjectsTab-1" className="tab-pane fade show p-0 active">
                                 <div className="projects-item">
-                                    <img src="/img/industrial-1.jpg" className="img-fluid w-100" alt=""/>
+                                    <Image src="/img/industrial-1.jpg" className="img-fluid w-100" alt=""/>
                                     <div className="projects-content bg-white p-4">
                                         <h4 className="mb-3">Power Path Unveiling Our process</h4>
                                         <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, quo? Enim facere, praesentium voluptatem vero officiis libero fuga rem autem amet recusandae voluptates, dolorem quo magni. Corporis eveniet consequuntur accusantium.
@@ -49,7 +50,7 @@ const OurProjects = () => {
                             </div>
                             <div id="ProjectsTab-2" className="tab-pane fade show p-0">
                                 <div className="projects-item">
-                                    <img src="/img/industrial-2.jpg" className="img-fluid w-100" alt=""/>
+                                    <Image src="/img/industrial-2.jpg" className="img-fluid w-100" alt=""/>
                                     <div className="projects-content bg-white p-4">
                                         <h4 className="mb-3">Electro Flow Decoding Our method</h4>
                                         <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, quo? Enim facere, praesentium voluptatem vero officiis libero fuga rem autem amet recusandae voluptates, dolorem quo magni. Corporis eveniet consequuntur accusantium.
@@ -60,7 +61,7 @@ const OurProjects = () => {
                             </div>
                             <div id="ProjectsTab-3" className="tab-pane fade show p-0">
                                 <div className="projects-item">
-                                    <img src="/img/commercial-1.jpg" className="img-fluid w-100" alt=""/>
+                                    <Image src="/img/commercial-1.jpg" className="img-fluid w-100" alt=""/>
                                     <div className="projects-content bg-white p-4">
                                         <h4 className="mb-3">Energetic Engine Behind Scenes</h4>
                                         <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, quo? Enim facere, praesentium voluptatem vero officiis libero fuga rem autem amet recusandae voluptates, dolorem quo magni. Corporis eveniet consequuntur accusantium.
@@ -71,7 +72,7 @@ const OurProjects = () => {
                             </div>
                             <div id="ProjectsTab-4" className="tab-pane fade show p-0">
                                 <div className="projects-item">
-                                    <img src="/img/commercial-2.jpg" className="img-fluid w-100" alt=""/>
+                                    <Image src="/img/commercial-2.jpg" className="img-fluid w-100" alt=""/>
                                     <div className="projects-content bg-white p-4">
                                         <h4 className="mb-4">Watt Works Discover Operations</h4>
                                         <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, quo? Enim facere, praesentium voluptatem vero officiis libero fuga rem autem amet recusandae voluptates, dolorem quo magni. Corporis eveniet consequuntur accusantium.

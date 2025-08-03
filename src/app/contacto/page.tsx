@@ -66,7 +66,7 @@ const Contacto = () => {
               <p className="mb-4">
                 The contact form is currently inactive. Get a functional and
                 working contact form with Ajax & PHP in a few minutes. Just copy
-                and paste the files, add a little code and you're done.
+                and paste the files, add a little code and you&apos;re done.
                 <a
                   className="text-primary fw-bold"
                   href="https://web.com/contact-form"

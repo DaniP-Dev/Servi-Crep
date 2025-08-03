@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 const Service = () => {
     return (
@@ -35,7 +36,7 @@ const Service = () => {
                             <div id="ServiceTab-1" className="tab-pane fade show p-0 active">
                                 <div className="service-carousel owl-carousel">
                                     <div className="service-item">
-                                        <img src="/img/commercial-1.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/commercial-1.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Brite Spark Services</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -44,7 +45,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/commercial-2.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/commercial-2.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Energy Ease Packages</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -53,7 +54,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/commercial-3.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/commercial-3.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Electra Care Packages</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -66,7 +67,7 @@ const Service = () => {
                             <div id="ServiceTab-2" className="tab-pane fade show p-0">
                                 <div className="service-carousel owl-carousel">
                                     <div className="service-item">
-                                        <img src="/img/residential-1.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/residential-1.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Electrical Services</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -75,7 +76,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/residential-2.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/residential-2.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Security Systems</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -84,7 +85,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/residential-3.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/residential-3.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Air Conditioner</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -97,7 +98,7 @@ const Service = () => {
                             <div id="ServiceTab-3" className="tab-pane fade show p-0">
                                 <div className="service-carousel owl-carousel">
                                     <div className="service-item">
-                                        <img src="/img/industrial-1.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/industrial-1.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Factory Manufacture</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -106,7 +107,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/industrial-2.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/industrial-2.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">General Electrical</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
@@ -115,7 +116,7 @@ const Service = () => {
                                         </div>
                                     </div>
                                     <div className="service-item">
-                                        <img src="/img/industrial-3.jpg" className="img-fluid w-100" alt="" />
+                                        <Image src="/img/industrial-3.jpg" className="img-fluid w-100" alt="" />
                                         <div className="border border-top-0 p-4">
                                             <h4 className="mb-3">Electrical Planing</h4>
                                             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!

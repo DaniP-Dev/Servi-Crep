@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 const About = () => {
     return (
@@ -35,7 +36,7 @@ const About = () => {
                     </div>
                     <div className="col-lg-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div className="position-relative h-100">
-                            <img src="img/about-1.jpg" className="img-fluid w-100 h-100" style={{ objectFit: 'cover' }} alt="" />
+                            <Image src="img/about-1.jpg" className="img-fluid w-100 h-100" style={{ objectFit: 'cover' }} alt="" />
                             <div className="bg-white">
                                 <div className="position-absolute pt-3 bg-white" style={{ width: '50%', left: 0, bottom: 0 }}>
                                     <div className="bg-primary p-4">
@@ -44,7 +45,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="position-absolute p-3 bg-white pb-0 pe-0" style={{ width: '50%', bottom: 0, right: 0 }}>
-                                    <img src="img/about-2.jpg" className="img-fluid" alt="" />
+                                    <Image src="img/about-2.jpg" className="img-fluid" alt="" />
                                 </div>
                             </div>
                         </div>

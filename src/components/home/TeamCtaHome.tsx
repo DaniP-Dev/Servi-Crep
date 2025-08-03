@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 const TeamCtaHome = () => {
     return (
@@ -14,7 +15,7 @@ const TeamCtaHome = () => {
                     <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div className="team-item">
                             <div className="team-img">
-                                <img src="/img/team-1.jpg" className="img-fluid w-100" alt=""/>
+                                <Image src="/img/team-1.jpg" className="img-fluid w-100" alt=""/>
                                 <div className="team-icon">
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-twitter"></i></a>
@@ -31,7 +32,7 @@ const TeamCtaHome = () => {
                     <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
                         <div className="team-item">
                             <div className="team-img">
-                                <img src="/img/team-2.jpg" className="img-fluid w-100" alt=""/>
+                                <Image src="/img/team-2.jpg" className="img-fluid w-100" alt=""/>
                                 <div className="team-icon">
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-twitter"></i></a>
@@ -48,7 +49,7 @@ const TeamCtaHome = () => {
                     <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
                         <div className="team-item">
                             <div className="team-img">
-                                <img src="/img/team-3.jpg" className="img-fluid w-100" alt=""/>
+                                <Image src="/img/team-3.jpg" className="img-fluid w-100" alt=""/>
                                 <div className="team-icon">
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-twitter"></i></a>
@@ -65,7 +66,7 @@ const TeamCtaHome = () => {
                     <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.8s">
                         <div className="team-item">
                             <div className="team-img">
-                                <img src="/img/team-4.jpg" className="img-fluid w-100" alt=""/>
+                                <Image src="/img/team-4.jpg" className="img-fluid w-100" alt=""/>
                                 <div className="team-icon">
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-square btn-primary mb-2" href=""><i className="fab fa-twitter"></i></a>
