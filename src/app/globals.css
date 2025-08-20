@@ -1,15 +1,42 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "@fortawesome/fontawesome-free/css/all.min.css";
-
-/* Bootstrap personalizado */
 @import "./bootstrap.min.css";
 
-/* CSS ahora se carga desde layout.tsx como link tags */
-/* REMOVER estas líneas problemáticas: */
-/* @import url("../lib/animate/animate.min.css"); */
-/* @import url("../lib/owlcarousel/assets/owl.carousel.min.css"); */
-/* @import url("../lib/owlcarousel/assets/owl.theme.default.min.css"); */
+/* OVERRIDE: Botones de componentes a color principal, texto blanco */
+.btn,
+.btn-primary,
+.btn-light,
+.btn-outline-primary {
+  background: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: var(--bs-white) !important;
+}
+
+/* OVERRIDE: Fondos y bordes de tabs de servicios a color principal, solo letras blancas */
+.service .nav .nav-item,
+.service .nav .nav-item a,
+.service .nav .nav-item a.active {
+  background: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+/* Forzar fondo primario en íconos/emojis de servicios y cualquier fondo naranja heredado de Bootstrap */
+.bg-primary,
+.service-icon,
+.service .icon,
+.service .emoji,
+.service .service-icon,
+.service .bg-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.service .nav .nav-item a span,
+.service .nav .nav-item a.active span {
+  color: var(--bs-white) !important;
+}
 
 /* Variables CSS personalizadas */
 :root {
@@ -18,7 +45,7 @@
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
+  --bs-orange: #2519aa;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
   --bs-teal: #20c997;
@@ -26,7 +53,7 @@
   --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
-  --bs-primary: #f68a0a;
+  --bs-primary: #2519aa;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -92,6 +119,13 @@ a {
 
 /* AGREGAR TODO EL CSS PERSONALIZADO AQUÍ */
 /*** Spinner Start ***/
+/* Forzar color principal en todos los íconos de FontAwesome */
+.fas{color: white !important;}
+.fa,
+.far,
+.fal {
+  color: var(--bs-primary) !important;
+}
 #spinner {
   opacity: 0;
   visibility: hidden;
@@ -980,7 +1014,7 @@ a {
   top: 0;
   left: 0;
   display: flex;
-  background: rgba(246, 138, 10, 0.3);
+  background: color-mix(in srgb, var(--bs-primary) 70%, transparent 30%);
   transition: 0.5s;
 }
 
@@ -1068,7 +1102,7 @@ a {
   height: 0;
   top: 0;
   left: 0;
-  background: rgba(246, 138, 10, 0.2);
+  background: color-mix(in srgb, var(--bs-primary) 80%, transparent 20%);
   transition: 0.5s;
   z-index: 1;
 }
@@ -1095,7 +1129,7 @@ a {
 
 .faq-section .accordion .accordion-item .accordion-header .accordion-button {
   color: var(--bs-white);
-  background: rgba(246, 138, 10, 0.9);
+  background: color-mix(in srgb, var(--bs-primary) 90%, transparent 10%);
   font-size: 18px;
 }
 
