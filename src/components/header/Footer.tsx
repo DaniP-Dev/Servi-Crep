@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const footerTexts = {
@@ -19,24 +18,23 @@ const footerTexts = {
     links: [
       { href: "/", label: "Inicio" },
       { href: "/nuestros-servicios", label: "Servicios" },
-      { href: "/contacto", label: "Contacto" },
-      { href: "/quienes-somos", label: "¿Quiénes somos?" }
+      { href: "/contacto", label: "Contacto" }
     ]
   },
   services: {
     title: "Servicios de inspección",
     links: [
-      { href: "/nuestros-servicios", label: "Inspección técnica acreditada" },
-      { href: "/nuestros-servicios", label: "Verificación de cumplimiento normativo" },
-      { href: "/nuestros-servicios", label: "Dictamen técnico para estaciones" },
+      { href: "/nuestros-servicios", label: "Inspección de estaciones de servicio" },
+      { href: "/nuestros-servicios", label: "Verificación de cumplimiento" },
+      { href: "/nuestros-servicios", label: "Informe/Certificado de inspección" },
       { href: "/nuestros-servicios", label: "Acompañamiento regulatorio" }
     ]
   },
   contact: {
     title: "Información de contacto",
     items: [
-      { icon: "fa fa-map-marker-alt text-primary me-2", label: "Bogotá, Colombia", href: "#" },
-      { icon: "fas fa-envelope text-primary me-2", label: "contacto@servicrep.com", href: "mailto:contacto@servicrep.com" },
+      { icon: "fa fa-map-marker-alt text-primary me-2", label: "Soledad, Colombia", href: "#" },
+      { icon: "fas fa-envelope text-primary me-2", label: "servicrep@gmail.com", href: "mailto:servicrep@gmail.com" },
       { icon: "fas fa-phone text-primary me-2", label: "+57 300 123 4567", href: "tel:+573001234567" }
     ]
   },
@@ -44,7 +42,7 @@ const footerTexts = {
     site: "ServiCrep",
     reserved: "Todos los derechos reservados.",
     designer: "Equipo ServiCrep",
-    designerUrl: "https://servi-crep.vercel.app"
+    designerUrl: "https://www.servicrep.com.co/"
   }
 };
 
@@ -75,11 +73,11 @@ const Footer = () => {
                         <div className="footer-item d-flex flex-column">
                             <div className="footer-item">
                                 <h3 className="text-white mb-4"><i className={footerTexts.brand.icon}></i>{footerTexts.brand.name}</h3>
-                                <p className="mb-3" >{footerTexts.brand.description}</p>
+                                <p className="mb-3 text-justify" >{footerTexts.brand.description}</p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3">
+                    <div className="col-md-6 col-lg-6 col-xl-2">
                         <div className="footer-item d-flex flex-column">
                             <h4 className="text-white mb-4">{footerTexts.quickLinks.title}</h4>
                             {footerTexts.quickLinks.links.map(link => (
@@ -87,15 +85,15 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3">
+                    <div className="col-md-6 col-lg-6 col-xl-4">
                         <div className="footer-item d-flex flex-column">
                             <h4 className="text-white mb-4">{footerTexts.services.title}</h4>
                             {footerTexts.services.links.map(link => (
-                              <a key={link.label} href={link.href}> {link.label}</a>
+                              <a className='text-start d-block' key={link.label} href={link.href}> {link.label}</a>
                             ))}
                         </div>
                     </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3">
+                    <div className="col-md-6 col-lg-6 col-xl-3" >
                         <div className="footer-item d-flex flex-column">
                             <h4 className="text-white mb-4">{footerTexts.contact.title}</h4>
                             {footerTexts.contact.items.map((item, idx) => (

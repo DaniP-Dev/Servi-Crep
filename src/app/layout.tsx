@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "ServiCrep",
   referrer: "origin-when-cross-origin",
-  metadataBase: new URL('https://servi-crep.vercel.app'),
+  metadataBase: new URL('https://www.servicrep.com.co/'),
   alternates: {
     canonical: '/',
     languages: {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://servi-crep.vercel.app',
+    url: 'https://www.servicrep.com.co/',
     siteName: 'ServiCrep',
     title: 'ServiCrep - Inspección Técnica Acreditada',
     description: 'Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio para combustibles líquidos bajo la norma ISO/IEC 17020.',
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     creator: '@servicrep',
     title: 'ServiCrep - Inspección Técnica Acreditada',
     description: 'Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio para combustibles líquidos.',
-    images: ['https://servi-crep.vercel.app/images/twitter-image.jpg'],
+    images: ['https://www.servicrep.com.co//images/twitter-image.jpg'],
   },
   robots: {
     index: true,
@@ -156,9 +156,9 @@ export const metadata: Metadata = {
       should_fallback: true,
     },
   },
-  archives: ['https://servi-crep.vercel.app/sitemap.xml'],
-  assets: ['https://servi-crep.vercel.app/assets'],
-  bookmarks: ['https://servi-crep.vercel.app/favoritos'],
+  archives: ['https://www.servicrep.com.co//sitemap.xml'],
+  assets: ['https://www.servicrep.com.co//assets'],
+  bookmarks: ['https://www.servicrep.com.co//favoritos'],
   other: {
     'theme-color': '#ffffff',
     'msapplication-TileColor': '#da532c',
@@ -196,10 +196,10 @@ export const metadata: Metadata = {
     'DC.date': '2025',
     'DC.type': 'Service',
     'DC.format': 'text/html',
-    'DC.identifier': 'https://servi-crep.vercel.app',
-    'DC.source': 'https://servi-crep.vercel.app',
+    'DC.identifier': 'https://www.servicrep.com.co/',
+    'DC.source': 'https://www.servicrep.com.co/',
     'DC.language': 'es',
-    'DC.relation': 'https://servi-crep.vercel.app',
+    'DC.relation': 'https://www.servicrep.com.co/',
     'DC.coverage': 'España',
     'DC.rights': 'Copyright ServiCrep 2025',
   },
@@ -226,7 +226,7 @@ export default function RootLayout({
             "@type": "LocalBusiness",
             "name": "ServiCrep",
             "description": "Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio para combustibles líquidos.",
-            "url": "https://servi-crep.vercel.app",
+            "url": "https://www.servicrep.com.co/",
             "telephone": "+34-XXX-XXX-XXX",
             "address": {
               "@type": "PostalAddress",

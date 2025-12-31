@@ -75,7 +75,7 @@ const Hero = () => {
                     <p className="mb-5 fs-5">
                       {slide.description}
                     </p>
-                    <div className="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                    <div className="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
                       <a
                         className="btn btn-light py-3 px-4 px-md-5 me-2"
                         href="#"

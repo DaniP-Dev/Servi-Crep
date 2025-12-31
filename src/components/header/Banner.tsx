@@ -10,7 +10,7 @@ const bannerTexts = {
     icon: "fas fa-map-marker-alt text-primary me-2"
   },
   email: {
-    label: "contacto@servicrep.com",
+    label: "servicrep@gmail.com",
     icon: "fas fa-envelope text-primary me-2"
   },
   social: [
@@ -91,7 +91,7 @@ const Banner = () => {
               <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
                 <Link href="#" className="navbar-brand-2">
                   <h1 className="text-primary mb-0">
-                    <i className="fas fa-bolt"></i> Electra
+                    <i className="fas fa-bolt"></i> SERVICREP
                   </h1>
                   {/* <img src="/img/logo.png" alt="Logo"/>*/}
                 </Link>
