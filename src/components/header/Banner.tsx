@@ -1,40 +1,7 @@
-
 import React from "react";
 import Link from "next/link";
+import { bannerTexts } from "@/lib/navsLinks";
 
-const bannerTexts = {
-  brand: "ServiCrep",
-  // Si tienes un slogan, agrégalo aquí
-  location: {
-    label: "Encuentra una ubicación",
-    icon: "fas fa-map-marker-alt text-primary me-2"
-  },
-  email: {
-    label: "servicrep@gmail.com",
-    icon: "fas fa-envelope text-primary me-2"
-  },
-  social: [
-    { icon: "fab fa-facebook-f", label: "Facebook", href: "#" },
-    { icon: "fab fa-twitter", label: "Twitter", href: "#" },
-    { icon: "fab fa-instagram", label: "Instagram", href: "#" },
-    { icon: "fab fa-linkedin-in", label: "LinkedIn", href: "#" }
-  ],
-  nav: [
-    { href: "/", label: "Inicio" },
-    { href: "/nuestros-servicios", label: "Servicios" },
-    { href: "/contacto", label: "Contacto" }
-  ],
-  cta: {
-    label: "WhatsApp",
-    href: "https://wa.me/573001234567", // Cambia al número real
-    icon: "fab fa-whatsapp",
-    style: {
-      backgroundColor: "#25D366",
-      border: "none",
-      color: "#fff"
-    }
-  }
-};
 
 const Banner = () => {
   return (
@@ -43,9 +10,7 @@ const Banner = () => {
         <div className="container d-flex align-items-center">
           <div className="d-flex align-items-center h-100">
             <Link href="#" className="navbar-brand" style={{ height: "125px" }}>
-              <h1 className="text-primary mb-0">
-                 {bannerTexts.brand}
-              </h1>
+              <h1 className="text-primary mb-0">{bannerTexts.brand}</h1>
               {/* <img src="/img/logo.png" alt="Logo"/>*/}
             </Link>
           </div>
@@ -78,7 +43,14 @@ const Banner = () => {
                   <div className="d-flex justify-content-end">
                     <div className="d-flex border-end border-primary pe-3">
                       {bannerTexts.social.map((item, idx) => (
-                        <Link key={item.icon} className={`btn p-0 text-primary${idx < bannerTexts.social.length - 1 ? ' me-3' : ''}`} href={item.href} aria-label={item.label}>
+                        <Link
+                          key={item.icon}
+                          className={`btn p-0 text-primary${
+                            idx < bannerTexts.social.length - 1 ? " me-3" : ""
+                          }`}
+                          href={item.href}
+                          aria-label={item.label}
+                        >
                           <i className={item.icon}></i>
                         </Link>
                       ))}
@@ -105,15 +77,52 @@ const Banner = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                   <div className="navbar-nav mx-0 mx-lg-auto bg-white">
-                    {bannerTexts.nav.map((item, idx) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`nav-item nav-link${idx === 0 ? ' active' : ''}`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    {bannerTexts.nav.map((item, idx) => {
+                      // Si es un dropdown
+                      if (item.dropdown) {
+                        return (
+                          <div key={item.label} className="nav-item dropdown">
+                            <Link
+                              href="#"
+                              className="nav-link dropdown-toggle"
+                              id={`navbar${item.label}`}
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              {item.label}
+                            </Link>
+                            <ul
+                              className="dropdown-menu"
+                              aria-labelledby={`navbar${item.label}`}
+                            >
+                              {item.dropdown.map((subitem, idx) => (
+                                <li key={`${item.label}-${idx}`}>
+                                  <Link
+                                    href={subitem.href}
+                                    className="dropdown-item"
+                                  >
+                                    {subitem.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      }
+                      // Si es un enlace normal
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`nav-item nav-link${
+                            idx === 0 ? " active" : ""
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                     <div className="nav-btn ps-3">
                       <Link
                         href={bannerTexts.cta.href}
@@ -123,7 +132,10 @@ const Banner = () => {
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"
                       >
-                        <i className={`${bannerTexts.cta.icon} me-2`} style={{ fontSize: "1.3em" }}></i>
+                        <i
+                          className={`${bannerTexts.cta.icon} me-2`}
+                          style={{ fontSize: "1.3em" }}
+                        ></i>
                         {bannerTexts.cta.label}
                       </Link>
                     </div>

@@ -1,4 +1,7 @@
 import React from 'react';
+import { bannerTexts } from "@/lib/navsLinks";
+import services from "@/lib/services";
+
 
 const footerTexts = {
   subscribePlaceholder: "Correo electrónico para suscribirse",
@@ -15,20 +18,14 @@ const footerTexts = {
   },
   quickLinks: {
     title: "Enlaces rápidos",
-    links: [
-      { href: "/", label: "Inicio" },
-      { href: "/nuestros-servicios", label: "Servicios" },
-      { href: "/contacto", label: "Contacto" }
-    ]
+    links: bannerTexts.nav.filter(item => item)
   },
   services: {
     title: "Servicios de inspección",
-    links: [
-      { href: "/nuestros-servicios", label: "Inspección de estaciones de servicio" },
-      { href: "/nuestros-servicios", label: "Verificación de cumplimiento" },
-      { href: "/nuestros-servicios", label: "Informe/Certificado de inspección" },
-      { href: "/nuestros-servicios", label: "Acompañamiento regulatorio" }
-    ]
+    links: Object.values(services).map(service => ({
+      href: service.slug,
+      label: service.title
+    }))
   },
   contact: {
     title: "Información de contacto",
