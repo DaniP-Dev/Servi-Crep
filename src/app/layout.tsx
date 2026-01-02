@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Banner from "@/components/header/Banner";
 import Footer from "@/components/header/Footer";
+import JQueryScripts from "@/components/common/JQueryScripts";
 import "./globals.css";
 import Script from "next/script";
 
@@ -127,35 +128,7 @@ export default function RootLayout({
         {children}
         <Footer />
 
-        {/* Scripts */}
-        <Script 
-          src="https://code.jquery.com/jquery-3.7.1.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script 
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="/lib/waypoints/waypoints.min.js"
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="/lib/easing/easing.min.js"
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="/lib/owlcarousel/owl.carousel.min.js"
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="/lib/wow/wow.min.js"
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="/main.js"
-          strategy="afterInteractive"
-        />
+        <JQueryScripts />
       </body>
     </html>
   );
