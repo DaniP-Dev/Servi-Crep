@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 import { bannerTexts } from "@/lib/navsLinks";
 import services from "@/lib/services";
 
@@ -12,7 +13,6 @@ const footerTexts = {
     { icon: "fab fa-linkedin-in", label: "LinkedIn", href: "https://linkedin.com/company/servicrep" }
   ],
   brand: {
-    icon: "fas fa-bolt text-primary me-3",
     name: "ServiCrep",
     description: "Organismo de Inspección Tipo A acreditado por ONAC. Especialistas en inspección técnica de estaciones de servicio para combustibles líquidos, garantizando imparcialidad, independencia y cumplimiento normativo."
   },
@@ -69,8 +69,11 @@ const Footer = () => {
                     <div className="col-md-6 col-lg-6 col-xl-3">
                         <div className="footer-item d-flex flex-column">
                             <div className="footer-item">
-                                <h3 className="text-white mb-4"><i className={footerTexts.brand.icon}></i>{footerTexts.brand.name}</h3>
-                                <p className="mb-3 text-justify" >{footerTexts.brand.description}</p>
+                                <div className="mb-4 d-flex align-items-center">
+                                    <Image src="/logo2.png" alt="Servicrep" width={40} height={40} className="me-3" />
+                                    <h3 className="text-white mb-0">{footerTexts.brand.name}</h3>
+                                </div>
+                                <p className="mb-3 text-justify">{footerTexts.brand.description}</p>
                             </div>
                         </div>
                     </div>
@@ -108,13 +111,7 @@ const Footer = () => {
         <div className="container-fluid copyright py-4">
             <div className="container">
                 <div className="row g-4 align-items-center">
-                    <div className="col-md-6 text-center text-md-start mb-md-0">
-                        <span className="text-body"><a href="#" className="border-bottom text-white"><i className="fas fa-copyright text-light me-2"></i>{footerTexts.copyright.site}</a>, {footerTexts.copyright.reserved}</span>
-                    </div>
-                    <div className="col-md-6 text-center text-md-end text-body">
                    
-                        Designed By <a className="border-bottom text-white" href={footerTexts.copyright.designerUrl}>{footerTexts.copyright.designer}</a>
-                    </div>
                 </div>
             </div>
         </div>
