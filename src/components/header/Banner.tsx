@@ -1,19 +1,24 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { bannerTexts } from "@/lib/navsLinks";
-
 
 const Banner = () => {
   return (
     <div>
       <div className="container-fluid header-top">
         <div className="container d-flex align-items-center">
-          <div className="d-flex align-items-center h-100">
-            <Link href="#" className="navbar-brand" style={{ height: "125px" }}>
-              <h1 className="text-primary mb-0">{bannerTexts.brand}</h1>
-              {/* <img src="/img/logo.png" alt="Logo"/>*/}
+          {/* LOGO DESKTOP - Solo visible en lg+ */}
+          <div className="d-none d-lg-flex align-items-center justify-content-center h-100">
+            <Link
+              href="/"
+              className="navbar-brand d-flex align-items-center justify-content-center"
+              style={{ height: "125px" }}
+            >
+              <Image className="" src="/logo.png" alt="servicrep - Inspecciones a estaciones de gasolina y pruebas de hermeticidad bajo la norma ISO/IEC 17020" width={100} height={100} />
             </Link>
           </div>
+
           <div className="w-100 h-100">
             <div
               className="topbar px-0 py-2 d-none d-lg-block"
@@ -59,14 +64,14 @@ const Banner = () => {
                 </div>
               </div>
             </div>
+            {/* MOBILE */}
             <div className="nav-bar px-0 py-lg-0" style={{ height: "80px" }}>
               <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-                <Link href="#" className="navbar-brand-2">
-                  <h1 className="text-primary mb-0">
-                    <i className="fas fa-bolt"></i> SERVICREP
-                  </h1>
-                  {/* <img src="/img/logo.png" alt="Logo"/>*/}
+                {/* LOGO MOBILE - Solo visible en < lg */}
+                <Link href="/" className="navbar-brand-2 d-lg-none">
+                  <Image className="mt-2" src="/logo.png" alt="servicrep - Inspecciones a estaciones de gasolina y pruebas de hermeticidad bajo la norma ISO/IEC 17020" width={100} height={100} />
                 </Link>
+
                 <button
                   className="navbar-toggler"
                   type="button"
