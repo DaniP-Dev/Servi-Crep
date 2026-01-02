@@ -8,7 +8,7 @@ export default function JQueryScripts() {
 
   useEffect(() => {
     // Verificar si jQuery ya está cargado
-    if (typeof window !== "undefined" && typeof (window as any).jQuery !== "undefined") {
+    if (typeof window !== "undefined" && typeof (window as unknown as { jQuery: unknown }).jQuery !== "undefined") {
       setJQueryLoaded(true);
     }
   }, []);
