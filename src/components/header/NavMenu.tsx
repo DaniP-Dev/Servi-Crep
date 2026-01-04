@@ -55,16 +55,14 @@ const NavDropdown = ({ item, onLinkClick }: NavDropdownProps) => (
       {item.label}
     </Link>
     <ul
-    
-      className="dropdown-menu w-100 border-0"
+      className="dropdown-menu"
       aria-labelledby={`navbar${item.label}`}
-      style={{ ...navMenuStyles.dropdownMenu, backgroundColor: "#DBDBDB" }}
     >
       {item.dropdown?.map((subitem, idx) => (
         <li key={`${item.label}-${idx}`}>
           <Link
             href={subitem.href}
-            className="dropdown-item border-bottom border-white"
+            className="dropdown-item"
             onClick={onLinkClick}
           >
             {subitem.label}
@@ -125,7 +123,7 @@ const NavMenu = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <div className="navbar-nav mx-0 mx-lg-auto p-3" style={{backgroundColor: "#DBDBDB"}}>
+          <div className="navbar-nav mx-0 mx-lg-auto">
             {bannerTexts.nav.map((item) =>
               item.dropdown ? (
                 <NavDropdown
