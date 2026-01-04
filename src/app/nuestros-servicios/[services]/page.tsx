@@ -13,9 +13,21 @@ export async function generateMetadata({ params }: PageProps) {
     (s) => s.slug === `/nuestros-servicios/${serviceSlug}`
   );
 
+  if (!service) return { title: "Servicio no encontrado" };
+
   return {
-    title: service?.title || "Servicio no encontrado",
-    description: service?.description || "",
+    title: `${service.title} | ServiCrep`,
+    description: service.description,
+    keywords: [service.title, "inspección técnica", "ServiCrep", "Colombia"],
+    openGraph: {
+      title: `${service.title} | ServiCrep`,
+      description: service.description,
+      url: service.slug,
+      type: "website",
+    },
+    alternates: {
+      canonical: service.slug,
+    },
   };
 }
 

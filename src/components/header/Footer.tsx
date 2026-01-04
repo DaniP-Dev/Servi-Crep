@@ -31,7 +31,7 @@ const footerTexts = {
     title: "Información de contacto",
     items: [
       { icon: "fa fa-map-marker-alt text-primary me-2", label: "Soledad, Colombia", href: "#" },
-      { icon: "fas fa-envelope text-primary me-2", label: "servicrep@gmail.com", href: "mailto:servicrep@gmail.com" },
+      { icon: "fas fa-envelope text-primary me-2", label: "servicrep04@gmail.com", href: "mailto:servicrep04@gmail.com" },
       { icon: "fas fa-phone text-primary me-2", label: "+57 300 123 4567", href: "tel:+573001234567" }
     ]
   },
@@ -70,7 +70,7 @@ const Footer = () => {
                         <div className="footer-item d-flex flex-column">
                             <div className="footer-item">
                                 <div className="mb-4 d-flex align-items-center">
-                                    <Image src="/logo2.png" alt="Servicrep" width={40} height={40} className="me-3" />
+                                    <Image src="/logo.png" alt="Servicrep" width={40} height={40} className="me-3" />
                                     <h3 className="text-white mb-0">{footerTexts.brand.name}</h3>
                                 </div>
                                 <p className="mb-3 text-justify">{footerTexts.brand.description}</p>

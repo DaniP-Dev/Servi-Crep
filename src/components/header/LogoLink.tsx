@@ -16,7 +16,7 @@ const LogoLink = ({ className = "", imageClassName = "", size = 100, style }: Lo
     <Link href="/" className={className} style={style}>
       <Image
         className={imageClassName}
-        src="/logo.png"
+        src="/isologo.png"
         alt={LOGO_ALT}
         width={size}
         height={size}

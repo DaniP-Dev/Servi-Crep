@@ -1,0 +1,16 @@
+{
+  "name": "ServiCrep - Inspección Técnica a EDS gasolina Acreditada",
+  "short_name": "ServiCrep",
+  "description": "Organismo de Inspección Estaciones de gasolina - Acreditados ONAC COL",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2519aa",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

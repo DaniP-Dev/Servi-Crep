@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     description: 'Organismo de Inspección Tipo A acreditado por ONAC.',
     images: [
       {
-        url: '/logo2.png',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'ServiCrep - Inspección Técnica',
@@ -65,9 +65,8 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  manifest: '/site.webmanifest',
   verification: {
-    google: 'tu-codigo-de-verificacion-google',
+    google: 'fe2acbf43dd0099b',
   },
   category: 'technology',
   formatDetection: {

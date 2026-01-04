@@ -1,12 +1,27 @@
 import React from "react";
 import services from "@/lib/services";
 import { title } from "process";
+import type { Metadata } from "next";
 
-export const metadata = {
-  metadataBase: new URL("https://www.servicrep.com.co/"),
-  title: "Nuestros Servicios",
+export const metadata: Metadata = {
+  title: "Nuestros Servicios | Inspección EDS y Hermeticidad | ServiCrep",
   description:
-    "Inspección de estaciones de servicio (EDS) y pruebas de hermeticidad. Servicio en sitio en Colombia, programación de visitas y entrega de resultados",
+    "Inspección de estaciones de servicio (EDS) y pruebas de hermeticidad a tanques. Servicio acreditado por ONAC en Colombia.",
+  keywords: [
+    "inspección estaciones de servicio",
+    "prueba hermeticidad",
+    "inspección EDS Colombia",
+    "tanques combustible",
+  ],
+  openGraph: {
+    title: "Servicios de Inspección Técnica | ServiCrep",
+    description: "Inspección de EDS y pruebas de hermeticidad acreditadas.",
+    url: "/nuestros-servicios",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/nuestros-servicios",
+  },
 };
 
 const page = () => {

@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 
 const contactoTexts = {
   sectionTitle: "Contáctanos",
@@ -17,7 +18,7 @@ const contactoTexts = {
     {
       icon: "fas fa-envelope fa-2x text-primary me-4",
       title: "Correo electrónico",
-      value: "servicrep@gmail.com"
+      value: "servicrep04@gmail.com"
     },
     {
       icon: "fa fa-phone-alt fa-2x text-primary me-4",
@@ -35,6 +36,26 @@ const contactoTexts = {
     privacy: "Acepto la política de privacidad del sitio",
     send: "Enviar mensaje"
   }
+};
+
+export const metadata: Metadata = {
+  title: "Contacto | ServiCrep - Solicita tu Inspección Técnica",
+  description: "Contáctanos para cotizar inspección de estaciones de servicio y pruebas de hermeticidad. Respuesta en menos de 24 horas. Atendemos en Atlántico y Colombia.",
+  keywords: [
+    "contacto inspección EDS",
+    "cotización hermeticidad",
+    "solicitar inspección técnica",
+    "ServiCrep contacto",
+  ],
+  openGraph: {
+    title: "Contacto | ServiCrep",
+    description: "Solicita tu cotización de inspección técnica acreditada.",
+    url: "/contacto",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/contacto",
+  },
 };
 
 const Contacto = () => {

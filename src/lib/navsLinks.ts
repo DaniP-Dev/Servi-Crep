@@ -7,7 +7,7 @@ export const bannerTexts = {
     icon: "fas fa-map-marker-alt text-primary me-2",
   },
   email: {
-    label: "servicrep@gmail.com",
+    label: "servicrep04@gmail.com",
     icon: "fas fa-envelope text-primary me-2",
   },
   social: [

@@ -1,9 +1,25 @@
 import services from "@/lib/services";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Cobertura en Colombia | Servi-Crep",
-  description: "Atendemos en Atlántico y municipios cercanos. Inspección de EDS, pruebas de hermeticidad y más.",
+export const metadata: Metadata = {
+  title: "Cobertura en Colombia | Inspección EDS Atlántico | ServiCrep",
+  description: "Servicio de inspección técnica en Barranquilla, Soledad, Malambo y Atlántico. Agendamiento rápido y tiempos claros.",
+  keywords: [
+    "inspección EDS Barranquilla",
+    "inspección técnica Atlántico",
+    "hermeticidad Soledad",
+    "cobertura Colombia",
+  ],
+  openGraph: {
+    title: "Cobertura en Colombia | ServiCrep",
+    description: "Atendemos en Atlántico y municipios cercanos.",
+    url: "/colombia",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/colombia",
+  },
 };
 
 const coberturaTexts = {

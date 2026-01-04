@@ -18,9 +18,9 @@ const pqrsTexts = {
     },
     {
       title: "Correo",
-      description: "servicrep@gmail.com",
+      description: "servicrep04@gmail.com",
       cta: "Enviar correo",
-      href: "mailto:servicrep@gmail.com",
+      href: "mailto:servicrep04@gmail.com",
       variant: "outline-primary",
     },
     {

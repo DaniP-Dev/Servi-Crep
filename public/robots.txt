@@ -1,0 +1,11 @@
+# robots.txt para ServiCrep
+# https://www.servicrep.com.co
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://www.servicrep.com.co/sitemap.xml
