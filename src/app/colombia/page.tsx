@@ -1,4 +1,5 @@
 import services from "@/lib/services";
+import Link from "next/link";
 
 export const metadata = {
   title: "Cobertura en Colombia | Servi-Crep",
@@ -88,12 +89,12 @@ export default function CoberturaPage() {
               <h1 className="display-6 fw-bold">{coberturaTexts.hero.title}</h1>
               <p className="lead mb-3">{coberturaTexts.hero.description}</p>
               <div className="d-flex gap-2 flex-wrap">
-                <a className="btn btn-primary" href="/contacto">
+                <Link className="btn btn-primary" href="/contacto">
                   {coberturaTexts.hero.ctaPrimary}
-                </a>
-                <a className="btn btn-outline-primary" href="/nuestros-servicios">
+                </Link>
+                <Link className="btn btn-outline-primary" href="/nuestros-servicios">
                   {coberturaTexts.hero.ctaSecondary}
-                </a>
+                </Link>
               </div>
               <p className="text-body-secondary small mt-3 mb-0">
                 {coberturaTexts.hero.horarios}
@@ -205,9 +206,9 @@ export default function CoberturaPage() {
                     <p className="text-body-secondary flex-grow-1">
                       {s.shortDescription}
                     </p>
-                    <a className="btn btn-outline-primary" href={s.slug}>
+                    <Link className="btn btn-outline-primary" href={s.slug}>
                       {coberturaTexts.servicios.cta}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -256,10 +257,10 @@ export default function CoberturaPage() {
                   <p className="text-body-secondary">
                     {coberturaTexts.ctaFinal.description}
                   </p>
-                  <a className="btn btn-primary w-100 mb-2" href="/contacto">
+                  <Link className="btn btn-primary w-100 mb-2" href="/contacto">
                     <i className="bi bi-whatsapp me-2"></i>
                     {coberturaTexts.ctaFinal.cta}
-                  </a>
+                  </Link>
                   <p className="text-body-secondary small text-center mb-0">
                     {coberturaTexts.ctaFinal.note}
                   </p>

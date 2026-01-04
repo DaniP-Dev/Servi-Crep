@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Calidad y Transparencia | Organismo de Inspección Acreditado | Servi-Crep",
@@ -105,9 +106,9 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.hero.description}
               </p>
-              <a href="/contacto" className="btn btn-light btn-lg">
+              <Link href="/contacto" className="btn btn-light btn-lg">
                 {calidadTexts.hero.cta}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -154,9 +155,9 @@ export default function CalidadPage() {
                     <p className="text-body-secondary flex-grow-1">
                       {politica.description}
                     </p>
-                    <a href={politica.href} className="btn btn-outline-primary">
+                    <Link href={politica.href} className="btn btn-outline-primary">
                       Ver política
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -174,9 +175,9 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.cta.description}
               </p>
-              <a href="/nuestros-servicios" className="btn btn-light btn-lg">
+              <Link href="/nuestros-servicios" className="btn btn-light btn-lg">
                 {calidadTexts.cta.button}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
