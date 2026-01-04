@@ -1,34 +1,6 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Calidad y Transparencia | Organismo de Inspección Acreditado | Servi-Crep",
-  description: "Organismo de inspección acreditado en Colombia. Políticas de confidencialidad, imparcialidad y atención al cliente. Inspección técnica de EDS con estándares internacionales.",
-  keywords: [
-    "organismo de inspección acreditado",
-    "inspección técnica EDS",
-    "calidad inspección Colombia",
-    "acreditación ONAC",
-    "imparcialidad inspección",
-    "confidencialidad inspección",
-    "estaciones de servicio Colombia",
-  ],
-  openGraph: {
-    title: "Calidad y Transparencia | Servi-Crep",
-    description: "Organismo de inspección acreditado. Conoce nuestras políticas de confidencialidad, imparcialidad y atención al cliente.",
-    url: "/calidad",
-    siteName: "Servi-Crep",
-    locale: "es_CO",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Calidad y Transparencia | Servi-Crep",
-    description: "Organismo de inspección acreditado con estándares internacionales.",
-  },
-  alternates: {
-    canonical: "/calidad",
-  },
+export const metadata = {
+  title: "Calidad y Transparencia | Servi-Crep",
+  description: "Comprometidos con la excelencia en inspección técnica. Conoce nuestras políticas de confidencialidad, imparcialidad y atención al cliente.",
 };
 
 const calidadTexts = {
@@ -106,9 +78,9 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.hero.description}
               </p>
-              <Link href="/contacto" className="btn btn-light btn-lg">
+              <a href="/contacto" className="btn btn-light btn-lg">
                 {calidadTexts.hero.cta}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -155,9 +127,9 @@ export default function CalidadPage() {
                     <p className="text-body-secondary flex-grow-1">
                       {politica.description}
                     </p>
-                    <Link href={politica.href} className="btn btn-outline-primary">
+                    <a href={politica.href} className="btn btn-outline-primary">
                       Ver política
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -175,9 +147,9 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.cta.description}
               </p>
-              <Link href="/nuestros-servicios" className="btn btn-light btn-lg">
+              <a href="/nuestros-servicios" className="btn btn-light btn-lg">
                 {calidadTexts.cta.button}
-              </Link>
+              </a>
             </div>
           </div>
         </div>

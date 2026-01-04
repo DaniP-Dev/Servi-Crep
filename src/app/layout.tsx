@@ -16,6 +16,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = 'https://www.servicrep.com.co';
+
 export const metadata: Metadata = {
   title: {
     default: "ServiCrep - Inspección Técnica y pruebas de hermeticidad - Estaciones de servicio de combustible",
@@ -38,20 +40,27 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    type: 'website',
-    locale: 'es_CO',
-    url: 'https://www.servicrep.com.co/',
-    siteName: 'ServiCrep',
-    title: 'ServiCrep - Inspección Técnica Acreditada',
-    description: 'Organismo de Inspección Tipo A acreditado por ONAC.',
+    type: "website",
+    locale: "es_CO",
+    url: siteUrl,
+    siteName: "ServiCrep",
+    title: "ServiCrep - Inspección Técnica Acreditada",
+    description: "Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio.",
     images: [
       {
-        url: '/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'ServiCrep - Inspección Técnica',
-      }
-    ]
+        url: `${siteUrl}/isologo.png`, // Tu isotipo
+        width: 800,
+        height: 800,
+        alt: "ServiCrep - Inspección Técnica Acreditada",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary", // Cambia a "summary" para imagen cuadrada
+    title: "ServiCrep - Inspección Técnica Acreditada",
+    description: "Organismo de Inspección Tipo A acreditado por ONAC.",
+    images: [`${siteUrl}/isologo.png`],
   },
   robots: {
     index: true,

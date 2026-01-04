@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import services from "@/lib/services";
+import services, { CITY_MODIFIERS } from "@/lib/services";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{
@@ -7,23 +8,39 @@ interface PageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { services: serviceSlug } = await params;
   const service = Object.values(services).find(
     (s) => s.slug === `/nuestros-servicios/${serviceSlug}`
   );
 
-  if (!service) return { title: "Servicio no encontrado" };
+  if (!service) {
+    return { title: "Servicio no encontrado" };
+  }
+
+  const { seo } = service;
 
   return {
     title: `${service.title} | ServiCrep`,
-    description: service.description,
-    keywords: [service.title, "inspección técnica", "ServiCrep", "Colombia"],
+    description: `${service.description} ${seo.primaryQuery}. Visita nuestro sitio web.`,
+    keywords: [
+      service.title,
+      seo.primaryQuery,
+      ...seo.secondaryQueries,
+      ...(seo.cityModifiers || CITY_MODIFIERS),
+    ],
     openGraph: {
       title: `${service.title} | ServiCrep`,
-      description: service.description,
+      description: `${service.description} Servicio disponible en ${seo.cityModifiers?.slice(0, 2).join(", ") || "Colombia"}.`,
       url: service.slug,
       type: "website",
+      siteName: "ServiCrep",
+      locale: "es_CO",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | ServiCrep`,
+      description: service.description,
     },
     alternates: {
       canonical: service.slug,
@@ -31,7 +48,13 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default async function page({ params }: PageProps) {
+export async function generateStaticParams() {
+  return Object.values(services).map((service) => ({
+    services: service.slug.replace("/nuestros-servicios/", ""),
+  }));
+}
+
+export default async function ServicePage({ params }: PageProps) {
   const { services: serviceSlug } = await params;
   const service = Object.values(services).find(
     (s) => s.slug === `/nuestros-servicios/${serviceSlug}`
@@ -39,11 +62,14 @@ export default async function page({ params }: PageProps) {
 
   if (!service) notFound();
 
+  const { seo } = service;
+
   return (
     <main className="container py-5">
       {/* Hero */}
       <header className="row align-items-center g-4 mb-4">
         <div className="col-12 col-lg-8">
+          {/* H1 usa primaryQuery para SEO */}
           <h1 className="display-6 fw-bold mb-2">{service.title}</h1>
           <p className="lead mb-0">{service.description}</p>
           {service.duration && (
@@ -52,6 +78,11 @@ export default async function page({ params }: PageProps) {
               Tiempo estimado: {service.duration}
             </p>
           )}
+          {/* Ciudades para SEO local */}
+          <p className="text-body-secondary small mt-2 mb-0">
+            <i className="bi bi-geo-alt me-1"></i>
+            Disponible en: {seo.cityModifiers?.join(", ") || "Colombia"}
+          </p>
         </div>
 
         <div className="col-12 col-lg-4">
@@ -110,12 +141,17 @@ export default async function page({ params }: PageProps) {
                 {service.process.map((step, index) => (
                   <div key={index} className="col-12 col-md-6">
                     <div className="d-flex">
-                      <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{ width: '32px', height: '32px', minWidth: '32px' }}>
+                      <div
+                        className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style={{ width: "32px", height: "32px", minWidth: "32px" }}
+                      >
                         {index + 1}
                       </div>
                       <div>
                         <h3 className="h6 mb-1">{step.title}</h3>
-                        <p className="text-body-secondary small mb-0">{step.description}</p>
+                        <p className="text-body-secondary small mb-0">
+                          {step.description}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -138,6 +174,20 @@ export default async function page({ params }: PageProps) {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* Búsquedas relacionadas para SEO interno */}
+          <div className="card mb-4">
+            <div className="card-body">
+              <h2 className="h6 mb-3">Búsquedas relacionadas</h2>
+              <div className="d-flex flex-wrap gap-2">
+                {seo.secondaryQueries.slice(0, 4).map((query, index) => (
+                  <span key={index} className="badge bg-light text-dark border">
+                    {query}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

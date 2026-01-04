@@ -7,23 +7,49 @@ import OurProjects from "@/components/home/OurProjects";
 import TeamCtaHome from "@/components/home/TeamCtaHome";
 
 export const metadata: Metadata = {
-  title: "ServiCrep | Inspección Técnica de EDS y Pruebas de Hermeticidad en Colombia",
-  description: "Organismo de inspección acreditado por ONAC. Inspección técnica de estaciones de servicio, pruebas de hermeticidad a tanques de combustible. Servicio en Atlántico y Colombia.",
+  title: "ServiCrep | Inspección Técnica de EDS y Pruebas de Hermeticidad | Colombia",
+  description: "Organismo de inspección acreditado. Inspección técnica de estaciones de servicio y pruebas de hermeticidad según requisitos del Ministerio de Minas y Energía. Visita nuestro sitio web.",
   keywords: [
+    // Ministerio de Minas y Energía
+    "Ministerio de Minas y Energía",
+    "requisitos Ministerio Minas EDS",
+    "normativa estaciones de servicio Colombia",
+    "resolución 40198",
+    "regulación combustibles líquidos",
+    // Inspección EDS
     "inspección EDS Colombia",
+    "inspección estaciones de servicio",
+    "inspección técnica EDS",
+    "inspección periódica EDS",
+    "organismo inspección acreditado",
+    // Hermeticidad
     "prueba hermeticidad tanques",
-    "organismo inspección acreditado ONAC",
-    "estaciones de servicio",
-    "tanques de combustible",
+    "hermeticidad tanques subterráneos",
+    "prueba estanqueidad combustible",
+    // Acreditación
+    "organismo inspección ONAC",
+    "acreditación ISO 17020",
+    "organismo tipo A",
+    // Geográficas
+    "inspección EDS Barranquilla",
+    "inspección EDS Atlántico",
+    "inspección EDS Costa Caribe",
   ],
   openGraph: {
-    title: "ServiCrep | Inspección Técnica Acreditada",
-    description: "Organismo de inspección acreditado. Inspección de EDS y pruebas de hermeticidad en Colombia.",
+    title: "ServiCrep | Inspección Técnica de EDS según Ministerio de Minas",
+    description: "Organismo de inspección acreditado por ONAC. Inspección de estaciones de servicio y pruebas de hermeticidad según normativa del Ministerio de Minas y Energía.",
     url: "/",
     type: "website",
+    siteName: "ServiCrep",
+    locale: "es_CO",
   },
   alternates: {
     canonical: "/",
+  },
+  other: {
+    "geo.region": "CO-ATL",
+    "geo.placename": "Soledad, Atlántico",
+    "geo.position": "10°54'45.5\"N 74°48'50.4\"W",
   },
 };
 
