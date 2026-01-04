@@ -28,11 +28,121 @@ export default async function page({ params }: PageProps) {
   if (!service) notFound();
 
   return (
-    <div>
-      <h1>{service.title}</h1>
-      <p>{service.description}</p>
-      <p>{service.longDescription}</p>
-      <a href="/contacto">{service.cta}</a>
-    </div>
+    <main className="container py-5">
+      {/* Hero */}
+      <header className="row align-items-center g-4 mb-4">
+        <div className="col-12 col-lg-8">
+          <h1 className="display-6 fw-bold mb-2">{service.title}</h1>
+          <p className="lead mb-0">{service.description}</p>
+          {service.duration && (
+            <p className="text-body-secondary mt-2 mb-0">
+              <i className="bi bi-clock me-1"></i>
+              Tiempo estimado: {service.duration}
+            </p>
+          )}
+        </div>
+
+        <div className="col-12 col-lg-4">
+          <div className="card shadow-sm border-primary">
+            <div className="card-body">
+              <h2 className="h5 mb-3">¿Listo para comenzar?</h2>
+              <a href="/contacto" className="btn btn-primary w-100">
+                {service.cta}
+              </a>
+              <p className="text-body-secondary small mt-2 mb-0">
+                Respuesta en 24–48 horas hábiles.
+              </p>
+              {service.guarantee && (
+                <p className="text-success small mt-2 mb-0">
+                  <i className="bi bi-shield-check me-1"></i>
+                  {service.guarantee}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Contenido principal */}
+      <section className="row g-4 mb-4">
+        <article className="col-12 col-lg-8">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h2 className="h5">Detalle del servicio</h2>
+              <p className="mb-0">{service.longDescription}</p>
+            </div>
+          </div>
+
+          {/* Beneficios */}
+          <div className="card mb-4">
+            <div className="card-body">
+              <h2 className="h5 mb-3">¿Por qué elegirnos?</h2>
+              <div className="row g-3">
+                {service.benefits.map((benefit, index) => (
+                  <div key={index} className="col-12 col-md-6">
+                    <div className="d-flex align-items-start">
+                      <i className="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                      <span>{benefit}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Proceso */}
+          <div className="card">
+            <div className="card-body">
+              <h2 className="h5 mb-3">¿Cómo funciona?</h2>
+              <div className="row g-3">
+                {service.process.map((step, index) => (
+                  <div key={index} className="col-12 col-md-6">
+                    <div className="d-flex">
+                      <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{ width: '32px', height: '32px', minWidth: '32px' }}>
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h3 className="h6 mb-1">{step.title}</h3>
+                        <p className="text-body-secondary small mb-0">{step.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {/* Sidebar */}
+        <aside className="col-12 col-lg-4">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h2 className="h6 mb-3">Incluye</h2>
+              <ul className="list-group list-group-flush">
+                {service.includes.map((item, index) => (
+                  <li key={index} className="list-group-item px-0">
+                    <i className="bi bi-check2 text-primary me-2"></i>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* CTA secundario */}
+          <div className="card bg-light">
+            <div className="card-body text-center">
+              <h2 className="h6 mb-2">¿Tienes preguntas?</h2>
+              <p className="small text-body-secondary mb-3">
+                Contáctanos y te asesoramos sin compromiso.
+              </p>
+              <a href="/contacto" className="btn btn-outline-primary w-100">
+                Solicitar información
+              </a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
   );
 }

@@ -1,4 +1,8 @@
+"use client";
+
+import { useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { bannerTexts } from "@/lib/navsLinks";
 import LogoLink from "./LogoLink";
 
@@ -8,7 +12,37 @@ interface NavItem {
   dropdown?: { href: string; label: string }[];
 }
 
-const NavDropdown = ({ item }: { item: NavItem }) => (
+interface NavDropdownProps {
+  item: NavItem;
+  onLinkClick: () => void;
+}
+
+interface NavLinkProps {
+  item: NavItem;
+  isActive: boolean;
+  onLinkClick: () => void;
+}
+
+interface CtaButtonProps {
+  onLinkClick: () => void;
+}
+
+const navMenuStyles = {
+  container: { height: "80px" },
+  dropdownMenu: {
+  },
+};
+
+const useCloseNavbar = () => {
+  return useCallback(() => {
+    const navbar = document.getElementById("navbarCollapse");
+    if (navbar?.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  }, []);
+};
+
+const NavDropdown = ({ item, onLinkClick }: NavDropdownProps) => (
   <div className="nav-item dropdown">
     <Link
       href="#"
@@ -20,10 +54,19 @@ const NavDropdown = ({ item }: { item: NavItem }) => (
     >
       {item.label}
     </Link>
-    <ul className="dropdown-menu" aria-labelledby={`navbar${item.label}`}>
+    <ul
+    
+      className="dropdown-menu w-100 border-0"
+      aria-labelledby={`navbar${item.label}`}
+      style={{ ...navMenuStyles.dropdownMenu, backgroundColor: "#DBDBDB" }}
+    >
       {item.dropdown?.map((subitem, idx) => (
         <li key={`${item.label}-${idx}`}>
-          <Link href={subitem.href} className="dropdown-item">
+          <Link
+            href={subitem.href}
+            className="dropdown-item border-bottom border-white"
+            onClick={onLinkClick}
+          >
             {subitem.label}
           </Link>
         </li>
@@ -32,16 +75,17 @@ const NavDropdown = ({ item }: { item: NavItem }) => (
   </div>
 );
 
-const NavLink = ({ item, isActive }: { item: NavItem; isActive: boolean }) => (
+const NavLink = ({ item, isActive, onLinkClick }: NavLinkProps) => (
   <Link
     href={item.href}
     className={`nav-item nav-link${isActive ? " active" : ""}`}
+    onClick={onLinkClick}
   >
     {item.label}
   </Link>
 );
 
-const CtaButton = () => (
+const CtaButton = ({ onLinkClick }: CtaButtonProps) => (
   <div className="nav-btn ps-3">
     <Link
       href={bannerTexts.cta.href}
@@ -50,45 +94,55 @@ const CtaButton = () => (
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp"
+      onClick={onLinkClick}
     >
       <i
         className={`${bannerTexts.cta.icon} me-2`}
         style={{ fontSize: "1.3em" }}
-      ></i>
+      />
       {bannerTexts.cta.label}
     </Link>
   </div>
 );
 
 const NavMenu = () => {
+  const pathname = usePathname();
+  const closeNavbar = useCloseNavbar();
+
   return (
-    <div className="nav-bar px-0 py-lg-0" style={{ height: "80px" }}>
-      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end ">
-        {/* Logo Mobile */}
-        <LogoLink
-          className="navbar-brand-2 d-lg-none"
-          imageClassName="mt-2"
-        />
+    <div className="nav-bar px-0 py-lg-0" style={navMenuStyles.container}>
+      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
+        <LogoLink className="navbar-brand-2 d-lg-none" imageClassName="mt-2" />
 
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
+          aria-label="Toggle navigation"
         >
-          <span className="fa fa-bars"></span>
+          <span className="fa fa-bars" />
         </button>
 
-        <div className="collapse navbar-collapse " id="navbarCollapse">
-          <div className="navbar-nav mx-0 mx-lg-auto bg-white ">
-            {bannerTexts.nav.map((item, idx) =>
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <div className="navbar-nav mx-0 mx-lg-auto p-3" style={{backgroundColor: "#DBDBDB"}}>
+            {bannerTexts.nav.map((item) =>
               item.dropdown ? (
-                <NavDropdown key={item.label} item={item} />
+                <NavDropdown
+                  key={item.label}
+                  item={item}
+                  onLinkClick={closeNavbar}
+                />
               ) : (
-                <NavLink key={item.href} item={item} isActive={idx === 0} />
+                <NavLink
+                  key={item.href}
+                  item={item}
+                  isActive={pathname === item.href}
+                  onLinkClick={closeNavbar}
+                />
               )
             )}
-            <CtaButton />
+            <CtaButton onLinkClick={closeNavbar} />
           </div>
         </div>
       </nav>
