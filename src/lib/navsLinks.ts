@@ -22,7 +22,7 @@ export const bannerTexts = {
       href: "/nuestros-servicios",
       label: "Servicios",
       dropdown: [
-        ...Object.entries(services).map(([key, service]) => ({
+        ...Object.entries(services).map(([, service]) => ({
           href: service.slug,
           label: service.title,
         })),

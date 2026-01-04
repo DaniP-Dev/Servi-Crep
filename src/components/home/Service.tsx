@@ -116,7 +116,7 @@ const Service = () => {
                                   key={tab.id}
                                 >
                                   <div className="service-carousel owl-carousel">
-                                    {serviceTexts.services[key].map((service, sidx) => (
+                                    {serviceTexts.services[key].map((service) => (
                                       <div className="service-item" key={service.title}>
                                         <Image src={service.img} className="img-fluid w-100" alt="" width={600} height={400} />
                                         <div className="border border-top-0 p-4">

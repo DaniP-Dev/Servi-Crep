@@ -53,13 +53,13 @@ const TeamCtaHome = () => {
                     <p className="mb-0">{teamCtaTexts.sectionDescription}</p>
                 </div>
                 <div className="row g-4">
-                  {teamCtaTexts.team.map((member, idx) => (
+                  {teamCtaTexts.team.map((member) => (
                     <div className={`col-md-6 col-lg-3`} key={member.name}>
                       <div className="team-item">
                         <div className="team-img">
                           <Image src={member.img} className="img-fluid w-100" alt="" width={400} height={400} />
                           <div className="team-icon">
-                            {member.social.map((s, sidx) => (
+                            {member.social.map((s) => (
                               <a className="btn btn-square btn-primary mb-2" href={s.href} key={s.icon}><i className={s.icon}></i></a>
                             ))}
                           </div>

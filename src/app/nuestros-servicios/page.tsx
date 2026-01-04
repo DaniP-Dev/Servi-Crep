@@ -1,6 +1,5 @@
 import React from "react";
 import services from "@/lib/services";
-import { title } from "process";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

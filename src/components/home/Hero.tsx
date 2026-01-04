@@ -33,7 +33,8 @@ const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [heroTexts.slides.length]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroTexts.slides.length);

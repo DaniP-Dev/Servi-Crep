@@ -36,7 +36,7 @@ const About = () => {
                             <h1 className="display-4 mb-4">{aboutTexts.sectionSubtitle}</h1>
                             <p className="mb-4">{aboutTexts.sectionDescription}</p>
                             <div className="row g-4 mb-4">
-                              {aboutTexts.features.map((feature, idx) => (
+                              {aboutTexts.features.map((feature) => (
                                 <div className="col-md-6" key={feature.label}>
                                   <div className="d-flex">
                                     <span className={feature.icon}></span>
@@ -46,7 +46,7 @@ const About = () => {
                               ))}
                             </div>
                             <div className="text-dark mb-4">
-                              {aboutTexts.highlights.map((item, idx) => (
+                              {aboutTexts.highlights.map((item) => (
                                 <p className="fs-5" key={item}><span className="fa fa-check text-primary me-2"></span> {item}</p>
                               ))}
                             </div>

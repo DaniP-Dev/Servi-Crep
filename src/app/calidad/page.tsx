@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Calidad y Transparencia | Servi-Crep",
   description: "Comprometidos con la excelencia en inspección técnica. Conoce nuestras políticas de confidencialidad, imparcialidad y atención al cliente.",
@@ -147,9 +149,9 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.cta.description}
               </p>
-              <a href="/nuestros-servicios" className="btn btn-light btn-lg">
+              <Link href="/nuestros-servicios" className="btn btn-light btn-lg">
                 {calidadTexts.cta.button}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
