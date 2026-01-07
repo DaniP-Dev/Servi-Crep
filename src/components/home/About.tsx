@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Image from "next/image";
 
@@ -7,8 +6,8 @@ const aboutTexts = {
   sectionSubtitle: "Organismo de Inspección Tipo A, especializado en la verificación técnica de estaciones de servicio que almacenan y distribuyen combustibles líquidos.",
   sectionDescription: "Nuestra operación se basa en la imparcialidad, independencia y competencia técnica. No realizamos actividades que comprometan nuestra objetividad, como diseño, instalación o mantenimiento. Nuestro único enfoque es inspeccionar, conforme al alcance acreditado.",
   features: [
-    { icon: "fas fa-bolt fa-3x me-3", label: "Inspección técnica acreditada" },
-    { icon: "fas fa-broadcast-tower fa-3x me-3", label: "Verificación de cumplimiento normativo" }
+    { icon: "fas fa-bolt text-primary me-3", label: "Inspección técnica acreditada" },
+    { icon: "fas fa-broadcast-tower text-primary me-3", label: "Verificación de cumplimiento normativo" }
   ],
   highlights: [
     "Imparcialidad y objetividad en cada inspección.",
@@ -34,12 +33,12 @@ const About = () => {
                         <div className="h-100">
                             <h4 className="text-primary">{aboutTexts.sectionTitle}</h4>
                             <h1 className="display-4 mb-4 text-secondary ">{aboutTexts.sectionSubtitle}</h1>
-                            <p className="mb-4">{aboutTexts.sectionDescription}</p>
+                            <p className="mb-4 text-justify">{aboutTexts.sectionDescription}</p>
                             <div className="row g-4 mb-4">
                               {aboutTexts.features.map((feature) => (
-                                <div className="col-md-6" key={feature.label}>
+                                <div className="col-6 col-md-6" key={feature.label}>
                                   <div className="d-flex">
-                                    <span className={feature.icon}></span>
+                                    <i className={feature.icon}></i>
                                     <h4 className="mb-0">{feature.label}</h4>
                                   </div>
                                 </div>

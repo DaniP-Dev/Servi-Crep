@@ -26,7 +26,7 @@
   --bs-info: var(--color-info);
   --bs-dark: var(--color-dark);
   --bs-light: #f8f8f8;
-  --bs-white: var(--color-light);
+  --bs-light: var(--color-light);
   
   /* ---- COLORES ADICIONALES BOOTSTRAP ---- */
   --bs-blue: var(--color-primary);
