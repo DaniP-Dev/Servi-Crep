@@ -72,7 +72,7 @@ export default function QuejasApelacionesPage() {
   return (
     <main className="container py-5">
       <header className="mb-4">
-        <h1 className="display-6 fw-bold mb-2">{pqrsTexts.header.title}</h1>
+        <h1 className="display-6 fw-bold mb-2 text-secondary">{pqrsTexts.header.title}</h1>
         <p className="text-body-secondary mb-0">
           {pqrsTexts.header.description}
         </p>

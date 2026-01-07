@@ -66,7 +66,7 @@ const Contacto = () => {
           <div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
             <div>
               <h4 className="text-primary">{contactoTexts.sectionTitle}</h4>
-              <h1 className="display-4 mb-4">{contactoTexts.sectionSubtitle}</h1>
+              <h1 className="display-4 mb-4 text-secondary">{contactoTexts.sectionSubtitle}</h1>
               <p className="mb-5">{contactoTexts.sectionDescription}</p>
               <div className="d-flex align-items-center mb-4">
                 {contactoTexts.social.map((s, idx) => (

@@ -33,7 +33,7 @@ const About = () => {
                     <div className="col-lg-7 wow fadeInLeft" data-wow-delay="0.2s">
                         <div className="h-100">
                             <h4 className="text-primary">{aboutTexts.sectionTitle}</h4>
-                            <h1 className="display-4 mb-4">{aboutTexts.sectionSubtitle}</h1>
+                            <h1 className="display-4 mb-4 text-secondary ">{aboutTexts.sectionSubtitle}</h1>
                             <p className="mb-4">{aboutTexts.sectionDescription}</p>
                             <div className="row g-4 mb-4">
                               {aboutTexts.features.map((feature) => (

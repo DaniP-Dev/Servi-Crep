@@ -26,7 +26,7 @@ export default async function PoliticaPage({ params }: PageProps) {
   return (
     <main className="container py-5">
       <header className="mb-4">
-        <h1 className="display-6 fw-bold mb-2">{politica.title}</h1>
+        <h1 className="display-6 fw-bold mb-2 text-secondary">{politica.title}</h1>
         <p className="text-body-secondary mb-0">{politica.description}</p>
       </header>
 

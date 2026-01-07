@@ -36,7 +36,7 @@ export default function SeoWrapper() {
         },
         {
           name: 'theme-color',
-          content: '#000000',
+          content: '#2D549E', /* Azul principal - Paleta Servi-Crep */
         },
       ]}
     />

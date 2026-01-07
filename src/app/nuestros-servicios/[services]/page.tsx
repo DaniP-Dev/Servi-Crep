@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: PageProps) {
       <header className="row align-items-center g-4 mb-4">
         <div className="col-12 col-lg-8">
           {/* H1 usa primaryQuery para SEO */}
-          <h1 className="display-6 fw-bold mb-2">{service.title}</h1>
+          <h1 className="display-6 fw-bold mb-2 text-secondary">{service.title}</h1>
           <p className="lead mb-0">{service.description}</p>
           {service.duration && (
             <p className="text-body-secondary mt-2 mb-0">

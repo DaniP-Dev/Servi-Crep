@@ -102,7 +102,7 @@ export default function CoberturaPage() {
         <div className="container">
           <div className="row align-items-center g-4">
             <div className="col-12 col-lg-7">
-              <h1 className="display-6 fw-bold">{coberturaTexts.hero.title}</h1>
+              <h1 className="display-6 fw-bold text-secondary">{coberturaTexts.hero.title}</h1>
               <p className="lead mb-3">{coberturaTexts.hero.description}</p>
               <div className="d-flex gap-2 flex-wrap">
                 <Link className="btn btn-primary" href="/contacto">

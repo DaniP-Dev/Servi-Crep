@@ -4,65 +4,148 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "./bootstrap.min.css";
 
-/* OVERRIDE: Botones de componentes a color principal, texto blanco */
-.btn,
-.btn-primary,
-.btn-light,
-.btn-outline-primary {
-  background: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
-  color: var(--bs-white) !important;
+/* ============================================
+   PALETA DE COLORES SERVI-CREP
+   ============================================
+   Modifica SOLO estos valores para cambiar toda la paleta del sitio.
+   Todos los componentes heredan de estas variables automáticamente.
+   ============================================ */
+:root {
+  /* ---- PALETA PRINCIPAL ---- */
+  --color-primary: #00A859;      /* Azul principal */
+  --color-secondary: #3E4095;    /* Azul/Púrpura */
+  --color-accent: #2D549E;       /* Verde (acentos, CTAs) */
+  --color-info: #00AFEF;         /* Cyan (links, info) */
+  --color-dark: #4B4B4D;         /* Gris oscuro (textos) */
+  --color-light: #FFFFFF;        /* Blanco (fondos) */
+  
+  /* ---- VARIABLES BOOTSTRAP (heredan de paleta principal) ---- */
+  --bs-primary: var(--color-primary);
+  --bs-secondary: var(--color-secondary);
+  --bs-success: var(--color-accent);
+  --bs-info: var(--color-info);
+  --bs-dark: var(--color-dark);
+  --bs-light: #f8f8f8;
+  --bs-white: var(--color-light);
+  
+  /* ---- COLORES ADICIONALES BOOTSTRAP ---- */
+  --bs-blue: var(--color-primary);
+  --bs-indigo: #6610f2;
+  --bs-purple: var(--color-secondary);
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: var(--color-primary);
+  --bs-yellow: #ffc107;
+  --bs-green: var(--color-accent);
+  --bs-teal: #20c997;
+  --bs-cyan: var(--color-info);
+  --bs-gray: #6c757d;
+  --bs-gray-dark: var(--color-dark);
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  
+  /* ---- RGB para transparencias ---- */
+  --bs-primary-rgb: 45, 84, 158;
+  --bs-secondary-rgb: 62, 64, 149;
+  --bs-success-rgb: 0, 168, 89;
+  --bs-info-rgb: 0, 175, 239;
+  --bs-dark-rgb: 75, 75, 77;
+  
+  /* ---- LINKS ---- */
+  --bs-link-color: var(--color-primary);
+  --bs-link-hover-color: var(--color-secondary);
+  
+  /* ---- TIPOGRAFÍA ---- */
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* OVERRIDE: Fondos y bordes de tabs de servicios a color principal, solo letras blancas */
-.service .nav .nav-item,
-.service .nav .nav-item a,
-.service .nav .nav-item a.active {
-  background: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
+/* ============================================
+   OVERRIDES DE BOOTSTRAP PARA NUEVA PALETA
+   ============================================ */
+
+/* Links */
+a { color: var(--color-primary); }
+a:hover { color: var(--color-secondary); }
+
+/* Botones Primary */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #fff !important;
 }
-/* Forzar fondo primario en íconos/emojis de servicios y cualquier fondo naranja heredado de Bootstrap */
-.bg-primary,
-.service-icon,
-.service .icon,
-.service .emoji,
-.service .service-icon,
-.service .bg-primary {
-  background-color: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
+.btn-primary:hover {
+  background-color: var(--color-secondary) !important;
+  border-color: var(--color-secondary) !important;
+}
+
+/* Botones Outline Primary */
+.btn-outline-primary {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  background: transparent !important;
+}
+.btn-outline-primary:hover {
+  background-color: var(--color-primary) !important;
   color: #fff !important;
 }
 
-.service .nav .nav-item a span,
-.service .nav .nav-item a.active span {
-  color: var(--bs-white) !important;
+/* Fondos */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.bg-success { background-color: var(--color-accent) !important; }
+.bg-info { background-color: var(--color-info) !important; }
+.bg-dark { background-color: var(--color-dark) !important; }
+
+/* Textos */
+.text-primary { color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.text-success { color: var(--color-accent) !important; }
+.text-info { color: var(--color-info) !important; }
+.text-dark { color: var(--color-dark) !important; }
+
+/* Bordes */
+.border-primary { border-color: var(--color-primary) !important; }
+
+/* Form Controls */
+.form-control:focus,
+.form-check-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.25rem rgba(45, 84, 158, 0.25);
+}
+.form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
-/* Variables CSS personalizadas */
-:root {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #2519aa;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
-  --bs-primary: #2519aa;
-  --bs-secondary: #6c757d;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f8f8;
-  --bs-dark: #0e121d;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* Servicios - Tabs y Cards */
+.service .nav .nav-item a,
+.service .nav .nav-item a.active {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+.service .nav .nav-item a span,
+.service .nav .nav-item a.active span {
+  color: #fff !important;
+}
+.service-icon,
+.service .icon,
+.service .emoji,
+.service .service-icon {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+/* FontAwesome Icons */
+.fa, .far, .fal { color: var(--color-primary) !important; }
+.fas { color: #fff !important; }
+
+/* Headings color */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: var(--color-dark);
 }
 
 /*** Spinner Start ***/
@@ -245,7 +328,7 @@ a {
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--bs-dark);
+  background: var(--color-info);
   z-index: 1;
 }
 
@@ -258,7 +341,7 @@ a {
     height: 45px;
     top: 0;
     right: 0;
-    background: var(--bs-dark);
+    background: var(--color-info);
     z-index: -1;
   }
 
@@ -303,7 +386,7 @@ a {
     height: 600px;
     top: -200px;
     right: 18px;
-    background: var(--bs-dark);
+    background: var(--color-info);
     transform: rotate(-18deg);
     z-index: -1;
   }
@@ -525,7 +608,7 @@ a {
     height: 600px;
     top: -200px;
     right: 18px;
-    background: var(--bs-dark);
+    background: var(--color-info);
     transform: rotate(-18deg);
     z-index: -1;
   }
@@ -1288,7 +1371,7 @@ a {
 
 /*** Footer Start ***/
 .footer {
-  background: var(--bs-dark);
+  background: var(--color-accent);
 }
 
 .footer .footer-item a {

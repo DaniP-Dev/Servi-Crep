@@ -46,7 +46,7 @@ const footerTexts = {
 const Footer = () => {
     return (
         <div>
-        <div className="container-fluid footer bg-dark py-5">
+        <div className="container-fluid footer py-5">
             <div className="container py-5">
                 <div className="row g-5 mb-5 align-items-center">
                     <div className="col-lg-7">
