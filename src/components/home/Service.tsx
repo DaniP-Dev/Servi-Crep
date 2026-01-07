@@ -81,7 +81,7 @@ const Service = () => {
             <div className="container py-5">
                 <div className="d-flex flex-column mx-auto text-center mb-5" style={{ maxWidth: '800px' }}>
                     <h4 className="text-primary">{serviceTexts.sectionTitle}</h4>
-                    <h1 className="display-4 mb-4">{serviceTexts.sectionSubtitle}</h1>
+                    <h1 className="display-4 mb-4 text-secondary">{serviceTexts.sectionSubtitle}</h1>
                     <p className="mb-0">{serviceTexts.sectionDescription}</p>
                 </div>
                 <div className="row g-5 align-items-center">

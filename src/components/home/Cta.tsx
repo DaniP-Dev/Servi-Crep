@@ -19,8 +19,8 @@ const Cta = () => {
                 <div className="row g-5">
                     <div className="col-lg-8">
                         <div className="">
-                            <h4 className="text-white">{ctaTexts.subtitle}</h4>
-                            <h1 className="display-4 text-white mb-0">{ctaTexts.title}</h1>
+                            <h4 className="text-info">{ctaTexts.subtitle}</h4>
+                            <h1 className="display-4 text-light mb-0">{ctaTexts.title}</h1>
                         </div>
                     </div>
                     <div className="col-lg-4">

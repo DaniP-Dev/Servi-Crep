@@ -49,7 +49,7 @@ const TeamCtaHome = () => {
             <div className="container pb-5">
                 <div className="d-flex flex-column mx-auto text-center mb-5" style={{ maxWidth: '800px' }}>
                     <h4 className="text-primary">{teamCtaTexts.sectionTitle}</h4>
-                    <h1 className="display-4 mb-4">{teamCtaTexts.sectionSubtitle}</h1>
+                    <h1 className="display-4 mb-4 text-secondary">{teamCtaTexts.sectionSubtitle}</h1>
                     <p className="mb-0">{teamCtaTexts.sectionDescription}</p>
                 </div>
                 <div className="row g-4">

@@ -64,7 +64,7 @@ const OurProjects = () => {
                     <div className="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
                         <div>
                             <h4 className="text-primary">{ourProjectsTexts.sectionTitle}</h4>
-                            <h1 className="display-4 mb-4">{ourProjectsTexts.sectionSubtitle}</h1>
+                            <h1 className="display-4 mb-4 text-secondary">{ourProjectsTexts.sectionSubtitle}</h1>
                             <p className="mb-5">{ourProjectsTexts.sectionDescription}</p>
                             <ul className="nav">
                               {ourProjectsTexts.tabs.map((tab, idx) => (

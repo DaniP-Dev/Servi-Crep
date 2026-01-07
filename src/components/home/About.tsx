@@ -64,9 +64,9 @@ const About = () => {
                             />
                             <div className="bg-white">
                                 <div className="position-absolute pt-3 bg-white" style={{ width: '50%', left: 0, bottom: 0 }}>
-                                    <div className="bg-primary p-4">
-                                        <h4 className="display-2 mb-0">{aboutTexts.experience.years}</h4>
-                                        <p className="text-white fs-5 mb-0">{aboutTexts.experience.label}</p>
+                                    <div className="bg-primary p-4 text-light">
+                                        <h4 className="display-2 mb-0 text-light">{aboutTexts.experience.years}</h4>
+                                        <p className="fs-5 mb-0">{aboutTexts.experience.label}</p>
                                     </div>
                                 </div>
                                 <div className="position-absolute p-3 bg-white pb-0 pe-0" style={{ width: '50%', bottom: 0, right: 0 }}>
