@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 const table =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ73kIMTnPvaRDAVShFl7xLYcOIOmC00vzYCZIZS3HrWCiZY09I7bd3hvCeTxi0UPTr6m7FNdbdjHnk/pub?output=csv";
@@ -72,9 +73,9 @@ export default async function ValidatorPage({ params }: Props) {
                   Este código QR constituye prueba oficial de inspección técnica realizada por COMPAÑÍA SERVICREP S.A.S. 
                   Cualquier copia sin validación QR carece de valor técnico y legal.
                 </div>
-                <a href="/" className="btn btn-primary btn-lg mt-3">
+                <Link href="/" className="btn btn-primary btn-lg mt-3">
                   <i className="fas fa-home me-2"></i>Volver al Inicio
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -163,9 +164,9 @@ export default async function ValidatorPage({ params }: Props) {
 
           {/* Botón de regreso */}
           <div className="text-center">
-            <a href="/" className="btn btn-outline-primary btn-lg">
+            <Link href="/" className="btn btn-outline-primary btn-lg">
               <i className="fas fa-arrow-left me-2"></i>Volver al Inicio
-            </a>
+            </Link>
           </div>
         </div>
       </div>
