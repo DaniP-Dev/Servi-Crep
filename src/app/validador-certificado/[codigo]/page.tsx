@@ -20,6 +20,19 @@ interface Props {
 }
 
 export default async function ValidatorPage({ params }: Props) {
+    // CSS local para que los iconos respeten el color de la clase o style
+    // y no sean forzados a blanco por el global .fas { color: #fff !important; }
+    // Solo afecta a este componente
+    const iconColorFix = (
+      <style>{`
+        .validador-certificado-fix .fas,
+        .validador-certificado-fix .fa,
+        .validador-certificado-fix .far,
+        .validador-certificado-fix .fal {
+          color: inherit !important;
+        }
+      `}</style>
+    );
   const { codigo } = await params;
 
   const CSV = await fetch(table, {
@@ -41,40 +54,120 @@ export default async function ValidatorPage({ params }: Props) {
 
   if (!eds) {
     return (
-      <div style={{ padding: "2rem", textAlign: "center" }}>
-        <h1>Inspección no encontrada</h1>
-        <p>
-          El código de inspección <strong>{codigo}</strong> no existe.
-        </p>
+      <div className="container py-5 validador-certificado-fix">
+        {iconColorFix}
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className="card shadow-lg border-0">
+              <div className="card-body text-center p-5">
+                <div className="mb-4">
+                  <i className="fas fa-exclamation-triangle text-primary" style={{ fontSize: '4rem' }}></i>
+                </div>
+                <h1 className="display-5 fw-bold text-danger mb-3">Certificado No Encontrado</h1>
+                <p className="lead text-muted mb-4">
+                  El código de inspección <strong className="text-dark">{codigo}</strong> no existe en nuestros registros.
+                </p>
+                <div className="alert alert-warning border-0 shadow-sm" role="alert">
+                  <i className="fas fa-shield-alt me-2"></i>
+                  Este código QR constituye prueba oficial de inspección técnica realizada por COMPAÑÍA SERVICREP S.A.S. 
+                  Cualquier copia sin validación QR carece de valor técnico y legal.
+                </div>
+                <a href="/" className="btn btn-primary btn-lg mt-3">
+                  <i className="fas fa-home me-2"></i>Volver al Inicio
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-      <h1>Certificado de Inspección</h1>
-      <div
-        style={{
-          border: "2px solid #333",
-          padding: "1.5rem",
-          borderRadius: "8px",
-        }}
-      >
-        <p>
-          <strong>Código:</strong> {eds.codigo}
-        </p>
-        <p>
-          <strong>Tipo:</strong> {eds.tipo}
-        </p>
-        <p>
-          <strong>Nombre EDS:</strong> {eds.nombreEds}
-        </p>
-        <p>
-          <strong>Fecha Inspección:</strong> {eds.fechaInspeccion}
-        </p>
-        <p>
-          <strong>Lugar:</strong> {eds.lugar}
-        </p>
+    <div className="container py-5 validador-certificado-fix">
+      {iconColorFix}
+      <div className="row justify-content-center">
+        <div className="col-lg-10">
+          {/* Header de validación exitosa */}
+          <div className="text-center mb-4">
+            <div className="mb-3">
+              <i className="fas fa-check-circle text-primary" style={{ fontSize: '5rem' }}></i>
+            </div>
+            <h1 className="display-4 fw-bold text-success mb-2">Certificado Válido</h1>
+            <p className="lead text-muted">Inspección técnica verificada y autorizada</p>
+          </div>
+
+          {/* Tarjeta principal del certificado */}
+          <div className="card shadow-lg border-0 mb-4">
+            <div className="card-header bg-primary text-white py-3">
+              <h2 className="h4 mb-0 fw-bold">
+                <i className="fas fa-certificate me-2"></i>
+                Certificado de Inspección Técnica
+              </h2>
+            </div>
+            <div className="card-body p-4">
+              <div className="row g-4">
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Código de Inspección</label>
+                    <p className="h5 mb-0 fw-bold text-primary">{eds.codigo}</p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Tipo de Inspección</label>
+                    <p className="h5 mb-0 fw-bold">{eds.tipo}</p>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Nombre de la EDS</label>
+                    <p className="h5 mb-0 fw-bold">{eds.nombreEds}</p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Fecha de Inspección</label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-calendar-alt me-2 text-primary"></i>
+                      {eds.fechaInspeccion}
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Lugar</label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-map-marker-alt me-2 text-primary"></i>
+                      {eds.lugar}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card-footer bg-white border-top-0 p-4">
+              <div className="alert alert-info border-0 shadow-sm mb-0" role="alert">
+                <div className="d-flex align-items-start">
+                  <i className="fas fa-shield-alt me-3 mt-1 text-primary"></i>
+                  <div>
+                    <h6 className="fw-bold mb-2">Validación Oficial</h6>
+                    <p className="mb-0 small">
+                      Este código QR constituye prueba oficial de inspección técnica realizada por COMPAÑÍA SERVICREP S.A.S. 
+                      Cualquier copia sin validación QR carece de valor técnico y legal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Botón de regreso */}
+          <div className="text-center">
+            <a href="/" className="btn btn-outline-primary btn-lg">
+              <i className="fas fa-arrow-left me-2"></i>Volver al Inicio
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
