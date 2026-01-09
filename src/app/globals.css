@@ -140,7 +140,6 @@ a:hover { color: var(--color-secondary); }
 
 /* FontAwesome Icons */
 .fa, .far, .fal { color: var(--color-primary) !important; }
-.fas { color: #fff !important; }
 
 /* Headings color */
 h1, h2, h3, h4, h5, h6,
@@ -203,7 +202,6 @@ a {
 /* AGREGAR TODO EL CSS PERSONALIZADO AQUÍ */
 /*** Spinner Start ***/
 /* Forzar color principal en todos los íconos de FontAwesome */
-.fas{color: white !important;}
 .fa,
 .far,
 .fal {
