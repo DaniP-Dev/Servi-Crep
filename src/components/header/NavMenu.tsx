@@ -29,8 +29,7 @@ interface CtaButtonProps {
 
 const navMenuStyles = {
   container: { height: "80px" },
-  dropdownMenu: {
-  },
+  dropdownMenu: {},
 };
 
 const useCloseNavbar = () => {
@@ -54,10 +53,7 @@ const NavDropdown = ({ item, onLinkClick }: NavDropdownProps) => (
     >
       {item.label}
     </Link>
-    <ul
-      className="dropdown-menu"
-      aria-labelledby={`navbar${item.label}`}
-    >
+    <ul className="dropdown-menu" aria-labelledby={`navbar${item.label}`}>
       {item.dropdown?.map((subitem, idx) => (
         <li key={`${item.label}-${idx}`}>
           <Link
@@ -108,22 +104,24 @@ const NavMenu = () => {
   const closeNavbar = useCloseNavbar();
 
   return (
-    <div className="nav-bar px-0 py-lg-0" style={navMenuStyles.container}>
-      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-        <LogoLink className="navbar-brand-2 d-lg-none" imageClassName="mt-2" />
+    <div className="nav-bar px-0 py-lg-0 " style={navMenuStyles.container}>
+      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end ">
+        <div className="d-lg-none justify-content-between container-fluid h-100 bg-success ps-0">
+          <LogoLink className="navbar-brand-2 ps-4" />
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span className="fa fa-bars" />
-        </button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-label="Toggle navigation"
+          >
+            <span className="fa fa-bars" />
+          </button>
+        </div>
 
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <div className="navbar-nav mx-0 mx-lg-auto">
+          <div className="navbar-nav mx-0 mx-lg-auto bg-light">
             {bannerTexts.nav.map((item) =>
               item.dropdown ? (
                 <NavDropdown
