@@ -57,6 +57,11 @@
   /* ---- TIPOGRAFÍA ---- */
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* Forzar fondo blanco en todos los dropdowns para evitar transparencia */
+.dropdown-menu {
+  background: #fff !important;
+  background-color: #fff !important;
+}
 }
 
 /* ============================================
@@ -543,24 +548,7 @@ a {
   color: var(--bs-white);
 }
 
-.menu-inclined-left {
-  position: relative;
-  clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%);
-  overflow: visible; /* Asegura que el ::before no se recorte */
-}
 
-.menu-inclined-left::before {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 550px;
-  top: -200px;
-  left: 0;
-  background: var(--bs-primary);
-  transform: rotate(27deg); /* Ajusta este valor hasta que se vea paralelo */
-  z-index: 1;
-  pointer-events: none;
-}
 /* ============================================
    MOBILE NAVBAR (< 992px)
    ============================================ */

@@ -26,8 +26,8 @@ const Banner = () => {
                 <TopBar />
               </div>
             </div>
-            <div className="row bg-light menu-inclined-left me-1">
-              <div className="col ms-4 ">
+            <div className="row bg-light  me-1">
+              <div className="col ms-4  ">
                 <NavMenu />
               </div>
             </div>
