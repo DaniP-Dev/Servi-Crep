@@ -17,10 +17,10 @@ const Banner = () => {
       {/* Solo en computadores */}
       <header className="container-fluid bg-success d-none d-lg-block">
         <div className="row mx-5">
-          <div className="col-2 d-flex align-items-center justify-content-end">
+          <div className="col-1 d-flex align-items-center justify-content-end">
             <LogoLink className="" />
           </div>
-          <div className="col-10">
+          <div className="col-11">
             <div className="row">
               <div className="col">
                 <TopBar />
