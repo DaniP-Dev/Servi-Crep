@@ -61,7 +61,7 @@ export default function Home() {
       <Cta />
       <Service />
       <OurProjects />
-      <TeamCtaHome />
+      
     </div>
   );
 }
