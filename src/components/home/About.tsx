@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const aboutTexts = {
   sectionTitle: "¿Quiénes Somos?",
-  sectionSubtitle: "Organismo de Inspección Tipo A, especializado en la verificación técnica de estaciones de servicio que almacenan y distribuyen combustibles líquidos.",
-  sectionDescription: "Nuestra operación se basa en la imparcialidad, independencia y competencia técnica. No realizamos actividades que comprometan nuestra objetividad, como diseño, instalación o mantenimiento. Nuestro único enfoque es inspeccionar, conforme al alcance acreditado.",
+  sectionSubtitle: "Nacimos para Proteger tu Negocio.",
+  sectionDescription: "Un dueño como tú enfrentó multas millonarias. Elegimos solo inspeccionar: independientes, sin instalaciones ni diseños. Acreditados ONAC, transformamos riesgos en seguridad probada.",
   features: [
     { icon: "fas fa-bolt text-primary me-3", label: "Inspección técnica acreditada" },
     { icon: "fas fa-broadcast-tower text-primary me-3", label: "Verificación de cumplimiento normativo" }

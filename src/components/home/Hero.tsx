@@ -1,26 +1,24 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-
 const heroTexts = {
   slides: [
     {
       id: 1,
       bgClass: "hero-bg-half-1",
       shapeClass: "hero-shape-1",
-      subtitle: "Garantía de Seguridad y Conformidad en Estaciones de Servicio",
-      title: "Tu aliado en la ruta hacia la excelencia.",
-      description:
-        "Realizamos inspecciones acreditadas por ONAC bajo la norma ISO/IEC 17020, garantizando procesos técnicos, imparciales y confiables para el cumplimiento normativo de tu estación de servicio.",
-    }
+      subtitle: "Inspecciones acreditadas por ONAC (ISO/IEC 17020)",
+      title: "Tu socio confiable para el cumplimiento normativo.",
+      description: "técnicas, independientes y precisas para verificar tanques, hermeticidad y sistemas en estaciones de combustibles líquidos.",
+    },
   ],
   buttonVideo: {
     label: "Solicita Inspección",
-    iconClass: "fas fa-play-circle me-2"
+    iconClass: "fas fa-play-circle me-2",
   },
   buttonLearn: {
-    label: "Más Información"
-  }
+    label: "Más Información",
+  },
 };
 
 const Hero = () => {
@@ -33,7 +31,7 @@ const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const nextSlide = () => {
@@ -41,7 +39,9 @@ const Hero = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroTexts.slides.length) % heroTexts.slides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroTexts.slides.length) % heroTexts.slides.length,
+    );
   };
 
   return (
@@ -70,18 +70,15 @@ const Hero = () => {
                     <h4 className="text-white text-uppercase fw-bold mb-4">
                       {slide.subtitle}
                     </h4>
-                    <h1 className="display-2 text-white mb-4">
-                      {slide.title}
-                    </h1>
-                    <p className="mb-5 fs-5">
-                      {slide.description}
-                    </p>
+                    <h1 className="display-2 text-white mb-4">{slide.title}</h1>
+                    <p className="mb-5 fs-5">{slide.description}</p>
                     <div className="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
                       <a
                         className="btn btn-light py-3 px-4 px-md-5 me-2"
                         href="#"
                       >
-                        <i className={heroTexts.buttonVideo.iconClass}></i> {heroTexts.buttonVideo.label}
+                        <i className={heroTexts.buttonVideo.iconClass}></i>{" "}
+                        {heroTexts.buttonVideo.label}
                       </a>
                       <a
                         className="btn btn-primary py-3 px-4 px-md-5 ms-2"

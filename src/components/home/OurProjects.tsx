@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const ourProjectsTexts = {
   sectionTitle: "Proyectos Destacados",
-  sectionSubtitle: "Así trabajamos en la inspección de estaciones de servicio",
-  sectionDescription: "Conoce algunos de nuestros procesos y casos de éxito en la verificación técnica acreditada.",
+  sectionSubtitle: "De Crisis a Éxito Verificado.",
+  sectionDescription: "Con nuestra verificación imparcial, Explora casos reales: antes/después de inspecciones que protegen tu legado.",
   tabs: [
     {
       id: 1,
