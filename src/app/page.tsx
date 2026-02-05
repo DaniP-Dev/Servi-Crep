@@ -5,6 +5,7 @@ import Cta from "@/components/home/Cta";
 import Service from "@/components/home/Service";
 import OurProjects from "@/components/home/OurProjects";
 import TeamCtaHome from "@/components/home/TeamCtaHome";
+import ClientOnly from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "ServiCrep | Inspección Técnica de EDS y Pruebas de Hermeticidad | Colombia",
@@ -59,7 +60,9 @@ export default function Home() {
       <Hero />
       <About />
       <Cta />
-      <Service />
+      <ClientOnly>
+        <Service />
+      </ClientOnly>
       <OurProjects />
     </div>
   );
