@@ -7,7 +7,7 @@ const aboutTexts = {
   sectionDescription: "Un dueño como tú enfrentó multas millonarias. Elegimos solo inspeccionar: independientes, sin instalaciones ni diseños. Acreditados ONAC, transformamos riesgos en seguridad probada.",
   features: [
     { icon: "fas fa-bolt text-primary me-3", label: "Inspección técnica acreditada" },
-    { icon: "fas fa-broadcast-tower text-primary me-3", label: "Verificación de cumplimiento normativo" }
+    { icon: "fas fa-broadcast-tower text-primary me-3", label: "Verificación cumplimiento normativo" }
   ],
   highlights: [
     "Imparcialidad y objetividad en cada inspección.",
@@ -34,12 +34,12 @@ const About = () => {
                             <h4 className="text-primary">{aboutTexts.sectionTitle}</h4>
                             <h1 className="display-4 mb-4 text-secondary ">{aboutTexts.sectionSubtitle}</h1>
                             <p className="mb-4 text-justify">{aboutTexts.sectionDescription}</p>
-                            <div className="row g-4 mb-4">
+                            <div className="row g-1 mb-2 display-1">
                               {aboutTexts.features.map((feature) => (
                                 <div className="col-6 col-md-6" key={feature.label}>
-                                  <div className="d-flex">
+                                  <div className="d-flex ">
                                     <i className={feature.icon}></i>
-                                    <h4 className="mb-0">{feature.label}</h4>
+                                    <h4 className="mb-0 ">{feature.label}</h4>
                                   </div>
                                 </div>
                               ))}
