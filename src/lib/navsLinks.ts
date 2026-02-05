@@ -42,7 +42,7 @@ export const bannerTexts = {
   ],
   cta: {
     label: "WhatsApp",
-    href: "https://wa.me/573001234567", // Cambia al número real
+    href: "https://wa.me/573152077289", // Cambia al número real
     icon: "fab fa-whatsapp",
     style: {
       backgroundColor: "#25D366",

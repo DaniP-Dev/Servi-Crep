@@ -24,7 +24,7 @@ const contactoTexts = {
     {
       icon: "fa fa-phone-alt fa-2x text-primary me-4",
       title: "Teléfono",
-      value: "+57 319 524 5840"
+      value: "+57 315 207 7289"
     }
   ],
   form: {
