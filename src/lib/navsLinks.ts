@@ -3,8 +3,9 @@ import services from "@/lib/services";
 export const bannerTexts = {
   brand: "ServiCrep",
   location: {
-    label: "Encuentra una ubicación",
+    label: "Nuestra ubicación",
     icon: "fas fa-map-marker-alt text-primary me-2",
+    href: "/contacto",
   },
   email: {
     label: "servicrep04@gmail.com",

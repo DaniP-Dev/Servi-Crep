@@ -16,19 +16,19 @@ const serviceTexts = {
         img: "/img/commercial-1.jpg",
         title: "Inspección de tanques de almacenamiento",
         desc: "Verificamos el estado y cumplimiento de tanques para combustibles líquidos en estaciones de servicio.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       },
       {
         img: "/img/commercial-2.jpg",
         title: "Revisión de sistemas de seguridad",
         desc: "Evaluamos los sistemas de protección contra incendios y derrames conforme a la normativa vigente.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       },
       {
         img: "/img/commercial-3.jpg",
         title: "Dictamen técnico acreditado",
         desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       }
     ],
     "Hermeticidad": [
@@ -36,19 +36,19 @@ const serviceTexts = {
         img: "/img/residential-1.jpg",
         title: "Pruebas de hermeticidad en tanques",
         desc: "Realizamos pruebas especializadas para verificar la integridad de los tanques de almacenamiento.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       },
       {
         img: "/img/residential-2.jpg",
         title: "Detección de fugas y filtraciones",
         desc: "Identificamos y documentamos cualquier fuga o filtración en sistemas de almacenamiento.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       },
       {
         img: "/img/residential-3.jpg",
         title: "Certificación de hermeticidad",
         desc: "Emitimos certificados de hermeticidad válidos ante autoridades regulatorias.",
-        cta: { label: "Saber más", href: "/contacto" }
+        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
       }
     ]
   }
@@ -100,7 +100,7 @@ const Service = () => {
                                         <div className="border border-top-0 p-4">
                                           <h4 className="mb-3">{service.title}</h4>
                                           <p className="mb-4">{service.desc}</p>
-                                          <a className="btn btn-primary py-2 px-4" href={service.cta.href}>{service.cta.label}</a>
+                                          <a className="btn btn-primary py-2 px-4" href={service.cta.href} target="_blank" rel="noopener noreferrer">{service.cta.label}</a>
                                         </div>
                                       </div>
                                     ))}

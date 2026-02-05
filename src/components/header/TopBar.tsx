@@ -12,7 +12,7 @@ const TopBar = () => {
         <div className="col-lg-8 text-center text-lg-center mb-lg-0">
           <div className="d-flex flex-wrap">
             <div className="border-end border-primary pe-3">
-              <Link href="#" className="text-light small">
+              <Link href={bannerTexts.location.href} className="text-light small">
                 <i className={bannerTexts.location.icon}></i>
                 {bannerTexts.location.label}
               </Link>

@@ -108,7 +108,7 @@ export default async function PoliticaPage({ params }: PageProps) {
           <p className="text-body-secondary mb-3">
             Contáctanos si tienes preguntas sobre esta política.
           </p>
-          <a href="/contacto" className="btn btn-primary">
+          <a href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             Contactar
           </a>
         </div>

@@ -80,7 +80,7 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.hero.description}
               </p>
-              <a href="/contacto" className="btn btn-light btn-lg">
+              <a href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer" className="btn btn-light btn-lg">
                 {calidadTexts.hero.cta}
               </a>
             </div>

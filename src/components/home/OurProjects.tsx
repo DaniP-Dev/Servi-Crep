@@ -33,25 +33,25 @@ const ourProjectsTexts = {
       img: "/img/industrial-1.jpg",
       title: "Inspección de tanques subterráneos",
       desc: "Realizamos inspecciones exhaustivas para garantizar la integridad y seguridad de los tanques de almacenamiento.",
-      cta: { label: "Ver más", href: "/contacto" }
+      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
     },
     {
       img: "/img/industrial-2.jpg",
       title: "Evaluación de sistemas de seguridad",
       desc: "Verificamos la correcta operación de sistemas contra incendios y control de derrames en estaciones de servicio.",
-      cta: { label: "Ver más", href: "/contacto" }
+      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
     },
     {
       img: "/img/commercial-1.jpg",
       title: "Verificación de normatividad",
       desc: "Aseguramos el cumplimiento de la normatividad ambiental y de seguridad vigente.",
-      cta: { label: "Ver más", href: "/contacto" }
+      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
     },
     {
       img: "/img/commercial-2.jpg",
       title: "Dictámenes técnicos acreditados",
       desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-      cta: { label: "Ver más", href: "/contacto" }
+      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
     }
   ]
 };
@@ -90,7 +90,7 @@ const OurProjects = () => {
                                   <div className="projects-content bg-white p-4">
                                     <h4 className="mb-3">{ourProjectsTexts.projects[idx].title}</h4>
                                     <p className="mb-4">{ourProjectsTexts.projects[idx].desc}</p>
-                                    <a className="btn btn-primary py-2 px-4" href={ourProjectsTexts.projects[idx].cta.href}>{ourProjectsTexts.projects[idx].cta.label}</a>
+                                    <a className="btn btn-primary py-2 px-4" href={ourProjectsTexts.projects[idx].cta.href} target="_blank" rel="noopener noreferrer">{ourProjectsTexts.projects[idx].cta.label}</a>
                                   </div>
                                 </div>
                               </div>

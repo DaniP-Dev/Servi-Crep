@@ -75,7 +75,9 @@ const Hero = () => {
                     <div className="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
                       <a
                         className="btn btn-light py-3 px-4 px-md-5 me-2"
-                        href="#"
+                        href="https://wa.me/573152077289"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <i className={heroTexts.buttonVideo.iconClass}></i>{" "}
                         {heroTexts.buttonVideo.label}

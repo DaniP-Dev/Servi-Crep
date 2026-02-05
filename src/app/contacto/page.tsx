@@ -51,11 +51,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contacto | ServiCrep",
     description: "Solicita tu cotización de inspección técnica acreditada.",
-    url: "/contacto",
+    url: "https://wa.me/573152077289",
     type: "website",
   },
   alternates: {
-    canonical: "/contacto",
+    canonical: "https://wa.me/573152077289",
   },
 };
 

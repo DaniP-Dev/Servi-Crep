@@ -27,7 +27,7 @@ const pqrsTexts = {
       title: "WhatsApp / Teléfono",
       description: "+57 315 207 7289",
       cta: "Ver canales",
-      href: "/contacto",
+      href: "https://wa.me/573152077289",
       variant: "outline-primary",
     },
   ],
@@ -86,7 +86,7 @@ export default function QuejasApelacionesPage() {
               <div className="card-body">
                 <h2 className="h5">{canal.title}</h2>
                 <p className="text-body-secondary mb-2">{canal.description}</p>
-                <a className={`btn btn-${canal.variant}`} href={canal.href}>
+                <a className={`btn btn-${canal.variant}`} href={canal.href} target="_blank" rel="noopener noreferrer">
                   {canal.cta}
                 </a>
               </div>

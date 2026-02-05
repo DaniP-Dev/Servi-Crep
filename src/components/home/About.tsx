@@ -16,7 +16,7 @@ const aboutTexts = {
   ],
   cta: {
     label: "Contáctanos",
-    href: "/contacto"
+    href: "https://wa.me/573152077289"
   },
   experience: {
     years: "5+",
@@ -49,7 +49,7 @@ const About = () => {
                                 <p className="fs-5" key={item}><span className="fa fa-check text-primary me-2"></span> {item}</p>
                               ))}
                             </div>
-                            <a className="btn btn-primary py-3 px-4 px-md-5 ms-2" href={aboutTexts.cta.href}>{aboutTexts.cta.label}</a>
+                            <a className="btn btn-primary py-3 px-4 px-md-5 ms-2" href={aboutTexts.cta.href} target="_blank" rel="noopener noreferrer">{aboutTexts.cta.label}</a>
                         </div>
                     </div>
                     <div className="col-lg-5 wow fadeInRight" data-wow-delay="0.2s">

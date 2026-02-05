@@ -9,7 +9,7 @@ const ctaTexts = {
   textCta: "¡Agenda tu inspección hoy mismo!",
   cta: {
     label: "Solicita tu inspección",
-    href: "/contacto",
+    href: "https://wa.me/573152077289",
   },
 };
 
@@ -42,6 +42,8 @@ const Cta = () => {
               <a
                 className="btn btn-primary py-3 px-4 px-md-5 ms-2"
                 href={ctaTexts.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {ctaTexts.cta.label}
               </a>

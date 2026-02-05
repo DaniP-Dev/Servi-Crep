@@ -89,7 +89,7 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="card shadow-sm border-primary">
             <div className="card-body">
               <h2 className="h5 mb-3">¿Listo para comenzar?</h2>
-              <a href="/contacto" className="btn btn-primary w-100">
+              <a href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer" className="btn btn-primary w-100">
                 {service.cta}
               </a>
               <p className="text-body-secondary small mt-2 mb-0">
@@ -198,7 +198,7 @@ export default async function ServicePage({ params }: PageProps) {
               <p className="small text-body-secondary mb-3">
                 Contáctanos y te asesoramos sin compromiso.
               </p>
-              <a href="/contacto" className="btn btn-outline-primary w-100">
+              <a href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary w-100">
                 Solicitar información
               </a>
             </div>

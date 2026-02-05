@@ -105,9 +105,9 @@ export default function CoberturaPage() {
               <h1 className="display-6 fw-bold text-secondary">{coberturaTexts.hero.title}</h1>
               <p className="lead mb-3">{coberturaTexts.hero.description}</p>
               <div className="d-flex gap-2 flex-wrap">
-                <Link className="btn btn-primary" href="/contacto">
+                <a className="btn btn-primary" href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer">
                   {coberturaTexts.hero.ctaPrimary}
-                </Link>
+                </a>
                 <Link className="btn btn-outline-primary" href="/nuestros-servicios">
                   {coberturaTexts.hero.ctaSecondary}
                 </Link>
@@ -273,7 +273,7 @@ export default function CoberturaPage() {
                   <p className="text-body-secondary">
                     {coberturaTexts.ctaFinal.description}
                   </p>
-                  <Link className="btn btn-primary w-100 mb-2" href="/contacto">
+                  <Link className="btn btn-primary w-100 mb-2" href="https://wa.me/573152077289" target="_blank">
                     <i className="bi bi-whatsapp me-2"></i>
                     {coberturaTexts.ctaFinal.cta}
                   </Link>
