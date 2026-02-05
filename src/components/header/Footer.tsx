@@ -54,8 +54,8 @@ const footerTexts = {
       },
       {
         icon: "fas fa-phone text-primary me-2",
-        label: "+57 3054641743",
-        href: "tel:+573054641743",
+        label: "+57 319 524 5840",
+        href: "tel:+573195245840",
       },
     ],
   },

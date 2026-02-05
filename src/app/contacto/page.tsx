@@ -7,23 +7,24 @@ const contactoTexts = {
   sectionDescription: "Completa el formulario o utiliza nuestros canales de contacto para recibir asesoría sobre inspección técnica acreditada.",
   social: [
     { icon: "fab fa-facebook-f", href: "#" },
-    { icon: "fab fa-linkedin-in", href: "#" }
+    { icon: "fab fa-linkedin-in", href: "#" },
+    { icon: "fab fa-instagram", href: "#" },
   ],
   info: [
     {
       icon: "fas fa-map-marker-alt fa-2x text-primary me-4",
       title: "Dirección",
-      value: "Carrera 14 # 77a-87, Los Robles, Soledad, Colombia"
+      value: "Carrera 14 # 77a-87, Mz 4 Cs 11, Los Robles, Soledad, Colombia"
     },
     {
       icon: "fas fa-envelope fa-2x text-primary me-4",
-      title: "Correo electrónico",
+      title: "Correo",
       value: "servicrep04@gmail.com"
     },
     {
       icon: "fa fa-phone-alt fa-2x text-primary me-4",
       title: "Teléfono",
-      value: "+57 310 123 4567"
+      value: "+57 319 524 5840"
     }
   ],
   form: {
@@ -188,7 +189,7 @@ const Contacto = () => {
               <iframe
                 className="w-100"
                 style={{ height: "400px" }}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5467!2d-74.7858!3d4.6294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa3c0d1d1d1d%3A0xd0d0d0d0d0d!2sCarrera%2014%2C%20Soledad%2C%20Colombia!5e0!3m2!1ses!2sco!4v1704067200000"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d979.4168356323786!2d-74.8145597304616!3d10.912866316180665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDU0JzQ2LjMiTiA3NMKwNDgnNTAuMSJX!5e0!3m2!1ses-419!2sco!4v1770318570396!5m2!1ses-419!2sco"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

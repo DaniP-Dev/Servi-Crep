@@ -25,7 +25,7 @@ const pqrsTexts = {
     },
     {
       title: "WhatsApp / Teléfono",
-      description: "+57 310 123 4567",
+      description: "+57 319 524 5840",
       cta: "Ver canales",
       href: "/contacto",
       variant: "outline-primary",
