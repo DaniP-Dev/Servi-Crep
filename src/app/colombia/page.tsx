@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cobertura en Colombia | Inspección EDS Atlántico | ServiCrep",
-  description: "Servicio de inspección técnica en Barranquilla, Soledad, Malambo y Atlántico. Agendamiento rápido y tiempos claros.",
+  title: "Cobertura Nacional | Inspección EDS en toda Colombia | ServiCrep",
+  description: "Servicio de inspección técnica disponible en toda Colombia. Agendamiento rápido, tiempos claros y cobertura nacional.",
   keywords: [
     "inspección EDS Barranquilla",
     "inspección técnica Atlántico",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 const coberturaTexts = {
   hero: {
-    title: "Cobertura y zonas de atención",
-    description: "Atendemos en Atlántico y municipios cercanos con tiempos claros y agendamiento rápido.",
+    title: "Cobertura nacional",
+    description: "Atendemos en toda Colombia con tiempos claros y agendamiento rápido.",
     ctaPrimary: "Cotizar por WhatsApp",
     ctaSecondary: "Ver servicios",
     horarios: "Horarios: Lun–Sáb. Respuesta en menos de 24 horas hábiles.",
@@ -37,15 +37,15 @@ const coberturaTexts = {
     ],
   },
   zonas: {
-    title: "Zonas de cobertura",
-    description: "Si tu zona no aparece, igual puedes escribirnos y confirmamos disponibilidad.",
-    alert: "Los tiempos y costos de desplazamiento pueden variar según horario, acceso y distancia.",
-    lista: ["Soledad", "Barranquilla", "Malambo", "Puerto Colombia", "Galapa", "Sabanalarga"],
+    title: "Cobertura en toda Colombia",
+    description: "Contamos con presencia en todo el territorio nacional. Escríbenos para confirmar disponibilidad en tu zona.",
+    alert: "Los tiempos y costos de desplazamiento pueden variar según ubicación, horario y acceso.",
+    lista: ["Caribe", "Pacífico", "Andes", "Llanos", "Amazonía", "Más zonas disponibles"],
   },
   mapa: {
-    title: "Mapa de atención",
-    description: "Ubica tu zona y agenda tu servicio.",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125213.65877028042!2d-74.88469!3d10.96854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d44d12ae605%3A0x2633844c57b28bb0!2sBarranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1704395000000!5m2!1ses!2sco",
+    title: "Cobertura nacional",
+    description: "Estamos presentes en todo el territorio colombiano. Ubica tu zona y agenda tu servicio.",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3969.9999999999!2d-74.297627!3d4.570868!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f75bf1a4a4a4d%3A0x1a1a1a1a1a1a1a1a!2sColombia!5e0!3m2!1ses!2sco!4v1704395000000!5m2!1ses!2sco",
     proceso: {
       title: "Cómo funciona",
       pasos: [
@@ -71,8 +71,8 @@ const coberturaTexts = {
     title: "Preguntas frecuentes",
     items: [
       {
-        question: "¿Atienden fuera de Barranquilla?",
-        answer: "Sí, cubrimos Soledad, Malambo, Puerto Colombia, Galapa, Sabanalarga y municipios cercanos. Contáctanos para confirmar disponibilidad en tu zona.",
+        question: "¿Atienden en toda Colombia?",
+        answer: "Sí, contamos con cobertura nacional en todo el territorio colombiano. Contáctanos para confirmar disponibilidad y tiempos en tu zona específica.",
       },
       {
         question: "¿Cuánto tiempo tarda la respuesta?",
