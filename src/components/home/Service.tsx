@@ -7,7 +7,11 @@ import Image from 'next/image';
 // Extend the Window interface to include the $ property for jQuery
 declare global {
   interface Window {
-    $: any;
+    $: {
+      (selector: string): {
+        owlCarousel: (options: Record<string, unknown>) => void;
+      };
+    };
   }
 }
 
