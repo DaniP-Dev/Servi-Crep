@@ -45,7 +45,7 @@ const coberturaTexts = {
   mapa: {
     title: "Cobertura nacional",
     description: "Estamos presentes en todo el territorio colombiano. Ubica tu zona y agenda tu servicio.",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3969.9999999999!2d-74.297627!3d4.570868!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f75bf1a4a4a4d%3A0x1a1a1a1a1a1a1a1a!2sColombia!5e0!3m2!1ses!2sco!4v1704395000000!5m2!1ses!2sco",
+    embedUrl: "https://www.google.com/maps?q=Colombia&output=embed",
     proceso: {
       title: "Cómo funciona",
       pasos: [
