@@ -8,7 +8,7 @@ const contactoTexts = {
   social: [
     { icon: "fab fa-facebook-f", href: "#" },
     { icon: "fab fa-linkedin-in", href: "#" },
-    { icon: "fab fa-instagram", href: "#" },
+    { icon: "fab fa-instagram", href: "https://www.instagram.com/servicrep" },
   ],
   info: [
     {
@@ -71,7 +71,7 @@ const Contacto = () => {
               <p className="mb-5">{contactoTexts.sectionDescription}</p>
               <div className="d-flex align-items-center mb-4">
                 {contactoTexts.social.map((s, idx) => (
-                  <a className={`btn btn-primary btn-md-square me-${idx === contactoTexts.social.length - 1 ? '0' : '3'}`} href={s.href} key={s.icon}>
+                  <a className={`btn btn-primary btn-md-square me-${idx === contactoTexts.social.length - 1 ? '0' : '3'}`} href={s.href} key={s.icon} target="_blank" rel="noopener noreferrer">
                     <i className={s.icon}></i>
                   </a>
                 ))}

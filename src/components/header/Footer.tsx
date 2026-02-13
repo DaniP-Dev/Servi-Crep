@@ -98,6 +98,8 @@ const Footer = () => {
                     }`}
                     href={item.href}
                     aria-label={item.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <i className={item.icon}></i>
                   </a>

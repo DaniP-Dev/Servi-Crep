@@ -55,7 +55,7 @@ const About = () => {
                     <div className="col-lg-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div className="position-relative h-100">
                             <Image
-                                src="/img/about-1.jpg"
+                                src="/img/about-1.jpeg"
                                 className="img-fluid w-100 h-100"
                                 style={{ objectFit: 'cover' }}
                                 alt=""
@@ -71,7 +71,7 @@ const About = () => {
                                 </div>
                                 <div className="position-absolute p-3 bg-white pb-0 pe-0" style={{ width: '50%', bottom: 0, right: 0 }}>
                                     <Image
-                                        src="/img/about-2.jpg"
+                                        src="/img/about-2.jpeg"
                                         className="img-fluid"
                                         alt=""
                                         width={300}   // Ajusta según el tamaño real

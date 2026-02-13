@@ -32,7 +32,7 @@ const TopBar = () => {
         {/* Redes sociales */}
         <div className="col-lg-4 text-center text-lg-end">
           <div className="d-flex justify-content-end">
-            <div className="d-flex border-end border-primary pe-3">
+            <div className="d-flex border-end border-primary pe-3 ">
               {bannerTexts.social.map((item, idx) => (
                 <Link
                   key={item.icon}
@@ -41,6 +41,8 @@ const TopBar = () => {
                   }`}
                   href={item.href}
                   aria-label={item.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i className={item.icon}></i>
                 </Link>

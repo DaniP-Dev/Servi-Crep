@@ -13,7 +13,7 @@ export const bannerTexts = {
   },
   social: [
     { icon: "fab fa-facebook-f", label: "Facebook", href: "#" },
-    { icon: "fab fa-instagram", label: "Instagram", href: "#" },
+    { icon: "fab fa-instagram", label: "Instagram", href: "https://www.instagram.com/servicrep"  },
     { icon: "fab fa-linkedin-in", label: "LinkedIn", href: "#" },
   ],
   nav: [
