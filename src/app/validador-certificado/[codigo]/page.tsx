@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-const linkTabla = process.env.NEXT_PUBLIC_VALIDATOR_URL;
-if (!linkTabla) {
-  throw new Error(
-    "error"
-  );
+const BASE_URL = process.env.NEXT_PUBLIC_VALIDATOR_URL;
+if (!BASE_URL) {
+  throw new Error("error");
 }
-const table = linkTabla;
+
+// AQUÍ PON LOS GIDs DE TUS 3 HOJAS (ve a tu Google Sheets y obtén los números)
+const SHEET_GIDS = ["0", "1211072494", "1039271537"]; // ⬅️ CAMBIA ESTOS NÚMEROS
 
 export const metadata: Metadata = {
   robots: {
@@ -25,41 +25,53 @@ interface Props {
 const validadorTexts = {
   informativoLegal:
     "Este código QR constituye prueba oficial de inspeccióntécnica realizada por COMPAÑÍA SERVICREP S.A.S. Cualquier copia sin validación QR carece de valor técnico y legal.",
-  
 };
 
 export default async function ValidatorPage({ params }: Props) {
   const { codigo } = await params;
 
-  const CSV = await fetch(table, {
-    cache: "no-store", // Desactiva el cache de Next.js
-  }).then((res) => res.text());
+  // Función para parsear CSV
+  const parseCSV = (csv: string) => {
+    return csv
+      .split("\n")
+      .slice(1)
+      .map((row) => {
+        const [
+          codigo,
+          tipo,
+          nombreEds,
+          fechaInspeccion,
+          vencimiento,
+          lugar,
+          estado,
+        ] = row.split(",").map((field) => field.trim());
+        return {
+          codigo,
+          tipo,
+          nombreEds,
+          fechaInspeccion,
+          vencimiento,
+          lugar,
+          estado,
+        };
+      })
+      .filter((eds) => eds.codigo && eds.nombreEds);
+  };
 
-  const EDSs = CSV.split("\n")
-    .slice(1)
-    .map((row) => {
-      const [
-        codigo,
-        tipo,
-        nombreEds,
-        fechaInspeccion,
-        vencimiento,
-        lugar,
-        estado,
-      ] = row.split(",").map((field) => field.trim());
-      return {
-        codigo,
-        tipo,
-        nombreEds,
-        fechaInspeccion,
-        vencimiento,
-        lugar,
-        estado,
-      };
-    })
-    .filter((eds) => eds.codigo && eds.nombreEds);
+  // Fetch de todas las hojas en paralelo
+  const sheetPromises = SHEET_GIDS.map((gid) =>
+    fetch(`${BASE_URL}output=csv&gid=${gid}`, {
+      cache: "no-store",
+    }).then((res) => res.text()),
+  );
 
-  // Buscar la EDS por código
+  const csvResults = await Promise.all(sheetPromises);
+
+  // Combinar todas las hojas
+  const EDSs = csvResults.flatMap(parseCSV);
+
+  console.log("Total certificados:", EDSs.length);
+  // Buscar el certificado específico
   const eds = EDSs.find((item) => item.codigo === codigo);
 
   if (eds) {
@@ -85,7 +97,9 @@ export default async function ValidatorPage({ params }: Props) {
 
             {/* Tarjeta principal del certificado */}
             <div className="card shadow-lg border-0 mb-4">
-              <div className={`card-header ${eds.estado === "ACTIVO" ? "bg-primary text-white" : "bg-warning text-dark"} text-white py-3`}>
+              <div
+                className={`card-header ${eds.estado === "ACTIVO" ? "bg-primary text-white" : "bg-warning text-dark"} text-white py-3`}
+              >
                 <h2 className="h4 mb-0 fw-bold">
                   <i className="fas fa-certificate text-light me-2"></i>
                   Certificado de Inspección Técnica
@@ -98,7 +112,9 @@ export default async function ValidatorPage({ params }: Props) {
                       <label className="text-muted small mb-1">
                         Código de Inspección
                       </label>
-                      <p className={`h5 mb-0 fw-bold ${eds.estado === "ACTIVO" ? "text-primary" : "text-warning"}`}>
+                      <p
+                        className={`h5 mb-0 fw-bold ${eds.estado === "ACTIVO" ? "text-primary" : "text-warning"}`}
+                      >
                         {eds.codigo}
                       </p>
                     </div>
@@ -113,13 +129,17 @@ export default async function ValidatorPage({ params }: Props) {
                   </div>
                   <div className="col-12">
                     <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Nombre de la EDS</label>
+                      <label className="text-muted small mb-1">
+                        Nombre de la EDS
+                      </label>
                       <p className="h5 mb-0 fw-bold">{eds.nombreEds}</p>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Fecha de Inspección</label>
+                      <label className="text-muted small mb-1">
+                        Fecha de Inspección
+                      </label>
                       <p className="h5 mb-0 fw-bold">
                         <i className="fas fa-calendar-alt me-2 text-primary"></i>
                         {eds.fechaInspeccion}
@@ -137,7 +157,9 @@ export default async function ValidatorPage({ params }: Props) {
                   </div>
                   <div className="col-md-6">
                     <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Vencimiento</label>
+                      <label className="text-muted small mb-1">
+                        Vencimiento
+                      </label>
                       <p className="h5 mb-0 fw-bold">
                         <i className="fas fa-calendar-times me-2 text-danger"></i>
                         {eds.vencimiento}
