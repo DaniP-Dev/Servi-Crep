@@ -1,14 +1,55 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-const BASE_URL = process.env.NEXT_PUBLIC_VALIDATOR_URL;
-if (!BASE_URL) {
-  throw new Error("error");
+// ─── CONSTANTES ───────────────────────────────────────────────────────────────
+const SHEET_GIDS = ["0", "1211072494", "1039271537"];
+
+// ─── TIPOS ────────────────────────────────────────────────────────────────────
+interface Props {
+  params: Promise<{ codigo: string }>;
 }
 
-// AQUÍ PON LOS GIDs DE TUS 3 HOJAS (ve a tu Google Sheets y obtén los números)
-const SHEET_GIDS = ["0", "1211072494", "1039271537"]; // ⬅️ CAMBIA ESTOS NÚMEROS
+interface EDS {
+  codigo: string;
+  tipo: string;
+  nombreEds: string;
+  fechaInspeccion: string;
+  vencimiento: string;
+  lugar: string;
+  estado: string;
+}
 
+// ─── UTILIDADES ───────────────────────────────────────────────────────────────
+function parseCSV(csv: string): EDS[] {
+  return csv
+    .split("\n")
+    .slice(1)
+    .map((row) => {
+      const [
+        codigo,
+        tipo,
+        nombreEds,
+        fechaInspeccion,
+        vencimiento,
+        lugar,
+        estado,
+      ] = row
+        .replace(/\r/g, "")
+        .split(",")
+        .map((field) => field.trim());
+      return { codigo, tipo, nombreEds, fechaInspeccion, vencimiento, lugar, estado };
+    })
+    .filter((eds) => eds.codigo && eds.nombreEds);
+}
+
+function buildSheetUrl(base: string, gid: string): string {
+  const url = new URL(base);
+  url.searchParams.set("output", "csv");
+  url.searchParams.set("gid", gid);
+  return url.toString();
+}
+
+// ─── METADATA ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   robots: {
     index: false,
@@ -18,65 +59,41 @@ export const metadata: Metadata = {
   title: "Validador de Certificado",
 };
 
-interface Props {
-  params: Promise<{ codigo: string }>;
-}
-
+// ─── TEXTOS ───────────────────────────────────────────────────────────────────
 const validadorTexts = {
   informativoLegal:
-    "Este código QR constituye prueba oficial de inspeccióntécnica realizada por COMPAÑÍA SERVICREP S.A.S. Cualquier copia sin validación QR carece de valor técnico y legal.",
+    "Este código QR constituye prueba oficial de inspección técnica realizada por COMPAÑÍA SERVICREP S.A.S. Cualquier copia sin validación QR carece de valor técnico y legal.",
 };
 
+// ─── COMPONENTE ───────────────────────────────────────────────────────────────
 export default async function ValidatorPage({ params }: Props) {
+  const BASE_URL = process.env.VALIDATOR_URL;
+  if (!BASE_URL) {
+    throw new Error("La variable de entorno VALIDATOR URL no está definida.");
+  }
+
   const { codigo } = await params;
 
-  // Función para parsear CSV
-  const parseCSV = (csv: string) => {
-    return csv
-      .split("\n")
-      .slice(1)
-      .map((row) => {
-        const [
-          codigo,
-          tipo,
-          nombreEds,
-          fechaInspeccion,
-          vencimiento,
-          lugar,
-          estado,
-        ] = row.split(",").map((field) => field.trim());
-        return {
-          codigo,
-          tipo,
-          nombreEds,
-          fechaInspeccion,
-          vencimiento,
-          lugar,
-          estado,
-        };
-      })
-      .filter((eds) => eds.codigo && eds.nombreEds);
-  };
-
-  // Fetch de todas las hojas en paralelo
-  const sheetPromises = SHEET_GIDS.map((gid) =>
-    fetch(`${BASE_URL}output=csv&gid=${gid}`, {
-      cache: "no-store",
-    }).then((res) => res.text()),
+  // Fetch de todas las hojas en paralelo con manejo de errores
+  const results = await Promise.allSettled(
+    SHEET_GIDS.map((gid) =>
+      fetch(buildSheetUrl(BASE_URL, gid), {
+        next: { revalidate: 60 },
+      }).then((res) => res.text()),
+    ),
   );
 
-  const csvResults = await Promise.all(sheetPromises);
+  // Combinar solo las hojas que respondieron exitosamente
+  const EDSs = results
+    .filter((r): r is PromiseFulfilledResult<string> => r.status === "fulfilled")
+    .flatMap((r) => parseCSV(r.value));
 
-  // Combinar todas las hojas
-  const EDSs = csvResults.flatMap(parseCSV);
-
-  console.log("Total certificados:", EDSs.length);
   // Buscar el certificado específico
   const eds = EDSs.find((item) => item.codigo === codigo);
 
   if (eds) {
     return (
-      <div className="container py-5 ">
+      <div className="container py-5">
         <div className="row justify-content-center">
           <div className="col-lg-10">
             {/* Header de validación exitosa */}
@@ -98,7 +115,11 @@ export default async function ValidatorPage({ params }: Props) {
             {/* Tarjeta principal del certificado */}
             <div className="card shadow-lg border-0 mb-4">
               <div
-                className={`card-header ${eds.estado === "ACTIVO" ? "bg-primary text-white" : "bg-warning text-dark"} text-white py-3`}
+                className={`card-header ${
+                  eds.estado === "ACTIVO"
+                    ? "bg-primary text-white"
+                    : "bg-warning text-dark"
+                } py-3`}
               >
                 <h2 className="h4 mb-0 fw-bold">
                   <i className="fas fa-certificate text-light me-2"></i>
@@ -113,7 +134,9 @@ export default async function ValidatorPage({ params }: Props) {
                         Código de Inspección
                       </label>
                       <p
-                        className={`h5 mb-0 fw-bold ${eds.estado === "ACTIVO" ? "text-primary" : "text-warning"}`}
+                        className={`h5 mb-0 fw-bold ${
+                          eds.estado === "ACTIVO" ? "text-primary" : "text-warning"
+                        }`}
                       >
                         {eds.codigo}
                       </p>
@@ -186,9 +209,7 @@ export default async function ValidatorPage({ params }: Props) {
                     <i className="fas fa-shield-alt me-3 mt-1 text-primary"></i>
                     <div>
                       <h6 className="fw-bold mb-2">Validación Oficial</h6>
-                      <p className="mb-0 small">
-                        {validadorTexts.informativoLegal}
-                      </p>
+                      <p className="mb-0 small">{validadorTexts.informativoLegal}</p>
                     </div>
                   </div>
                 </div>
@@ -208,7 +229,7 @@ export default async function ValidatorPage({ params }: Props) {
   }
 
   return (
-    <div className="container py-5 ">
+    <div className="container py-5">
       <div className="row justify-content-center">
         <div className="col-lg-8">
           <div className="card shadow-lg border-0">
