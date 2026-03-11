@@ -14,6 +14,7 @@ interface EDS {
   tipo: string;
   nombreEds: string;
   fechaInspeccion: string;
+  fechaEmision: string;
   vencimiento: string;
   lugar: string;
   estado: string;
@@ -30,6 +31,7 @@ function parseCSV(csv: string): EDS[] {
         tipo,
         nombreEds,
         fechaInspeccion,
+        fechaEmision,
         vencimiento,
         lugar,
         estado,
@@ -37,7 +39,7 @@ function parseCSV(csv: string): EDS[] {
         .replace(/\r/g, "")
         .split(",")
         .map((field) => field.trim());
-      return { codigo, tipo, nombreEds, fechaInspeccion, vencimiento, lugar, estado };
+      return { codigo, tipo, nombreEds, fechaInspeccion, fechaEmision, vencimiento, lugar, estado };
     })
     .filter((eds) => eds.codigo && eds.nombreEds);
 }
@@ -114,13 +116,7 @@ export default async function ValidatorPage({ params }: Props) {
 
             {/* Tarjeta principal del certificado */}
             <div className="card shadow-lg border-0 mb-4">
-              <div
-                className={`card-header ${
-                  eds.estado === "ACTIVO"
-                    ? "bg-primary text-white"
-                    : "bg-warning text-dark"
-                } py-3`}
-              >
+              <div className="card-header bg-primary text-white py-3">
                 <h2 className="h4 mb-0 fw-bold">
                   <i className="fas fa-certificate text-light me-2"></i>
                   Certificado de Inspección Técnica
@@ -133,11 +129,7 @@ export default async function ValidatorPage({ params }: Props) {
                       <label className="text-muted small mb-1">
                         Código de Inspección
                       </label>
-                      <p
-                        className={`h5 mb-0 fw-bold ${
-                          eds.estado === "ACTIVO" ? "text-primary" : "text-warning"
-                        }`}
-                      >
+                      <p className="h5 mb-0 fw-bold text-success">
                         {eds.codigo}
                       </p>
                     </div>
@@ -160,12 +152,19 @@ export default async function ValidatorPage({ params }: Props) {
                   </div>
                   <div className="col-md-6">
                     <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">
-                        Fecha de Inspección
-                      </label>
+                      <label className="text-muted small mb-1">Fecha de Inspección</label>
                       <p className="h5 mb-0 fw-bold">
                         <i className="fas fa-calendar-alt me-2 text-primary"></i>
                         {eds.fechaInspeccion}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="p-3 bg-light rounded">
+                      <label className="text-muted small mb-1">Fecha de Emisión</label>
+                      <p className="h5 mb-0 fw-bold">
+                        <i className="fas fa-calendar-alt me-2 text-success"></i>
+                        {eds.fechaEmision}
                       </p>
                     </div>
                   </div>
@@ -192,10 +191,7 @@ export default async function ValidatorPage({ params }: Props) {
                   <div className="col-md-6">
                     <div className="p-3 bg-light rounded">
                       <label className="text-muted small mb-1">Estado</label>
-                      <p className="h5 mb-0 fw-bold">
-                        <i className="fas fa-info-circle me-2 text-secondary"></i>
-                        {eds.estado}
-                      </p>
+                      <p className="h5 mb-0 fw-bold">{eds.estado}</p>
                     </div>
                   </div>
                 </div>
