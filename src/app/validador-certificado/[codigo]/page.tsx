@@ -22,6 +22,26 @@ interface EDS {
 
 // ─── UTILIDADES ───────────────────────────────────────────────────────────────
 function parseCSV(csv: string): EDS[] {
+  // Parser que soporta comas dentro de campos entre comillas
+  function splitCSVRow(row: string): string[] {
+    const result: string[] = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < row.length; i++) {
+      const char = row[i];
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    result.push(current.trim());
+    return result;
+  }
+
   return csv
     .split("\n")
     .slice(1)
@@ -35,10 +55,7 @@ function parseCSV(csv: string): EDS[] {
         vencimiento,
         lugar,
         estado,
-      ] = row
-        .replace(/\r/g, "")
-        .split(",")
-        .map((field) => field.trim());
+      ] = splitCSVRow(row.replace(/\r/g, ""));
       return { codigo, tipo, nombreEds, fechaInspeccion, fechaEmision, vencimiento, lugar, estado };
     })
     .filter((eds) => eds.codigo && eds.nombreEds);
@@ -64,7 +81,7 @@ export const metadata: Metadata = {
 // ─── TEXTOS ───────────────────────────────────────────────────────────────────
 const validadorTexts = {
   informativoLegal:
-    "Este código QR constituye prueba oficial de inspección técnica realizada por COMPAÑÍA SERVICREP S.A.S. Cualquier copia sin validación QR carece de valor técnico y legal.",
+    "El presente certificado solo adquiere validez técnica y legal cuando su autenticidad es verificada mediante el código QR dispuesto por COMPAÑÍA SERVICREP S.A.S., el cual permite consultar en línea el registro original de la inspección técnica efectuada. Cualquier reproducción parcial o total de este documento que no cuente con validación mediante dicho código QR carece de valor técnico y legal frente a terceros y autoridades competentes.",
 };
 
 // ─── COMPONENTE ───────────────────────────────────────────────────────────────
