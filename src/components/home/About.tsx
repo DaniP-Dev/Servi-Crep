@@ -4,8 +4,8 @@ import { CONTACT_INFO } from "@/lib/constants";
 
 const aboutTexts = {
   sectionTitle: "¿Quiénes Somos?",
-  sectionSubtitle: "Nacimos para Proteger tu Negocio.",
-  sectionDescription: "Un dueño como tú enfrentó multas millonarias. Elegimos solo inspeccionar: independientes, sin instalaciones ni diseños. Acreditados ONAC, transformamos riesgos en seguridad probada.",
+  sectionSubtitle: "Compromiso con la Integridad y la Excelencia.",
+  sectionDescription: "Como Organismo de Inspección Tipo A acreditado por ONAC, nos dedicamos exclusivamente a la evaluación de la conformidad. Nuestra total independencia técnica —al no realizar diseño, instalación ni mantenimiento— garantiza resultados imparciales y objetivos que fortalecen la seguridad de su operación.",
   features: [
     { icon: "fas fa-bolt text-primary me-3", label: "Inspección técnica acreditada" },
     { icon: "fas fa-broadcast-tower text-primary me-3", label: "Verificación cumplimiento normativo" }
