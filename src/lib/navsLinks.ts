@@ -1,4 +1,6 @@
 import services from "@/lib/services";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 export const bannerTexts = {
   brand: "ServiCrep",
@@ -8,7 +10,7 @@ export const bannerTexts = {
     href: "/contacto",
   },
   email: {
-    label: "servicrep04@gmail.com",
+    label: CONTACT_INFO.email,
     icon: "fas fa-envelope text-primary me-2",
   },
   social: [
@@ -43,7 +45,7 @@ export const bannerTexts = {
   ],
   cta: {
     label: "WhatsApp",
-    href: "https://wa.me/573152077289", // Cambia al número real
+    href: CONTACT_INFO.whatsappUrl, // Cambia al número real
     icon: "fab fa-whatsapp",
     style: {
       backgroundColor: "#25D366",

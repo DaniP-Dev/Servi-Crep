@@ -1,5 +1,6 @@
-import { subtle } from "crypto";
 import React from "react";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 const ctaTexts = {
   subtitle: "¿Necesitas una inspección?",
@@ -9,7 +10,7 @@ const ctaTexts = {
   textCta: "¡Agenda tu inspección hoy mismo!",
   cta: {
     label: "Solicita tu inspección",
-    href: "https://wa.me/573152077289",
+    href: CONTACT_INFO.whatsappUrl,
   },
 };
 

@@ -1,4 +1,7 @@
+import { CONTACT_INFO } from "@/lib/constants";
+
 interface Section {
+
   id: string;
   title: string;
   description: string;
@@ -21,7 +24,7 @@ const politicas: Record<string, Politica> = {
     description: "Compromiso con la protección de la información de nuestros clientes.",
     slug: "/calidad/confidencialidad",
     updatedAt: "2026-01-04",
-    contactEmail: "servicrep04@gmail.com",
+    contactEmail: CONTACT_INFO.email,
     alcance: "Servicios de inspección",
     sections: [
       {
@@ -61,7 +64,7 @@ const politicas: Record<string, Politica> = {
     description: "Garantizamos la objetividad e independencia en nuestras inspecciones.",
     slug: "/calidad/imparcialidad",
     updatedAt: "2026-01-04",
-    contactEmail: "servicrep04@gmail.com",
+    contactEmail: CONTACT_INFO.email,
     alcance: "Actividades de inspección",
     sections: [
       {

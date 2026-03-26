@@ -1,5 +1,7 @@
 import services from "@/lib/services";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/lib/constants";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -105,7 +107,7 @@ export default function CoberturaPage() {
               <h1 className="display-6 fw-bold text-secondary">{coberturaTexts.hero.title}</h1>
               <p className="lead mb-3">{coberturaTexts.hero.description}</p>
               <div className="d-flex gap-2 flex-wrap">
-                <a className="btn btn-primary" href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer">
+                <a className="btn btn-primary" href={CONTACT_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer">
                   {coberturaTexts.hero.ctaPrimary}
                 </a>
                 <Link className="btn btn-outline-primary" href="/nuestros-servicios">
@@ -273,7 +275,7 @@ export default function CoberturaPage() {
                   <p className="text-body-secondary">
                     {coberturaTexts.ctaFinal.description}
                   </p>
-                  <Link className="btn btn-primary w-100 mb-2" href="https://wa.me/573152077289" target="_blank">
+                  <Link className="btn btn-primary w-100 mb-2" href={CONTACT_INFO.whatsappUrl} target="_blank">
                     <i className="bi bi-whatsapp me-2"></i>
                     {coberturaTexts.ctaFinal.cta}
                   </Link>

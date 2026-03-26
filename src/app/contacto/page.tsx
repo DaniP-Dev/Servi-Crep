@@ -1,30 +1,32 @@
 import React from "react";
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 const contactoTexts = {
   sectionTitle: "Contáctanos",
   sectionSubtitle: "¡Estamos listos para ayudarte!",
   sectionDescription: "Completa el formulario o utiliza nuestros canales de contacto para recibir asesoría sobre inspección técnica acreditada.",
   social: [
-    { icon: "fab fa-facebook-f", href: "#" },
-    { icon: "fab fa-linkedin-in", href: "#" },
-    { icon: "fab fa-instagram", href: "https://www.instagram.com/servicrep" },
+    { icon: "fab fa-facebook-f", href: CONTACT_INFO.facebookUrl },
+    { icon: "fab fa-linkedin-in", href: CONTACT_INFO.linkedinUrl },
+    { icon: "fab fa-instagram", href: CONTACT_INFO.instagramUrl },
   ],
   info: [
     {
       icon: "fas fa-map-marker-alt fa-2x text-primary me-4",
       title: "Dirección",
-      value: "Carrera 14 # 77a-87, Mz 4 Cs 11, Los Robles, Soledad, Colombia"
+      value: CONTACT_INFO.address
     },
     {
       icon: "fas fa-envelope fa-2x text-primary me-4",
       title: "Correo",
-      value: "servicrep04@gmail.com"
+      value: CONTACT_INFO.email
     },
     {
       icon: "fa fa-phone-alt fa-2x text-primary me-4",
       title: "Teléfono",
-      value: "+57 315 207 7289"
+      value: CONTACT_INFO.phone
     }
   ],
   form: {
@@ -51,11 +53,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contacto | ServiCrep",
     description: "Solicita tu cotización de inspección técnica acreditada.",
-    url: "https://wa.me/573152077289",
+    url: CONTACT_INFO.whatsappUrl,
     type: "website",
   },
   alternates: {
-    canonical: "https://wa.me/573152077289",
+    canonical: CONTACT_INFO.whatsappUrl,
   },
 };
 

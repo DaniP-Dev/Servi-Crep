@@ -1,4 +1,8 @@
+import React from "react";
+import { CONTACT_INFO } from "@/lib/constants";
+
 export const metadata = {
+
   title: "Quejas y Apelaciones | Servi-Crep",
   description: "Radica Peticiones, Quejas, Reclamos o Sugerencias sobre nuestros servicios de inspección.",
 };
@@ -18,16 +22,16 @@ const pqrsTexts = {
     },
     {
       title: "Correo",
-      description: "servicrep04@gmail.com",
+      description: CONTACT_INFO.email,
       cta: "Enviar correo",
-      href: "mailto:servicrep04@gmail.com",
+      href: `mailto:${CONTACT_INFO.email}`,
       variant: "outline-primary",
     },
     {
       title: "WhatsApp / Teléfono",
-      description: "+57 315 207 7289",
+      description: CONTACT_INFO.phone,
       cta: "Ver canales",
-      href: "https://wa.me/573152077289",
+      href: CONTACT_INFO.whatsappUrl,
       variant: "outline-primary",
     },
   ],

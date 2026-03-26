@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { bannerTexts } from "@/lib/navsLinks";
 import services from "@/lib/services";
+import { CONTACT_INFO } from "@/lib/constants";
+import { bannerTexts } from "@/lib/navsLinks";
+
 
 const footerTexts = {
   subscribePlaceholder: "Correo electrónico para suscribirse",
@@ -10,17 +12,17 @@ const footerTexts = {
     {
       icon: "fab fa-facebook-f",
       label: "Facebook",
-      href: "https://facebook.com/servicrep",
+      href: CONTACT_INFO.facebookUrl,
     },
     {
       icon: "fab fa-instagram",
       label: "Instagram",
-      href: "https://instagram.com/servicrep",
+      href: CONTACT_INFO.instagramUrl,
     },
     {
       icon: "fab fa-linkedin-in",
       label: "LinkedIn",
-      href: "https://linkedin.com/company/servicrep",
+      href: CONTACT_INFO.linkedinUrl,
     },
   ],
   brand: {
@@ -44,18 +46,18 @@ const footerTexts = {
     items: [
       {
         icon: "fa fa-map-marker-alt text-primary me-2",
-        label: "Soledad, Colombia",
+        label: CONTACT_INFO.location,
         href: "#",
       },
       {
         icon: "fas fa-envelope text-primary me-2",
-        label: "servicrep04@gmail.com",
-        href: "mailto:servicrep04@gmail.com",
+        label: CONTACT_INFO.email,
+        href: `mailto:${CONTACT_INFO.email}`,
       },
       {
         icon: "fas fa-phone text-primary me-2",
-        label: "+57 315 207 7289",
-        href: "tel:+573195245840",
+        label: CONTACT_INFO.phone,
+        href: CONTACT_INFO.telUrl,
       },
     ],
   },

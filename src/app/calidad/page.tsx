@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 export const metadata = {
   title: "Calidad y Transparencia | Servi-Crep",
@@ -80,7 +82,7 @@ export default function CalidadPage() {
               <p className="lead mb-4 opacity-90">
                 {calidadTexts.hero.description}
               </p>
-              <a href="https://wa.me/573152077289" target="_blank" rel="noopener noreferrer" className="btn btn-light btn-lg">
+              <a href={CONTACT_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-light btn-lg">
                 {calidadTexts.hero.cta}
               </a>
             </div>

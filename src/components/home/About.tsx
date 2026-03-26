@@ -1,5 +1,6 @@
-import React from 'react';
 import Image from "next/image";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 const aboutTexts = {
   sectionTitle: "¿Quiénes Somos?",
@@ -16,7 +17,7 @@ const aboutTexts = {
   ],
   cta: {
     label: "Contáctanos",
-    href: "https://wa.me/573152077289"
+    href: CONTACT_INFO.whatsappUrl
   },
   experience: {
     years: "5+",

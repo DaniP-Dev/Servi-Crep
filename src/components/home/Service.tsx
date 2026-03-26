@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { CONTACT_INFO } from "@/lib/constants";
+
 import Image from "next/image";
 
 const serviceTexts = {
@@ -16,19 +18,19 @@ const serviceTexts = {
         img: "/img/commercial-1.jpg",
         title: "Inspección de tanques de almacenamiento",
         desc: "Verificamos el estado y cumplimiento de tanques para combustibles líquidos en estaciones de servicio.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       },
       {
         img: "/img/commercial-2.jpg",
         title: "Revisión de sistemas de seguridad",
         desc: "Evaluamos los sistemas de protección contra incendios y derrames conforme a la normativa vigente.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       },
       {
         img: "/img/commercial-3.jpg",
         title: "Dictamen técnico acreditado",
         desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       }
     ],
     "Hermeticidad": [
@@ -36,19 +38,19 @@ const serviceTexts = {
         img: "/img/residential-1.jpg",
         title: "Pruebas de hermeticidad en tanques",
         desc: "Realizamos pruebas especializadas para verificar la integridad de los tanques de almacenamiento.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       },
       {
         img: "/img/residential-2.jpg",
         title: "Detección de fugas y filtraciones",
         desc: "Identificamos y documentamos cualquier fuga o filtración en sistemas de almacenamiento.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       },
       {
         img: "/img/residential-3.jpg",
         title: "Certificación de hermeticidad",
         desc: "Emitimos certificados de hermeticidad válidos ante autoridades regulatorias.",
-        cta: { label: "Saber más", href: "https://wa.me/573152077289" }
+        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
       }
     ]
   }

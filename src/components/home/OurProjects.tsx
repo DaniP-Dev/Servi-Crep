@@ -1,6 +1,7 @@
 
-import React from 'react';
 import Image from "next/image";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 const ourProjectsTexts = {
   sectionTitle: "Proyectos Destacados",
@@ -33,25 +34,25 @@ const ourProjectsTexts = {
       img: "/img/industrial-1.jpg",
       title: "Inspección de tanques subterráneos",
       desc: "Realizamos inspecciones exhaustivas para garantizar la integridad y seguridad de los tanques de almacenamiento.",
-      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
+      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
     },
     {
       img: "/img/industrial-2.jpg",
       title: "Evaluación de sistemas de seguridad",
       desc: "Verificamos la correcta operación de sistemas contra incendios y control de derrames en estaciones de servicio.",
-      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
+      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
     },
     {
       img: "/img/commercial-1.jpg",
       title: "Verificación de normatividad",
       desc: "Aseguramos el cumplimiento de la normatividad ambiental y de seguridad vigente.",
-      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
+      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
     },
     {
       img: "/img/commercial-2.jpg",
       title: "Dictámenes técnicos acreditados",
       desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-      cta: { label: "Ver más", href: "https://wa.me/573152077289" }
+      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
     }
   ]
 };

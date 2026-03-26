@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { CONTACT_INFO } from "@/lib/constants";
+
 
 const heroTexts = {
   slides: [
@@ -75,7 +77,7 @@ const Hero = () => {
                     <div className="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
                       <a
                         className="btn btn-light py-3 px-4 px-md-5 me-2"
-                        href="https://wa.me/573152077289"
+                        href={CONTACT_INFO.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
