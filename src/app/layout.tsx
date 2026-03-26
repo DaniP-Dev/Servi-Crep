@@ -3,7 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Banner from "@/components/header/Banner";
 import Footer from "@/components/header/Footer";
 import JQueryScripts from "@/components/common/JQueryScripts";
+import WhatsAppTracker from "@/components/WhatsAppTracker";
 import "./globals.css";
+
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -137,6 +139,7 @@ export default function RootLayout({
         <Footer />
 
         <JQueryScripts />
+        <WhatsAppTracker />
       </body>
     </html>
   );
