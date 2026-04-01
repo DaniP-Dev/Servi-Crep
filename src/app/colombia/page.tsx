@@ -30,10 +30,10 @@ const coberturaTexts = {
     description: "Atendemos en toda Colombia con tiempos claros y agendamiento rápido.",
     ctaPrimary: "Cotizar por WhatsApp",
     ctaSecondary: "Ver servicios",
-    horarios: "Horarios: Lun–Sáb. Respuesta en menos de 24 horas hábiles.",
+    horarios: "Horarios: Lun-Sáb. Respuesta en menos de 24 horas hábiles.",
     stats: [
       { value: "+50", label: "Proyectos" },
-      { value: "24–48h", label: "Entrega típica" },
+      { value: "24-48h", label: "Entrega típica" },
       { value: "Garantía", label: "Soporte" },
       { value: "Local", label: "Atención cercana" },
     ],
@@ -61,7 +61,7 @@ const coberturaTexts = {
       lista: [
         "Respuesta: < 24h hábiles.",
         "Agendamiento: según disponibilidad.",
-        "Entrega: 24–48h (según servicio).",
+        "Entrega: 24-48h (según servicio).",
       ],
     },
   },
@@ -221,7 +221,7 @@ export default function CoberturaPage() {
                 <div className="card h-100">
                   <div className="card-body d-flex flex-column">
                     <h3 className="h5">{s.title}</h3>
-                    <p className="text-body-secondary flex-grow-1">
+                    <p className="text-body-secondary grow">
                       {s.shortDescription}
                     </p>
                     <Link className="btn btn-outline-primary" href={s.slug}>
@@ -231,6 +231,23 @@ export default function CoberturaPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="card bg-light border-0 mt-4">
+            <div className="card-body">
+              <h2 className="h5 mb-2">¿Buscas atención en Barranquilla?</h2>
+              <p className="text-body-secondary mb-3">
+                También puedes ir directo a nuestras páginas locales optimizadas para resolver búsquedas específicas.
+              </p>
+              <div className="d-flex flex-wrap gap-2">
+                <Link href="/inspeccion-eds-barranquilla" className="btn btn-outline-secondary">
+                  inspección EDS en Barranquilla
+                </Link>
+                <Link href="/pruebas-hermeticidad-barranquilla" className="btn btn-outline-secondary">
+                  pruebas de hermeticidad en Barranquilla
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

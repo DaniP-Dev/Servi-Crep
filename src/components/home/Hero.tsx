@@ -19,7 +19,7 @@ const heroTexts = {
     iconClass: "fas fa-play-circle me-2",
   },
   buttonLearn: {
-    label: "Más Información",
+    label: "Ver servicios",
   },
 };
 
@@ -86,7 +86,7 @@ const Hero = () => {
                       </a>
                       <a
                         className="btn btn-primary py-3 px-4 px-md-5 ms-2"
-                        href="#"
+                        href="/nuestros-servicios"
                       >
                         {heroTexts.buttonLearn.label}
                       </a>

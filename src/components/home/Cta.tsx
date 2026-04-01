@@ -24,7 +24,7 @@ const Cta = () => {
           <div className="col-lg-8 ">
             <div className="">
               <h4 className="text-info">{ctaTexts.subtitle}</h4>
-              <h1 className="display-4 text-light mb-0">{ctaTexts.title}</h1>
+              <h2 className="display-4 text-light mb-0">{ctaTexts.title}</h2>
               <ul className="mt-2 mb-0 ps-4" style={{ listStyleType: "disc" }}>
                 <li className="text-light fs-5 font-semibold">
                   {ctaTexts.subtle1}

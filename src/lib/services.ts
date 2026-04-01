@@ -67,8 +67,8 @@ const COMMON_INCLUDES = {
 const services: Record<string, Service> = {
   inspeccionEds: {
     title: "Inspección de estaciones de servicio (EDS)",
-    description: "Inspección técnica en sitio con entrega de resultados (según aplique).",
-    shortDescription: "Inspección en sitio para EDS.",
+    description: "Inspección técnica de estaciones de servicio con enfoque en cumplimiento normativo y entrega de resultados.",
+    shortDescription: "Inspección técnica en sitio para EDS en Colombia.",
     longDescription:
       "Realizamos inspecciones técnicas en estaciones de servicio (EDS) y emitimos los resultados correspondientes según el alcance aplicable. Servicio programado y ejecutado en la instalación.",
     cta: "Cotizar inspección",
@@ -98,14 +98,37 @@ const services: Record<string, Service> = {
       { title: "Entrega", description: "Enviamos informe con resultados según alcance" },
     ],
 
+    faqs: [
+      {
+        question: "¿Qué revisan en una inspección técnica de una EDS?",
+        answer:
+          "Se evalúan componentes y condiciones técnicas según el alcance aplicable, con verificación en sitio y registro de hallazgos para el informe final.",
+      },
+      {
+        question: "¿La inspección de EDS sirve para trámites regulatorios?",
+        answer:
+          "Sí, se entrega documentación técnica de resultados según alcance, útil para procesos internos y requerimientos de autoridades cuando aplique.",
+      },
+      {
+        question: "¿Cuánto tarda una inspección de estación de servicio?",
+        answer:
+          "Depende del tamaño y condiciones de la instalación. Normalmente se programa en plazos cortos y se ejecuta en una ventana técnica definida.",
+      },
+      {
+        question: "¿Atienden inspección de EDS en Barranquilla y otras ciudades?",
+        answer:
+          "Sí. Atendemos Barranquilla, Atlántico y otras regiones de Colombia con programación previa.",
+      },
+    ],
+
     seo: {
       primaryQuery: "inspección estaciones de servicio EDS Colombia",
       secondaryQueries: [
-        "inspección técnica EDS",
-        "inspección EDS Ministerio Minas",
-        "organismo inspección estaciones combustible",
-        "inspección periódica EDS",
-        "requisitos inspección estación de servicio",
+        "inspección técnica EDS barranquilla",
+        "inspección periódica estaciones de servicio",
+        "organismo inspección EDS ONAC",
+        "requisitos para inspección de EDS",
+        "cotizar inspección estaciones de servicio",
       ],
       cityModifiers: [...CITY_MODIFIERS],
     },
@@ -113,8 +136,8 @@ const services: Record<string, Service> = {
 
   hermeticidad: {
     title: "Pruebas de hermeticidad",
-    description: "Pruebas en sitio para verificar hermeticidad (según alcance).",
-    shortDescription: "Pruebas de hermeticidad para EDS.",
+    description: "Pruebas de hermeticidad para tanques y sistemas de combustible en estaciones de servicio.",
+    shortDescription: "Pruebas de hermeticidad para EDS y tanques de combustible.",
     longDescription:
       "Ejecutamos pruebas de hermeticidad en sitio para verificar condiciones de hermeticidad en los componentes cubiertos por el alcance definido.",
     cta: "Cotizar hermeticidad",
@@ -144,14 +167,37 @@ const services: Record<string, Service> = {
       { title: "Documentación", description: "Entregamos informe/certificado con resultados" },
     ],
 
+    faqs: [
+      {
+        question: "¿Cómo saber si un tanque de combustible tiene fuga?",
+        answer:
+          "La forma confiable es mediante pruebas técnicas de hermeticidad con metodología y equipos calibrados, evitando diagnósticos incompletos.",
+      },
+      {
+        question: "¿Cada cuánto se hace la prueba de hermeticidad en una EDS?",
+        answer:
+          "La periodicidad depende del requisito aplicable y del estado operativo de la instalación. Te asesoramos para definir el momento correcto.",
+      },
+      {
+        question: "¿La prueba de hermeticidad tiene validez técnica?",
+        answer:
+          "Sí, se entrega documentación de resultados según alcance, soportada en procedimientos técnicos y equipos calibrados.",
+      },
+      {
+        question: "¿Pueden hacer pruebas de hermeticidad fuera del Atlántico?",
+        answer:
+          "Sí. Prestamos el servicio en Colombia con cobertura nacional y programación previa.",
+      },
+    ],
+
     seo: {
-      primaryQuery: "prueba hermeticidad tanques combustible Colombia",
+      primaryQuery: "pruebas de hermeticidad tanques de combustible Colombia",
       secondaryQueries: [
-        "prueba hermeticidad EDS",
-        "hermeticidad tanques subterráneos",
-        "prueba estanqueidad combustible",
-        "verificación hermeticidad estación servicio",
-        "prueba fugas tanques combustible",
+        "prueba hermeticidad EDS barranquilla",
+        "prueba estanqueidad tanques subterráneos",
+        "detección de fugas en tanques de gasolina",
+        "certificación de hermeticidad combustible",
+        "cotizar prueba de hermeticidad",
       ],
       cityModifiers: [...CITY_MODIFIERS],
     },
@@ -159,7 +205,7 @@ const services: Record<string, Service> = {
 
   paqueteInspeccionHermeticidad: {
     title: "Paquete: Inspección + Hermeticidad",
-    description: "Dos servicios en una sola programación de visita.",
+    description: "Servicio integral de inspección EDS y hermeticidad en una sola programación de visita.",
     shortDescription: "Inspección + hermeticidad en una sola agenda.",
     longDescription:
       "Programa la inspección de EDS y las pruebas de hermeticidad en una sola visita para optimizar tiempos de coordinación y operación.",
@@ -190,14 +236,37 @@ const services: Record<string, Service> = {
       { title: "Entrega completa", description: "Recibe toda la documentación según aplique" },
     ],
 
+    faqs: [
+      {
+        question: "¿Conviene contratar inspección y hermeticidad juntos?",
+        answer:
+          "Sí, porque reduces tiempos de coordinación, concentras la operación en una sola visita y simplificas el seguimiento técnico.",
+      },
+      {
+        question: "¿Qué incluye el paquete integral para EDS?",
+        answer:
+          "Incluye inspección técnica de la EDS y pruebas de hermeticidad según alcance, más documentación de resultados y observaciones técnicas.",
+      },
+      {
+        question: "¿Cuánto tarda el servicio combinado?",
+        answer:
+          "Generalmente se ejecuta entre 1 y 2 días hábiles, dependiendo del alcance y de las condiciones de la estación.",
+      },
+      {
+        question: "¿Atienden paquete integral en Colombia?",
+        answer:
+          "Sí. El servicio combinado está disponible con cobertura nacional y programación previa.",
+      },
+    ],
+
     seo: {
-      primaryQuery: "inspección EDS y prueba hermeticidad Colombia",
+      primaryQuery: "inspección EDS y hermeticidad en una sola visita",
       secondaryQueries: [
-        "paquete inspección hermeticidad EDS",
-        "inspección completa estación servicio",
-        "servicio integral EDS Colombia",
-        "inspección y hermeticidad tanques",
-        "verificación EDS completa",
+        "paquete inspección y hermeticidad Colombia",
+        "servicio integral estaciones de servicio",
+        "contratar inspección y hermeticidad juntos",
+        "inspección técnica integral combustible",
+        "cotización inspección más hermeticidad",
       ],
       cityModifiers: [...CITY_MODIFIERS],
     },

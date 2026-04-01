@@ -18,19 +18,19 @@ const serviceTexts = {
         img: "/img/commercial-1.jpg",
         title: "Inspección de tanques de almacenamiento",
         desc: "Verificamos el estado y cumplimiento de tanques para combustibles líquidos en estaciones de servicio.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/inspeccion-eds" }
       },
       {
         img: "/img/commercial-2.jpg",
         title: "Revisión de sistemas de seguridad",
         desc: "Evaluamos los sistemas de protección contra incendios y derrames conforme a la normativa vigente.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/inspeccion-eds" }
       },
       {
         img: "/img/commercial-3.jpg",
         title: "Dictamen técnico acreditado",
         desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/inspeccion-eds-hermeticidad" }
       }
     ],
     "Hermeticidad": [
@@ -38,19 +38,19 @@ const serviceTexts = {
         img: "/img/residential-1.jpg",
         title: "Pruebas de hermeticidad en tanques",
         desc: "Realizamos pruebas especializadas para verificar la integridad de los tanques de almacenamiento.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/pruebas-hermeticidad" }
       },
       {
         img: "/img/residential-2.jpg",
         title: "Detección de fugas y filtraciones",
         desc: "Identificamos y documentamos cualquier fuga o filtración en sistemas de almacenamiento.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/pruebas-hermeticidad" }
       },
       {
         img: "/img/residential-3.jpg",
         title: "Certificación de hermeticidad",
         desc: "Emitimos certificados de hermeticidad válidos ante autoridades regulatorias.",
-        cta: { label: "Saber más", href: CONTACT_INFO.whatsappUrl }
+        cta: { label: "Saber más", href: "/nuestros-servicios/pruebas-hermeticidad" }
       }
     ]
   }
@@ -62,7 +62,7 @@ const Service = () => {
             <div className="container py-5">
                 <div className="d-flex flex-column mx-auto text-center mb-5" style={{ maxWidth: '800px' }}>
                     <h4 className="text-primary">{serviceTexts.sectionTitle}</h4>
-                    <h1 className="display-4 mb-4 text-secondary">{serviceTexts.sectionSubtitle}</h1>
+                    <h2 className="display-4 mb-4 text-secondary">{serviceTexts.sectionSubtitle}</h2>
                     <p className="mb-0">{serviceTexts.sectionDescription}</p>
                 </div>
                 <div className="row g-5 align-items-center">
@@ -98,11 +98,27 @@ const Service = () => {
                                   <div className="service-carousel owl-carousel">
                                     {serviceTexts.services[key].map((service) => (
                                       <div className="service-item" key={service.title}>
-                                        <Image src={service.img} className="img-fluid w-100" alt="" width={600} height={400} />
+                                          <Image
+                                            src={service.img}
+                                            className="img-fluid w-100"
+                                            alt={`${service.title} para estaciones de servicio en Colombia`}
+                                            width={600}
+                                            height={400}
+                                          />
                                         <div className="border border-top-0 p-4">
                                           <h4 className="mb-3">{service.title}</h4>
                                           <p className="mb-4">{service.desc}</p>
-                                          <a className="btn btn-primary py-2 px-4" href={service.cta.href} target="_blank" rel="noopener noreferrer">{service.cta.label}</a>
+                                            <div className="d-flex gap-2 flex-wrap">
+                                              <a className="btn btn-primary py-2 px-4" href={service.cta.href}>{service.cta.label}</a>
+                                              <a
+                                                className="btn btn-outline-secondary py-2 px-4"
+                                                href={CONTACT_INFO.whatsappUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                              >
+                                                Cotizar ahora
+                                              </a>
+                                            </div>
                                         </div>
                                       </div>
                                     ))}
@@ -112,6 +128,12 @@ const Service = () => {
                             })}
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-4 text-center">
+                  <a className="btn btn-outline-primary" href="/nuestros-servicios">
+                    Ver catálogo completo de servicios
+                  </a>
                 </div>
             </div>
         </div>

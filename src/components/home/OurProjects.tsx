@@ -34,25 +34,25 @@ const ourProjectsTexts = {
       img: "/img/industrial-1.jpg",
       title: "Inspección de tanques subterráneos",
       desc: "Realizamos inspecciones exhaustivas para garantizar la integridad y seguridad de los tanques de almacenamiento.",
-      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
+      cta: { label: "Ver más", href: "/nuestros-servicios/inspeccion-eds" }
     },
     {
       img: "/img/industrial-2.jpg",
       title: "Evaluación de sistemas de seguridad",
       desc: "Verificamos la correcta operación de sistemas contra incendios y control de derrames en estaciones de servicio.",
-      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
+      cta: { label: "Ver más", href: "/nuestros-servicios/inspeccion-eds" }
     },
     {
       img: "/img/commercial-1.jpg",
       title: "Verificación de normatividad",
       desc: "Aseguramos el cumplimiento de la normatividad ambiental y de seguridad vigente.",
-      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
+      cta: { label: "Ver más", href: "/nuestros-servicios/inspeccion-eds-hermeticidad" }
     },
     {
       img: "/img/commercial-2.jpg",
       title: "Dictámenes técnicos acreditados",
       desc: "Emitimos informes técnicos válidos ante autoridades regulatorias y entes de control.",
-      cta: { label: "Ver más", href: CONTACT_INFO.whatsappUrl }
+      cta: { label: "Ver más", href: "/nuestros-servicios/inspeccion-eds-hermeticidad" }
     }
   ]
 };
@@ -65,7 +65,7 @@ const OurProjects = () => {
                     <div className="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
                         <div>
                             <h4 className="text-primary">{ourProjectsTexts.sectionTitle}</h4>
-                            <h1 className="display-4 mb-4 text-secondary">{ourProjectsTexts.sectionSubtitle}</h1>
+                            <h2 className="display-4 mb-4 text-secondary">{ourProjectsTexts.sectionSubtitle}</h2>
                             <p className="mb-5">{ourProjectsTexts.sectionDescription}</p>
                             <ul className="nav">
                               {ourProjectsTexts.tabs.map((tab, idx) => (
@@ -87,11 +87,29 @@ const OurProjects = () => {
                                 key={tab.id}
                               >
                                 <div className="projects-item">
-                                  <Image src={ourProjectsTexts.projects[idx].img} className="img-fluid w-100" alt="" width={600} height={400} />
+                                  <Image
+                                    src={ourProjectsTexts.projects[idx].img}
+                                    className="img-fluid w-100"
+                                    alt={`${ourProjectsTexts.projects[idx].title} en estaciones de servicio`}
+                                    width={600}
+                                    height={400}
+                                  />
                                   <div className="projects-content bg-white p-4">
                                     <h4 className="mb-3">{ourProjectsTexts.projects[idx].title}</h4>
                                     <p className="mb-4">{ourProjectsTexts.projects[idx].desc}</p>
-                                    <a className="btn btn-primary py-2 px-4" href={ourProjectsTexts.projects[idx].cta.href} target="_blank" rel="noopener noreferrer">{ourProjectsTexts.projects[idx].cta.label}</a>
+                                    <div className="d-flex gap-2 flex-wrap">
+                                      <a className="btn btn-primary py-2 px-4" href={ourProjectsTexts.projects[idx].cta.href}>
+                                        {ourProjectsTexts.projects[idx].cta.label}
+                                      </a>
+                                      <a
+                                        className="btn btn-outline-secondary py-2 px-4"
+                                        href={CONTACT_INFO.whatsappUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        Cotizar
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>

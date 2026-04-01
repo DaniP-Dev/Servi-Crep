@@ -33,7 +33,7 @@ const About = () => {
                     <div className="col-lg-7 wow fadeInLeft" data-wow-delay="0.2s">
                         <div className="h-100">
                             <h4 className="text-primary">{aboutTexts.sectionTitle}</h4>
-                            <h1 className="display-4 mb-4 text-secondary ">{aboutTexts.sectionSubtitle}</h1>
+                            <h2 className="display-4 mb-4 text-secondary ">{aboutTexts.sectionSubtitle}</h2>
                             <p className="mb-4 text-justify">{aboutTexts.sectionDescription}</p>
                             <div className="row g-1 mb-2 display-1">
                               {aboutTexts.features.map((feature) => (
@@ -59,7 +59,7 @@ const About = () => {
                                 src="/img/about-1.jpeg"
                                 className="img-fluid w-100 h-100"
                                 style={{ objectFit: 'cover' }}
-                                alt=""
+                              alt="Equipo técnico de ServiCrep realizando inspección acreditada para estaciones de servicio"
                                 width={600}   // Ajusta según el tamaño real
                                 height={400}  // Ajusta según el tamaño real
                             />
@@ -74,7 +74,7 @@ const About = () => {
                                     <Image
                                         src="/img/about-2.jpeg"
                                         className="img-fluid"
-                                        alt=""
+                                      alt="Proceso técnico de verificación para cumplimiento normativo en EDS"
                                         width={300}   // Ajusta según el tamaño real
                                         height={200}  // Ajusta según el tamaño real
                                     />
