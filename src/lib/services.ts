@@ -135,9 +135,9 @@ const services: Record<string, Service> = {
   },
 
   hermeticidad: {
-    title: "Pruebas de hermeticidad",
-    description: "Pruebas de hermeticidad para tanques y sistemas de combustible en estaciones de servicio.",
-    shortDescription: "Pruebas de hermeticidad para EDS y tanques de combustible.",
+    title: "Pruebas de hermeticidad a tanques y líneas",
+    description: "Pruebas de hermeticidad para tanques y líneas de combustible en estaciones de servicio.",
+    shortDescription: "Pruebas de hermeticidad para EDS, tanques y líneas de combustible.",
     longDescription:
       "Ejecutamos pruebas de hermeticidad en sitio para verificar condiciones de hermeticidad en los componentes cubiertos por el alcance definido.",
     cta: "Cotizar hermeticidad",
@@ -174,9 +174,19 @@ const services: Record<string, Service> = {
           "La forma confiable es mediante pruebas técnicas de hermeticidad con metodología y equipos calibrados, evitando diagnósticos incompletos.",
       },
       {
+        question: "Siento olor a gasolina, ¿debo hacer prueba de hermeticidad?",
+        answer:
+          "Sí, es recomendable evaluar tanques y líneas con una prueba de hermeticidad para descartar fugas y reducir riesgos operativos.",
+      },
+      {
         question: "¿Cada cuánto se hace la prueba de hermeticidad en una EDS?",
         answer:
           "La periodicidad depende del requisito aplicable y del estado operativo de la instalación. Te asesoramos para definir el momento correcto.",
+      },
+      {
+        question: "¿La prueba de hermeticidad aplica solo para tanques o también para líneas?",
+        answer:
+          "Aplica para tanques y líneas según alcance técnico del servicio, con verificación en sitio y registro de resultados.",
       },
       {
         question: "¿La prueba de hermeticidad tiene validez técnica?",
@@ -184,9 +194,19 @@ const services: Record<string, Service> = {
           "Sí, se entrega documentación de resultados según alcance, soportada en procedimientos técnicos y equipos calibrados.",
       },
       {
+        question: "¿Quién puede hacer prueba de fugas en líneas de combustible?",
+        answer:
+          "Debe realizarla un equipo técnico competente con metodología de hermeticidad. En ServiCrep ejecutamos la verificación con enfoque técnico.",
+      },
+      {
         question: "¿Pueden hacer pruebas de hermeticidad fuera del Atlántico?",
         answer:
           "Sí. Prestamos el servicio en Colombia con cobertura nacional y programación previa.",
+      },
+      {
+        question: "¿Qué entregan después de la prueba de hermeticidad?",
+        answer:
+          "Entregamos informe o certificado de resultados según alcance, con observaciones técnicas para soporte operativo.",
       },
     ],
 
