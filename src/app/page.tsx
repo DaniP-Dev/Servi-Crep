@@ -6,7 +6,6 @@ import About from "@/components/home/About";
 import Cta from "@/components/home/Cta";
 import Service from "@/components/home/Service";
 import OurProjects from "@/components/home/OurProjects";
-import TeamCtaHome from "@/components/home/TeamCtaHome";
 import ClientOnly from "@/components/ClientOnly";
 import services from "@/lib/services";
 

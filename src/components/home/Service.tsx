@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 
 import Image from "next/image";
@@ -109,7 +110,7 @@ const Service = () => {
                                           <h4 className="mb-3">{service.title}</h4>
                                           <p className="mb-4">{service.desc}</p>
                                             <div className="d-flex gap-2 flex-wrap">
-                                              <a className="btn btn-primary py-2 px-4" href={service.cta.href}>{service.cta.label}</a>
+                                              <Link className="btn btn-primary py-2 px-4" href={service.cta.href}>{service.cta.label}</Link>
                                               <a
                                                 className="btn btn-outline-secondary py-2 px-4"
                                                 href={CONTACT_INFO.whatsappUrl}
@@ -131,9 +132,9 @@ const Service = () => {
                 </div>
 
                 <div className="mt-4 text-center">
-                  <a className="btn btn-outline-primary" href="/nuestros-servicios">
+                  <Link className="btn btn-outline-primary" href="/nuestros-servicios">
                     Ver catálogo completo de servicios
-                  </a>
+                  </Link>
                 </div>
             </div>
         </div>

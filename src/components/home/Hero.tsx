@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 
 
@@ -33,7 +34,6 @@ const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const nextSlide = () => {
@@ -84,12 +84,12 @@ const Hero = () => {
                         <i className={heroTexts.buttonVideo.iconClass}></i>{" "}
                         {heroTexts.buttonVideo.label}
                       </a>
-                      <a
+                      <Link
                         className="btn btn-primary py-3 px-4 px-md-5 ms-2"
                         href="/nuestros-servicios"
                       >
                         {heroTexts.buttonLearn.label}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
