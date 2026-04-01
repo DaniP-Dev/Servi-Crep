@@ -14,9 +14,9 @@ export const bannerTexts = {
     icon: "fas fa-envelope text-primary me-2",
   },
   social: [
-    { icon: "fab fa-facebook-f", label: "Facebook", href: "#" },
-    { icon: "fab fa-instagram", label: "Instagram", href: "https://www.instagram.com/servicrep"  },
-    { icon: "fab fa-linkedin-in", label: "LinkedIn", href: "#" },
+    { icon: "fab fa-facebook-f", label: "Facebook", href: CONTACT_INFO.facebookUrl },
+    { icon: "fab fa-instagram", label: "Instagram", href: CONTACT_INFO.instagramUrl },
+    { icon: "fab fa-linkedin-in", label: "LinkedIn", href: CONTACT_INFO.linkedinUrl },
   ],
   nav: [
     { href: "/", label: "Inicio" },
@@ -41,6 +41,7 @@ export const bannerTexts = {
         { href: "/calidad/quejas-y-apelaciones", label: "Quejas y apelaciones" },
       ],
     },
+    { href: "/sobre-servicrep", label: "ServiCrep" },
     { href: "/contacto", label: "Contacto" },
   ],
   cta: {

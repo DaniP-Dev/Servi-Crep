@@ -4,6 +4,7 @@ import Banner from "@/components/header/Banner";
 import Footer from "@/components/header/Footer";
 import JQueryScripts from "@/components/common/JQueryScripts";
 import WhatsAppTracker from "@/components/WhatsAppTracker";
+import { CONTACT_INFO } from "@/lib/constants";
 import "./globals.css";
 
 import Script from "next/script";
@@ -19,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = 'https://www.servicrep.com.co';
+const whatsappDirectUrl = `https://wa.me/57${CONTACT_INFO.phoneRaw}`;
 
 export const metadata: Metadata = {
   title: {
@@ -111,26 +113,55 @@ export default function RootLayout({
         <Script id="structured-data" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "ServiCrep",
-            "description": "Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio para combustibles líquidos.",
-            "url": "https://www.servicrep.com.co/",
-            "telephone": "+57-6053940809",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "CO",
-              "addressRegion": "Atlántico",
-              "addressLocality": "Soledad",
-              "streetAddress": "Soledad, Atlántico, Colombia"
-            },
-            "openingHours": "Mo-Fr 09:00-18:00",
-            "sameAs": [
-              "https://www.facebook.com/servicrep",
-              "https://www.instagram.com/servicrep"
-            ],
-            "serviceType": "Inspección Técnica de Estaciones de Servicio",
-            "areaServed": "Colombia",
-            "priceRange": "$$$"
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${siteUrl}/#organization`,
+                "name": "ServiCrep",
+                "url": `${siteUrl}/`,
+                "logo": `${siteUrl}/isologo.png`,
+                "sameAs": [
+                  CONTACT_INFO.facebookUrl,
+                  CONTACT_INFO.instagramUrl,
+                  CONTACT_INFO.linkedinUrl
+                ],
+                "contactPoint": [
+                  {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "telephone": `+57${CONTACT_INFO.phoneRaw}`,
+                    "email": CONTACT_INFO.email,
+                    "areaServed": "CO",
+                    "availableLanguage": ["es"],
+                    "url": whatsappDirectUrl
+                  }
+                ]
+              },
+              {
+                "@type": "LocalBusiness",
+                "@id": `${siteUrl}/#localbusiness`,
+                "name": "ServiCrep",
+                "description": "Organismo de Inspección Tipo A acreditado por ONAC. Inspección técnica de estaciones de servicio para combustibles líquidos.",
+                "url": `${siteUrl}/`,
+                "telephone": `+57${CONTACT_INFO.phoneRaw}`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "CO",
+                  "addressRegion": "Atlántico",
+                  "addressLocality": "Soledad",
+                  "streetAddress": CONTACT_INFO.address
+                },
+                "openingHours": "Mo-Fr 09:00-18:00",
+                "sameAs": [
+                  CONTACT_INFO.facebookUrl,
+                  CONTACT_INFO.instagramUrl,
+                  CONTACT_INFO.linkedinUrl
+                ],
+                "serviceType": "Inspección Técnica de Estaciones de Servicio",
+                "areaServed": "Colombia",
+                "priceRange": "$$$"
+              }
+            ]
           })}
         </Script>
         
