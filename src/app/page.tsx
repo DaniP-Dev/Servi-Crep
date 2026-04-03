@@ -131,10 +131,14 @@ export default function Home() {
       <Hero />
       <About />
       <Cta />
+      
+      {/*
       <ClientOnly>
         <Service />
       </ClientOnly>
+
       <OurProjects />
+      */}
 
       <section className="container py-5" aria-labelledby="servicios-lideres">
         <div className="row g-4 align-items-start">
