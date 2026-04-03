@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 
-
 const heroTexts = {
   slides: [
     {
@@ -11,8 +10,9 @@ const heroTexts = {
       bgClass: "hero-bg-half-1",
       shapeClass: "hero-shape-1",
       subtitle: "Inspecciones acreditadas por ONAC (ISO/IEC 17020)",
-      title: "Tu socio confiable para el cumplimiento normativo.",
-      description: "técnicas, independientes y precisas para verificar tanques, hermeticidad y sistemas en estaciones de combustibles líquidos.",
+      title: "COMPAÑIA SERVICREP S.A.S",
+      description:
+        "técnicas, independientes y precisas para verificar tanques, hermeticidad y sistemas en estaciones de combustibles líquidos.",
     },
   ],
   buttonVideo: {
@@ -64,32 +64,54 @@ const Hero = () => {
           <div className={slide.shapeClass}></div>
 
           {/* Content */}
-          <div className="carousel-caption">
-            <div className="container">
-              <div className="row g-4 align-items-center">
-                <div className="col-lg-7 animated fadeInLeft">
-                  <div className="text-sm-center text-md-start">
-                    <h4 className="text-white text-uppercase fw-bold mb-4">
-                      {slide.subtitle}
-                    </h4>
-                    <h1 className="display-2 text-white mb-4">{slide.title}</h1>
-                    <p className="mb-5 fs-5">{slide.description}</p>
-                    <div className="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
-                      <a
-                        className="btn btn-light py-3 px-4 px-md-5 me-2"
-                        href={CONTACT_INFO.whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+          <div className="carousel-caption align-items-start pt-3 pt-md-4">
+            <div className="container h-100">
+              <div className="row h-100 g-4 align-items-center">
+                <div className="col-lg-7 animated fadeInLeft h-100">
+                  <div className="text-sm-center text-md-start d-flex flex-column h-100 py-4 py-md-5">
+                    <div className="mb-auto">
+                       <h1 className="display-5 fw-bold mb-4 lh-sm d-inline-block px-3 py-2 rounded-3">
+                        {slide.title.split(" ").map((word, index) => (
+                          <span
+                            key={`${word}-${index}`}
+                            className={
+                              index % 2 === 0 ? "text-light" : "text-light"
+                            }
+                          >
+                            {word}{" "}
+                          </span>
+                        ))}
+                      </h1>
+                      <h4 className="text-white text-uppercase fw-bold mb-4">
+                        {slide.subtitle}
+                      </h4>
+                     
+                    </div>
+
+                    <div className="mt-auto">
+                      <p
+                        className="fs-5 text-white text-start me-auto"
+                        style={{ maxWidth: "560px" }}
                       >
-                        <i className={heroTexts.buttonVideo.iconClass}></i>{" "}
-                        {heroTexts.buttonVideo.label}
-                      </a>
-                      <Link
-                        className="btn btn-primary py-3 px-4 px-md-5 ms-2"
-                        href="/nuestros-servicios"
-                      >
-                        {heroTexts.buttonLearn.label}
-                      </Link>
+                        {slide.description}
+                      </p>
+                      <div className="d-flex justify-content-center justify-content-md-start shrink-0 ">
+                        <a
+                          className="btn btn-light py-3 px-4 px-md-5 me-2"
+                          href={CONTACT_INFO.whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className={heroTexts.buttonVideo.iconClass}></i>{" "}
+                          {heroTexts.buttonVideo.label}
+                        </a>
+                        <Link
+                          className="btn btn-primary py-3 px-4 px-md-5 ms-2"
+                          href="/nuestros-servicios"
+                        >
+                          {heroTexts.buttonLearn.label}
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -104,8 +126,9 @@ const Hero = () => {
         <button
           className="btn btn-primary carousel-prev position-absolute"
           style={{
-            bottom: "30px",
+            top: "50%",
             left: "30px",
+            transform: "translateY(-50%)",
             width: "60px",
             height: "60px",
             borderRadius: "0",
@@ -120,8 +143,9 @@ const Hero = () => {
         <button
           className="btn btn-primary carousel-next position-absolute"
           style={{
-            bottom: "30px",
+            top: "50%",
             right: "30px",
+            transform: "translateY(-50%)",
             width: "60px",
             height: "60px",
             borderRadius: "0",
