@@ -857,6 +857,23 @@ a {
     min-height: 500px;
   }
 
+  .hero-section {
+    background-image: none;
+  }
+
+  .hero-bg-half-1 {
+    width: 100%;
+    right: auto;
+    left: 0;
+    clip-path: none;
+    background-position: center center;
+  }
+
+  .hero-shape-1,
+  .hero-shape-2 {
+    display: none;
+  }
+
   .carousel-caption h1 {
     font-size: 2.5rem !important;
   }
