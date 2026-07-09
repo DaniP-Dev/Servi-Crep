@@ -117,7 +117,7 @@ const Service = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                               >
-                                                Cotizar ahora
+                                                Cotizar por WhatsApp
                                               </a>
                                             </div>
                                         </div>

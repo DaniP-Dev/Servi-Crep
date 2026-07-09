@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Invisible component that listens for global WhatsApp clicks.
@@ -21,8 +22,8 @@ export default function WhatsAppTracker() {
           anchor.href.includes("wa.me") || anchor.href.includes("whatsapp.com");
 
         if (isWhatsApp) {
-          // Send tracking info without blocking the UI
           trackWhatsAppClick(pathname);
+          trackEvent("whatsapp_click", { page_path: pathname || "/" });
         }
       }
     };
@@ -33,5 +34,5 @@ export default function WhatsAppTracker() {
     };
   }, [pathname]);
 
-  return null; // This component is invisible
+  return null;
 }

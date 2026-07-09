@@ -4,12 +4,12 @@ import { CONTACT_INFO } from "@/lib/constants";
 
 const ctaTexts = {
   subtitle: "¿Necesitas una inspección?",
-  title: "Una llamada nuestra cambia la historia:",
+  title: "Cotiza tu inspección técnica hoy",
   subtle1: "servicio confiable y profesional,",
-  subtle2: "respuesta rápida garantizada.",
-  textCta: "¡Agenda tu inspección hoy mismo!",
+  subtle2: "respuesta en 24–48 horas hábiles.",
+  textCta: "Sin compromiso. Te orientamos según el alcance de tu EDS.",
   cta: {
-    label: "Solicita tu inspección",
+    label: "Cotizar por WhatsApp",
     href: CONTACT_INFO.whatsappUrl,
   },
 };

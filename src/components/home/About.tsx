@@ -16,7 +16,7 @@ const aboutTexts = {
     "Dictámenes técnicos confiables y respaldados."
   ],
   cta: {
-    label: "Contáctanos",
+    label: "Cotizar por WhatsApp",
     href: CONTACT_INFO.whatsappUrl
   },
   experience: {

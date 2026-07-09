@@ -95,6 +95,8 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 }
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -108,6 +110,23 @@ export default function RootLayout({
         <link rel="stylesheet" href="/lib/owlcarousel/assets/owl.carousel.min.css" />
         <link rel="stylesheet" href="/lib/owlcarousel/assets/owl.theme.default.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
+
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
         
         {/* JSON-LD Structured Data */}
         <Script id="structured-data" type="application/ld+json">

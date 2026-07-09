@@ -89,8 +89,19 @@ const coberturaTexts = {
   ctaFinal: {
     title: "Confirma tu cobertura en 1 minuto",
     description: "Envía tu ubicación y el servicio que necesitas.",
-    cta: "Hablar por WhatsApp",
+    cta: "Cotizar por WhatsApp",
     note: "Sin compromiso. Respuesta rápida.",
+  },
+  locales: {
+    title: "Páginas locales de servicio",
+    links: [
+      { href: "/inspeccion-eds-barranquilla", label: "Inspección EDS Barranquilla" },
+      { href: "/pruebas-hermeticidad-barranquilla", label: "Hermeticidad Barranquilla" },
+      { href: "/inspeccion-eds-cartagena", label: "Inspección EDS Cartagena" },
+      { href: "/pruebas-hermeticidad-cartagena", label: "Hermeticidad Cartagena" },
+      { href: "/inspeccion-eds-bogota", label: "Inspección EDS Bogotá" },
+      { href: "/pruebas-hermeticidad-bogota", label: "Hermeticidad Bogotá" },
+    ],
   },
 };
 
@@ -235,16 +246,18 @@ export default function CoberturaPage() {
 
           <div className="card bg-light border-0 mt-4">
             <div className="card-body">
-              <h2 className="h5 mb-2">¿Buscas atención en Barranquilla?</h2>
+              <h2 className="h5 mb-2">{coberturaTexts.locales.title}</h2>
               <p className="text-body-secondary mb-3">
                 También puedes ir directo a nuestras páginas locales optimizadas para resolver búsquedas específicas.
               </p>
               <div className="d-flex flex-wrap gap-2">
-                <Link href="/inspeccion-eds-barranquilla" className="btn btn-outline-secondary">
-                  inspección EDS en Barranquilla
-                </Link>
-                <Link href="/pruebas-hermeticidad-barranquilla" className="btn btn-outline-secondary">
-                  pruebas de hermeticidad en Barranquilla
+                {coberturaTexts.locales.links.map((link) => (
+                  <Link key={link.href} href={link.href} className="btn btn-outline-secondary">
+                    {link.label}
+                  </Link>
+                ))}
+                <Link href="/como-cotizar" className="btn btn-outline-primary">
+                  Cómo cotizar
                 </Link>
               </div>
             </div>
@@ -292,9 +305,17 @@ export default function CoberturaPage() {
                   <p className="text-body-secondary">
                     {coberturaTexts.ctaFinal.description}
                   </p>
-                  <Link className="btn btn-primary w-100 mb-2" href={CONTACT_INFO.whatsappUrl} target="_blank">
+                  <a
+                    className="btn btn-primary w-100 mb-2"
+                    href={CONTACT_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="bi bi-whatsapp me-2"></i>
                     {coberturaTexts.ctaFinal.cta}
+                  </a>
+                  <Link className="btn btn-outline-secondary w-100 mb-2" href="/como-cotizar">
+                    Cómo cotizar
                   </Link>
                   <p className="text-body-secondary small text-center mb-0">
                     {coberturaTexts.ctaFinal.note}

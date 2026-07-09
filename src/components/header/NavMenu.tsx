@@ -87,7 +87,7 @@ const CtaButton = ({ onLinkClick }: CtaButtonProps) => (
       style={bannerTexts.cta.style}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="WhatsApp"
+      aria-label="Cotizar por WhatsApp"
       onClick={onLinkClick}
     >
       <i

@@ -107,8 +107,11 @@ const page = () => {
               <Link href="/calidad" className="btn btn-outline-secondary">
                 Políticas de calidad
               </Link>
+              <Link href="/como-cotizar" className="btn btn-outline-secondary">
+                Cómo cotizar
+              </Link>
               <Link href="/contacto" className="btn btn-outline-secondary">
-                Solicitar asesoría
+                Cotizar por WhatsApp / contacto
               </Link>
             </div>
           </div>

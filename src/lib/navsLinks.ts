@@ -1,5 +1,5 @@
 import services from "@/lib/services";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, CTA_LABELS } from "@/lib/constants";
 
 
 export const bannerTexts = {
@@ -45,8 +45,8 @@ export const bannerTexts = {
     { href: "/contacto", label: "Contacto" },
   ],
   cta: {
-    label: "WhatsApp",
-    href: CONTACT_INFO.whatsappUrl, // Cambia al número real
+    label: CTA_LABELS.whatsapp,
+    href: CONTACT_INFO.whatsappUrl,
     icon: "fab fa-whatsapp",
     style: {
       backgroundColor: "#25D366",

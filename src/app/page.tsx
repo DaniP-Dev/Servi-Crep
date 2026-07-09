@@ -5,42 +5,40 @@ import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Cta from "@/components/home/Cta";
 import Service from "@/components/home/Service";
-import OurProjects from "@/components/home/OurProjects";
+import Trust from "@/components/home/Trust";
 import ClientOnly from "@/components/ClientOnly";
 import services from "@/lib/services";
+import { CTA_LABELS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Inspección Técnica de EDS en Colombia | ServiCrep ONAC",
-  description: "Organismo de inspección acreditado por ONAC para EDS y pruebas de hermeticidad en Colombia. Atención nacional, soporte técnico y respuesta rápida.",
+  description:
+    "Organismo de inspección acreditado por ONAC para EDS y pruebas de hermeticidad en Colombia. Atención nacional, soporte técnico y respuesta rápida.",
   keywords: [
-    // Ministerio de Minas y Energía
     "Ministerio de Minas y Energía",
     "requisitos Ministerio Minas EDS",
     "normativa estaciones de servicio Colombia",
     "resolución 40198",
     "regulación combustibles líquidos",
-    // Inspección EDS
     "inspección EDS Colombia",
     "inspección estaciones de servicio",
     "inspección técnica EDS",
     "inspección periódica EDS",
     "organismo inspección acreditado",
-    // Hermeticidad
     "prueba hermeticidad tanques",
     "hermeticidad tanques subterráneos",
     "prueba estanqueidad combustible",
-    // Acreditación
     "organismo inspección ONAC",
     "acreditación ISO 17020",
     "organismo tipo A",
-    // Geográficas
     "inspección EDS Barranquilla",
     "inspección EDS Atlántico",
     "inspección EDS Costa Caribe",
   ],
   openGraph: {
     title: "Inspección Técnica de EDS en Colombia | ServiCrep ONAC",
-    description: "Inspección técnica de estaciones de servicio y pruebas de hermeticidad con cobertura nacional y enfoque normativo.",
+    description:
+      "Inspección técnica de estaciones de servicio y pruebas de hermeticidad con cobertura nacional y enfoque normativo.",
     url: "/",
     type: "website",
     siteName: "ServiCrep",
@@ -58,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "CO-ATL",
     "geo.placename": "Soledad, Atlántico",
-    "geo.position": "10°54'45.5\"N 74°48'50.4\"W",
+    "geo.position": '10°54\'45.5"N 74°48\'50.4"W',
   },
 };
 
@@ -131,14 +129,12 @@ export default function Home() {
       <Hero />
       <About />
       <Cta />
-      
-      {/*
+
       <ClientOnly>
         <Service />
       </ClientOnly>
 
-      <OurProjects />
-      */}
+      <Trust />
 
       <section className="container py-5" aria-labelledby="servicios-lideres">
         <div className="row g-4 align-items-start">
@@ -163,14 +159,54 @@ export default function Home() {
               <div className="card-body">
                 <h3 className="h5">Siguiente paso recomendado</h3>
                 <p className="mb-3 small text-body-secondary">
-                  Explora el listado completo y elige el servicio que mejor se adapta al estado actual de tu EDS.
+                  Explora el listado completo o revisa cómo cotizar antes de programar la visita.
                 </p>
-                <Link href="/nuestros-servicios" className="btn btn-primary w-100">
-                  Ver todos los servicios
+                <Link href="/nuestros-servicios" className="btn btn-primary w-100 mb-2">
+                  {CTA_LABELS.services}
+                </Link>
+                <Link href="/como-cotizar" className="btn btn-outline-secondary w-100">
+                  {CTA_LABELS.howToQuote}
                 </Link>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container pb-5" aria-labelledby="faq-home-title">
+        <h2 id="faq-home-title" className="h4 mb-3 text-secondary">
+          Preguntas frecuentes
+        </h2>
+        <div className="accordion" id="homeFaqAccordion">
+          {homeFaqs.map((faq, index) => {
+            const headingId = `home-faq-heading-${index}`;
+            const collapseId = `home-faq-collapse-${index}`;
+
+            return (
+              <div className="accordion-item" key={faq.question}>
+                <h3 className="accordion-header" id={headingId}>
+                  <button
+                    className={`accordion-button ${index === 0 ? "" : "collapsed"}`}
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#${collapseId}`}
+                    aria-expanded={index === 0}
+                    aria-controls={collapseId}
+                  >
+                    {faq.question}
+                  </button>
+                </h3>
+                <div
+                  id={collapseId}
+                  className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
+                  aria-labelledby={headingId}
+                  data-bs-parent="#homeFaqAccordion"
+                >
+                  <div className="accordion-body">{faq.answer}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -181,7 +217,7 @@ export default function Home() {
               Búsquedas locales más frecuentes
             </h2>
             <p className="mb-3 text-body-secondary">
-              Si tu estación está en el Atlántico, también puedes ir directo a nuestras páginas locales:
+              Si tu estación está en estas ciudades, también puedes ir directo a nuestras páginas locales:
             </p>
             <div className="d-flex flex-wrap gap-2">
               <Link href="/inspeccion-eds-barranquilla" className="btn btn-outline-secondary">
@@ -189,6 +225,18 @@ export default function Home() {
               </Link>
               <Link href="/pruebas-hermeticidad-barranquilla" className="btn btn-outline-secondary">
                 pruebas de hermeticidad en Barranquilla
+              </Link>
+              <Link href="/inspeccion-eds-cartagena" className="btn btn-outline-secondary">
+                inspección EDS en Cartagena
+              </Link>
+              <Link href="/pruebas-hermeticidad-cartagena" className="btn btn-outline-secondary">
+                hermeticidad en Cartagena
+              </Link>
+              <Link href="/inspeccion-eds-bogota" className="btn btn-outline-secondary">
+                inspección EDS en Bogotá
+              </Link>
+              <Link href="/pruebas-hermeticidad-bogota" className="btn btn-outline-secondary">
+                hermeticidad en Bogotá
               </Link>
             </div>
           </div>

@@ -71,7 +71,7 @@ const services: Record<string, Service> = {
     shortDescription: "Inspección técnica en sitio para EDS en Colombia.",
     longDescription:
       "Realizamos inspecciones técnicas en estaciones de servicio (EDS) y emitimos los resultados correspondientes según el alcance aplicable. Servicio programado y ejecutado en la instalación.",
-    cta: "Cotizar inspección",
+    cta: "Cotizar por WhatsApp",
     slug: "/nuestros-servicios/inspeccion-eds",
     icon: "/favicon.ico",
     duration: "1-2 días hábiles",
@@ -140,7 +140,7 @@ const services: Record<string, Service> = {
     shortDescription: "Pruebas de hermeticidad para EDS, tanques y líneas de combustible.",
     longDescription:
       "Ejecutamos pruebas de hermeticidad en sitio para verificar condiciones de hermeticidad en los componentes cubiertos por el alcance definido.",
-    cta: "Cotizar hermeticidad",
+    cta: "Cotizar por WhatsApp",
     slug: "/nuestros-servicios/pruebas-hermeticidad",
     icon: "/favicon.ico",
     duration: "1 día hábil",
@@ -229,7 +229,7 @@ const services: Record<string, Service> = {
     shortDescription: "Inspección + hermeticidad en una sola agenda.",
     longDescription:
       "Programa la inspección de EDS y las pruebas de hermeticidad en una sola visita para optimizar tiempos de coordinación y operación.",
-    cta: "Cotizar paquete",
+    cta: "Cotizar por WhatsApp",
     slug: "/nuestros-servicios/inspeccion-eds-hermeticidad",
     icon: "/favicon.ico",
     duration: "1-2 días hábiles",

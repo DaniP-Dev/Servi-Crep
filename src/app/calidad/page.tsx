@@ -12,7 +12,7 @@ const calidadTexts = {
     title: "Calidad que inspira confianza",
     subtitle: "Inspección técnica acreditada con estándares internacionales",
     description: "En Servi-Crep nos comprometemos con la excelencia, la transparencia y la mejora continua. Nuestros procesos están diseñados para garantizar resultados confiables y objetivos.",
-    cta: "Solicitar cotización",
+    cta: "Cotizar por WhatsApp",
   },
   valores: {
     title: "Nuestro compromiso",

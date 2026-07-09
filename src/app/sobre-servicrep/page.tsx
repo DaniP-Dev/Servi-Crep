@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const siteUrl = "https://www.servicrep.com.co";
@@ -103,8 +104,11 @@ export default function SobreServiCrepPage() {
             <div className="card-body">
               <h2 className="h6 mb-3">Contacto directo</h2>
               <a href={CONTACT_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-100 mb-2">
-                Escribir por WhatsApp
+                Cotizar por WhatsApp
               </a>
+              <Link href="/como-cotizar" className="btn btn-outline-primary w-100 mb-2">
+                Cómo cotizar
+              </Link>
               <a href={`mailto:${CONTACT_INFO.email}`} className="btn btn-outline-secondary w-100 mb-2">
                 Enviar correo
               </a>

@@ -1,13 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import services from "@/lib/services";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, CTA_LABELS } from "@/lib/constants";
 import { bannerTexts } from "@/lib/navsLinks";
 
-
 const footerTexts = {
-  subscribePlaceholder: "Correo electrónico para suscribirse",
-  subscribeButton: "Suscribirse",
   social: [
     {
       icon: "fab fa-facebook-f",
@@ -32,10 +30,14 @@ const footerTexts = {
   },
   quickLinks: {
     title: "Enlaces rápidos",
-    links: bannerTexts.nav.filter((item) => item),
+    links: [
+      ...bannerTexts.nav.filter((item) => item),
+      { href: "/como-cotizar", label: CTA_LABELS.howToQuote },
+      { href: "/contacto", label: "Validar certificado (contacto)" },
+    ],
   },
   services: {
-    title: "Explora mas servicios de inspección",
+    title: "Explora más servicios de inspección",
     links: Object.values(services).map((service) => ({
       href: service.slug,
       label: service.title,
@@ -47,7 +49,7 @@ const footerTexts = {
       {
         icon: "fa fa-map-marker-alt text-primary me-2",
         label: CONTACT_INFO.location,
-        href: "#",
+        href: "/contacto",
       },
       {
         icon: "fas fa-envelope text-primary me-2",
@@ -61,12 +63,6 @@ const footerTexts = {
       },
     ],
   },
-  copyright: {
-    site: "ServiCrep",
-    reserved: "Todos los derechos reservados.",
-    designer: "Equipo ServiCrep",
-    designerUrl: "https://www.servicrep.com.co/",
-  },
 };
 
 const Footer = () => {
@@ -76,28 +72,28 @@ const Footer = () => {
         <div className="container py-5">
           <div className="row g-5 mb-5 align-items-center">
             <div className="col-lg-7">
-              <div className="position-relative mx-auto">
-                <input
-                  className="form-control w-100 py-3 ps-4 pe-5"
-                  type="text"
-                  placeholder={footerTexts.subscribePlaceholder}
-                />
-                <button
-                  type="button"
-                  className="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2"
-                >
-                  {footerTexts.subscribeButton}
-                </button>
-              </div>
+              <h3 className="text-light h4 mb-2">¿Listo para cotizar?</h3>
+              <p className="text-light mb-0">
+                Respuesta en 24–48 horas hábiles. Te orientamos según el alcance de tu EDS.
+              </p>
             </div>
             <div className="col-lg-5">
-              <div className="d-flex align-items-center justify-content-star justify-content-lg-end">
-                {footerTexts.social.map((item, idx) => (
+              <div className="d-flex align-items-center justify-content-start justify-content-lg-end flex-wrap gap-2">
+                <a
+                  className="btn btn-primary"
+                  href={CONTACT_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {CTA_LABELS.whatsapp}
+                </a>
+                <Link className="btn btn-light" href="/como-cotizar">
+                  {CTA_LABELS.howToQuote}
+                </Link>
+                {footerTexts.social.map((item) => (
                   <a
                     key={item.icon}
-                    className={`btn btn-light btn-md-square${
-                      idx < footerTexts.social.length - 1 ? " me-3" : ""
-                    }`}
+                    className="btn btn-light btn-md-square"
                     href={item.href}
                     aria-label={item.label}
                     target="_blank"
@@ -121,9 +117,7 @@ const Footer = () => {
                       height={64}
                       className="me-3"
                     />
-                    <h3 className="text-light mb-0">
-                      {footerTexts.brand.name}
-                    </h3>
+                    <h3 className="text-light mb-0">{footerTexts.brand.name}</h3>
                   </div>
                   <p className="mb-3 text-justify text-light">
                     {footerTexts.brand.description}
@@ -134,39 +128,31 @@ const Footer = () => {
 
             <div className="col-md-6 col-lg-6 col-xl-4">
               <div className="footer-item d-flex flex-column">
-                <h4 className="text-primary mb-4">
-                  {footerTexts.services.title}
-                </h4>
+                <h4 className="text-primary mb-4">{footerTexts.services.title}</h4>
                 {footerTexts.services.links.map((link) => (
-                  <a
+                  <Link
                     className="text-light text-start d-block"
                     key={link.label}
                     href={link.href}
                   >
-                    {" "}
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
             <div className="col-md-6 col-lg-6 col-xl-2">
               <div className="footer-item d-flex flex-column">
-                <h4 className="text-primary mb-4">
-                  {footerTexts.quickLinks.title}
-                </h4>
+                <h4 className="text-primary mb-4">{footerTexts.quickLinks.title}</h4>
                 {footerTexts.quickLinks.links.map((link) => (
-                  <a className="text-light" key={link.label} href={link.href}>
-                    {" "}
+                  <Link className="text-light" key={link.label} href={link.href}>
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
             <div className="col-md-6 col-lg-6 col-xl-3">
               <div className="footer-item d-flex flex-column">
-                <h4 className="text-primary mb-4">
-                  {footerTexts.contact.title}
-                </h4>
+                <h4 className="text-primary mb-4">{footerTexts.contact.title}</h4>
                 {footerTexts.contact.items.map((item, idx) => (
                   <a
                     className="text-light"
@@ -176,6 +162,13 @@ const Footer = () => {
                     <i className={`${item.icon} `}></i> {item.label}
                   </a>
                 ))}
+                <p className="text-light small mt-3 mb-0">
+                  Los certificados se validan con el código QR impreso. Si necesitas ayuda,{" "}
+                  <Link href="/contacto" className="text-primary">
+                    contáctanos
+                  </Link>
+                  .
+                </p>
               </div>
             </div>
           </div>

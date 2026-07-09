@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import services, { CITY_MODIFIERS } from "@/lib/services";
 import type { Metadata } from "next";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, CTA_LABELS } from "@/lib/constants";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -297,9 +297,12 @@ export default async function ServicePage({ params }: PageProps) {
               <p className="small text-body-secondary mb-3">
                 Contáctanos y te asesoramos sin compromiso.
               </p>
-              <a href={CONTACT_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary w-100">
-                Solicitar información
+              <a href={CONTACT_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary w-100 mb-2">
+                {CTA_LABELS.whatsapp}
               </a>
+              <Link href="/como-cotizar" className="btn btn-outline-secondary w-100">
+                {CTA_LABELS.howToQuote}
+              </Link>
             </div>
           </div>
 
