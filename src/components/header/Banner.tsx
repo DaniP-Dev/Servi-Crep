@@ -15,7 +15,7 @@ const Banner = () => {
       </header>
 
       {/* Solo en computadores */}
-      <header className="container-fluid bg-success d-none d-lg-block ">
+      <header className="container-fluid bg-success d-none d-lg-block position-relative" style={{ zIndex: 1050 }}>
         <div className="row mx-5">
           <div className="col-1 d-flex align-items-center justify-content-end">
             <LogoLink className="" />

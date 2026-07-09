@@ -457,7 +457,8 @@ a {
 }
 
 .nav-bar .navbar {
-  z-index: 9;
+  position: relative;
+  z-index: 1050;
 }
 
 .navbar-light .navbar-brand img {
