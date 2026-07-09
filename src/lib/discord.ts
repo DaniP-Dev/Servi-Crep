@@ -4,7 +4,8 @@
  */
 
 export function getDiscordWebhookUrl(): string | undefined {
-  return process.env.DISCORD_WEBHOOK_URL;
+  const value = process.env.DISCORD_WEBHOOK_URL?.trim();
+  return value || undefined;
 }
 
 export async function sendDiscordWebhook(payload: unknown): Promise<boolean> {
@@ -20,7 +21,17 @@ export async function sendDiscordWebhook(payload: unknown): Promise<boolean> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    return response.ok;
+
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      console.error(
+        `Discord webhook failed: HTTP ${response.status}`,
+        body.slice(0, 300)
+      );
+      return false;
+    }
+
+    return true;
   } catch (error) {
     console.error("Error sending Discord webhook:", error);
     return false;

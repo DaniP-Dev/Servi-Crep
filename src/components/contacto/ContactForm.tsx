@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
 const formLabels = {
@@ -10,7 +11,9 @@ const formLabels = {
   project: { label: "Proyecto", placeholder: "¿Sobre qué proyecto quieres información?" },
   subject: { label: "Asunto", placeholder: "Asunto" },
   message: { label: "Mensaje", placeholder: "Déjanos tu mensaje aquí" },
-  privacy: "Acepto la política de privacidad del sitio",
+  privacyPrefix: "Acepto la",
+  privacyLink: "política de privacidad",
+  privacySuffix: "del sitio",
   send: "Enviar mensaje",
   sending: "Enviando...",
 };
@@ -165,7 +168,11 @@ export default function ContactForm() {
               required
             />
             <label className="form-check-label" htmlFor="flexCheck">
-              {formLabels.privacy}
+              {formLabels.privacyPrefix}{" "}
+              <Link href="/calidad/privacidad" className="link-primary">
+                {formLabels.privacyLink}
+              </Link>{" "}
+              {formLabels.privacySuffix}
             </label>
           </div>
         </div>

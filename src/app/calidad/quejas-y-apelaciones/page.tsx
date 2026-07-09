@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata = {
@@ -59,7 +60,9 @@ const pqrsTexts = {
       help: "Incluye fechas, lugar, número de orden/servicio y evidencias si tienes.",
     },
     adjuntos: { label: "Adjuntar soportes (opcional)" },
-    privacy: "Acepto la política de tratamiento de datos.",
+    privacyPrefix: "Acepto la",
+    privacyLink: "política de tratamiento de datos",
+    privacySuffix: ".",
     submit: "Enviar y obtener radicado",
   },
   recomendaciones: {
@@ -192,7 +195,11 @@ export default function QuejasApelacionesPage() {
                     required
                   />
                   <label className="form-check-label" htmlFor="privacy">
-                    {pqrsTexts.form.privacy}
+                    {pqrsTexts.form.privacyPrefix}{" "}
+                    <Link href="/calidad/privacidad" className="link-primary">
+                      {pqrsTexts.form.privacyLink}
+                    </Link>
+                    {pqrsTexts.form.privacySuffix}
                   </label>
                 </div>
 

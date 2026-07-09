@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     }
 
     const ok = await sendDiscordWebhook({
+      content: "📥 **Lead web — formulario** (origen sitio ServiCrep)",
       embeds: [
         {
           title: "Nuevo lead desde el formulario web",
@@ -81,9 +82,13 @@ export async function POST(request: Request) {
               }),
               inline: true,
             },
+            {
+              name: "Origen",
+              value: "Formulario /contacto — lead atribuible a la web",
+            },
             { name: "Mensaje", value: message.slice(0, 1000) },
           ],
-          footer: { text: "Formulario ServiCrep" },
+          footer: { text: "Control de leads ServiCrep · Formulario" },
         },
       ],
     });

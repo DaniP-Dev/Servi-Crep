@@ -22,7 +22,7 @@ export default function WhatsAppTracker() {
           anchor.href.includes("wa.me") || anchor.href.includes("whatsapp.com");
 
         if (isWhatsApp) {
-          trackWhatsAppClick(pathname);
+          trackWhatsAppClick(pathname || "/", anchor.href);
           trackEvent("whatsapp_click", { page_path: pathname || "/" });
         }
       }

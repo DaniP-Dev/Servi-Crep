@@ -38,6 +38,7 @@ export const bannerTexts = {
       dropdown: [
         { href: "/calidad/imparcialidad", label: "Imparcialidad" },
         { href: "/calidad/confidencialidad", label: "Confidencialidad" },
+        { href: "/calidad/privacidad", label: "Privacidad" },
         { href: "/calidad/quejas-y-apelaciones", label: "Quejas y apelaciones" },
       ],
     },

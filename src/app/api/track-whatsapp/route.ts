@@ -3,16 +3,33 @@ import { sendDiscordWebhook } from "@/lib/discord";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const raw = await request.text();
+    let body: { pagePath?: string; href?: string } = {};
+    if (raw.trim()) {
+      try {
+        body = JSON.parse(raw) as { pagePath?: string; href?: string };
+      } catch {
+        return NextResponse.json(
+          { success: false, error: "Solicitud inválida" },
+          { status: 400 }
+        );
+      }
+    }
+
     const pagePath =
-      typeof body?.pagePath === "string" && body.pagePath.trim()
+      typeof body.pagePath === "string" && body.pagePath.trim()
         ? body.pagePath.trim()
         : "Desconocida";
+    const href =
+      typeof body.href === "string" && body.href.trim()
+        ? body.href.trim().slice(0, 300)
+        : "No disponible";
 
     const ok = await sendDiscordWebhook({
+      content: "💬 **Lead web — clic WhatsApp** (origen sitio ServiCrep)",
       embeds: [
         {
-          title: "Nuevo clic en WhatsApp",
+          title: "Nuevo clic en WhatsApp desde la web",
           color: 3066993,
           fields: [
             {
@@ -28,12 +45,17 @@ export async function POST(request: Request) {
               inline: true,
             },
             {
-              name: "Mensaje enviado",
-              value: "Se inició una conversación con el identificador de la web.",
+              name: "Enlace",
+              value: href,
+            },
+            {
+              name: "Control",
+              value:
+                "Este clic salió del sitio. Si el cliente escribe por WhatsApp, el lead es de la web (marcador [Ref:W-WEB] en el mensaje).",
             },
           ],
           footer: {
-            text: "Rastreador ServiCrep",
+            text: "Control de leads ServiCrep · WhatsApp",
           },
         },
       ],

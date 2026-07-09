@@ -4,7 +4,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata = {
   title: "Calidad y Transparencia | Servi-Crep",
-  description: "Comprometidos con la excelencia en inspección técnica. Conoce nuestras políticas de confidencialidad, imparcialidad y atención al cliente.",
+  description: "Comprometidos con la excelencia en inspección técnica. Conoce nuestras políticas de confidencialidad, imparcialidad, privacidad y atención al cliente.",
 };
 
 const calidadTexts = {
@@ -49,6 +49,12 @@ const calidadTexts = {
         description: "Garantizamos objetividad e independencia en todas nuestras inspecciones.",
         href: "/calidad/imparcialidad",
         icon: "bi-balance-scale",
+      },
+      {
+        title: "Privacidad",
+        description: "Tratamos tus datos personales con transparencia y conforme a la normativa colombiana.",
+        href: "/calidad/privacidad",
+        icon: "bi-shield-lock",
       },
       {
         title: "Quejas y Apelaciones",
@@ -121,7 +127,7 @@ export default function CalidadPage() {
           </div>
           <div className="row g-4">
             {calidadTexts.politicas.items.map((politica) => (
-              <div key={politica.href} className="col-12 col-md-4">
+              <div key={politica.href} className="col-12 col-md-6 col-lg-3">
                 <div className="card h-100 border-0 shadow-sm">
                   <div className="card-body d-flex flex-column">
                     <div className="mb-3">
