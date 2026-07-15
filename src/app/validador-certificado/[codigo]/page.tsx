@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 // ─── CONSTANTES ───────────────────────────────────────────────────────────────
 const SHEET_GIDS = ["0", "1211072494", "1039271537"];
@@ -119,142 +120,156 @@ export default async function ValidatorPage({ params }: Props) {
     .filter((r): r is PromiseFulfilledResult<string> => r.status === "fulfilled")
     .flatMap((r) => parseCSV(r.value));
 
-  // Token (QR nuevos) o codigo (QR legacy ya impresos)
-  const eds =
-    EDSs.find((item) => item.token && item.token === codigo) ??
-    EDSs.find((item) => item.codigo === codigo);
+  // QR nuevos: URL ya trae el token
+  const byToken = EDSs.find((item) => item.token && item.token === codigo);
+  if (byToken) {
+    return renderCertificadoValido(byToken);
+  }
 
-  if (eds) {
-    return (
-      <div className="container py-5">
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
-            {/* Header de validación exitosa */}
-            <div className="text-center mb-4">
-              <div className="mb-3">
-                <i
-                  className="fas fa-check-circle text-primary"
-                  style={{ fontSize: "5rem" }}
-                ></i>
-              </div>
-              <h1 className="display-4 fw-bold text-secondary mb-2">
-                Certificado Válido
-              </h1>
-              <p className="lead text-muted">
-                Inspección técnica verificada y autorizada
-              </p>
+  // QR legacy: codigo en URL → redirigir a la URL canónica del token
+  const byCodigo = EDSs.find((item) => item.codigo === codigo);
+  if (byCodigo?.token) {
+    redirect(`/validador-certificado/${byCodigo.token}`);
+  }
+  if (byCodigo) {
+    return renderCertificadoValido(byCodigo);
+  }
+
+  return renderCertificadoNoEncontrado(codigo);
+}
+
+function renderCertificadoValido(eds: EDS) {
+  return (
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-10">
+          {/* Header de validación exitosa */}
+          <div className="text-center mb-4">
+            <div className="mb-3">
+              <i
+                className="fas fa-check-circle text-primary"
+                style={{ fontSize: "5rem" }}
+              ></i>
             </div>
+            <h1 className="display-4 fw-bold text-secondary mb-2">
+              Certificado Válido
+            </h1>
+            <p className="lead text-muted">
+              Inspección técnica verificada y autorizada
+            </p>
+          </div>
 
-            {/* Tarjeta principal del certificado */}
-            <div className="card shadow-lg border-0 mb-4">
-              <div className="card-header bg-primary text-white py-3">
-                <h2 className="h4 mb-0 fw-bold">
-                  <i className="fas fa-certificate text-light me-2"></i>
-                  Certificado de Inspección Técnica
-                </h2>
-              </div>
-              <div className="card-body p-4">
-                <div className="row g-4">
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">
-                        Código de Inspección
-                      </label>
-                      <p className="h5 mb-0 fw-bold text-success">
-                        {eds.codigo}
-                      </p>
-                    </div>
+          {/* Tarjeta principal del certificado */}
+          <div className="card shadow-lg border-0 mb-4">
+            <div className="card-header bg-primary text-white py-3">
+              <h2 className="h4 mb-0 fw-bold">
+                <i className="fas fa-certificate text-light me-2"></i>
+                Certificado de Inspección Técnica
+              </h2>
+            </div>
+            <div className="card-body p-4">
+              <div className="row g-4">
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">
+                      Código de Inspección
+                    </label>
+                    <p className="h5 mb-0 fw-bold text-success">
+                      {eds.codigo}
+                    </p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">
-                        Tipo de Inspección
-                      </label>
-                      <p className="h5 mb-0 fw-bold">{eds.tipo}</p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">
+                      Tipo de Inspección
+                    </label>
+                    <p className="h5 mb-0 fw-bold">{eds.tipo}</p>
                   </div>
-                  <div className="col-12">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">
-                        Nombre de la EDS
-                      </label>
-                      <p className="h5 mb-0 fw-bold">{eds.nombreEds}</p>
-                    </div>
+                </div>
+                <div className="col-12">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">
+                      Nombre de la EDS
+                    </label>
+                    <p className="h5 mb-0 fw-bold">{eds.nombreEds}</p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Fecha de Inspección</label>
-                      <p className="h5 mb-0 fw-bold">
-                        <i className="fas fa-calendar-alt me-2 text-primary"></i>
-                        {eds.fechaInspeccion}
-                      </p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Fecha de Inspección</label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-calendar-alt me-2 text-primary"></i>
+                      {eds.fechaInspeccion}
+                    </p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Fecha de Emisión</label>
-                      <p className="h5 mb-0 fw-bold">
-                        <i className="fas fa-calendar-alt me-2 text-success"></i>
-                        {eds.fechaEmision}
-                      </p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Fecha de Emisión</label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-calendar-alt me-2 text-success"></i>
+                      {eds.fechaEmision}
+                    </p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Lugar</label>
-                      <p className="h5 mb-0 fw-bold">
-                        <i className="fas fa-map-marker-alt me-2 text-primary"></i>
-                        {eds.lugar}
-                      </p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Lugar</label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-map-marker-alt me-2 text-primary"></i>
+                      {eds.lugar}
+                    </p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">
-                        Vencimiento
-                      </label>
-                      <p className="h5 mb-0 fw-bold">
-                        <i className="fas fa-calendar-times me-2 text-danger"></i>
-                        {eds.vencimiento}
-                      </p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">
+                      Vencimiento
+                    </label>
+                    <p className="h5 mb-0 fw-bold">
+                      <i className="fas fa-calendar-times me-2 text-danger"></i>
+                      {eds.vencimiento}
+                    </p>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <label className="text-muted small mb-1">Estado</label>
-                      <p className="h5 mb-0 fw-bold">{eds.estado}</p>
-                    </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="p-3 bg-light rounded">
+                    <label className="text-muted small mb-1">Estado</label>
+                    <p className="h5 mb-0 fw-bold">{eds.estado}</p>
                   </div>
                 </div>
               </div>
-              <div className="card-footer bg-white border-top-0 p-4">
-                <div
-                  className="alert alert-info border-0 shadow-sm mb-0"
-                  role="alert"
-                >
-                  <div className="d-flex align-items-start">
-                    <i className="fas fa-shield-alt me-3 mt-1 text-primary"></i>
-                    <div>
-                      <h6 className="fw-bold mb-2">Validación Oficial</h6>
-                      <p className="mb-0 small">{validadorTexts.informativoLegal}</p>
-                    </div>
+            </div>
+            <div className="card-footer bg-white border-top-0 p-4">
+              <div
+                className="alert alert-info border-0 shadow-sm mb-0"
+                role="alert"
+              >
+                <div className="d-flex align-items-start">
+                  <i className="fas fa-shield-alt me-3 mt-1 text-primary"></i>
+                  <div>
+                    <h6 className="fw-bold mb-2">Validación Oficial</h6>
+                    <p className="mb-0 small">{validadorTexts.informativoLegal}</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Botón de regreso */}
-            <div className="text-center">
-              <Link href="/" className="btn btn-outline-primary btn-lg">
-                <i className="fas fa-arrow-left me-2"></i>Volver al Inicio
-              </Link>
-            </div>
+          {/* Botón de regreso */}
+          <div className="text-center">
+            <Link href="/" className="btn btn-outline-primary btn-lg">
+              <i className="fas fa-arrow-left me-2"></i>Volver al Inicio
+            </Link>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
+function renderCertificadoNoEncontrado(codigo: string) {
   return (
     <div className="container py-5">
       <div className="row justify-content-center">
