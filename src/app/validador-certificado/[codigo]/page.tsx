@@ -18,6 +18,7 @@ interface EDS {
   vencimiento: string;
   lugar: string;
   estado: string;
+  token: string;
 }
 
 // ─── UTILIDADES ───────────────────────────────────────────────────────────────
@@ -55,8 +56,19 @@ function parseCSV(csv: string): EDS[] {
         vencimiento,
         lugar,
         estado,
+        token,
       ] = splitCSVRow(row.replace(/\r/g, ""));
-      return { codigo, tipo, nombreEds, fechaInspeccion, fechaEmision, vencimiento, lugar, estado };
+      return {
+        codigo,
+        tipo,
+        nombreEds,
+        fechaInspeccion,
+        fechaEmision,
+        vencimiento,
+        lugar,
+        estado,
+        token: token ?? "",
+      };
     })
     .filter((eds) => eds.codigo && eds.nombreEds);
 }
@@ -107,8 +119,10 @@ export default async function ValidatorPage({ params }: Props) {
     .filter((r): r is PromiseFulfilledResult<string> => r.status === "fulfilled")
     .flatMap((r) => parseCSV(r.value));
 
-  // Buscar el certificado específico
-  const eds = EDSs.find((item) => item.codigo === codigo);
+  // Token (QR nuevos) o codigo (QR legacy ya impresos)
+  const eds =
+    EDSs.find((item) => item.token && item.token === codigo) ??
+    EDSs.find((item) => item.codigo === codigo);
 
   if (eds) {
     return (
